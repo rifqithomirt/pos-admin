@@ -1,0 +1,32 @@
+{
+  "name": "pos-admin",
+  "version": "1.0.0",
+  "description": "Admin Template",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "npm run dev -- --watch",
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "prod": "npm run production",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/viandwi24/pos-admin.git"
+  },
+  "author": "viandwi24",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/viandwi24/pos-admin/issues"
+  },
+  "homepage": "https://github.com/viandwi24/pos-admin#readme",
+  "devDependencies": {
+    "bootstrap": "5.0.0-beta1",
+    "laravel-mix": "^6.0.11",
+    "node-sass": "^5.0.0",
+    "nodemon": "^2.0.7",
+    "postcss": "^8.1",
+    "resolve-url-loader": "^3.1.2",
+    "sass": "^1.32.5",
+    "sass-loader": "^10.1.1"
+  }
+}

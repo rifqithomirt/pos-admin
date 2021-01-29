@@ -1,0 +1,17 @@
+{
+    "/dist/js/app.js": "/dist/js/app.js",
+    "/dist/css/app.css": "/dist/css/app.css",
+    "/dist/css/bootstrap.css": "/dist/css/bootstrap.css",
+    "/vendor/bootstrap/js/bootstrap.bundle.js": "/vendor/bootstrap/js/bootstrap.bundle.js",
+    "/vendor/bootstrap/js/bootstrap.bundle.js.map": "/vendor/bootstrap/js/bootstrap.bundle.js.map",
+    "/vendor/bootstrap/js/bootstrap.bundle.min.js": "/vendor/bootstrap/js/bootstrap.bundle.min.js",
+    "/vendor/bootstrap/js/bootstrap.bundle.min.js.map": "/vendor/bootstrap/js/bootstrap.bundle.min.js.map",
+    "/vendor/bootstrap/js/bootstrap.esm.js": "/vendor/bootstrap/js/bootstrap.esm.js",
+    "/vendor/bootstrap/js/bootstrap.esm.js.map": "/vendor/bootstrap/js/bootstrap.esm.js.map",
+    "/vendor/bootstrap/js/bootstrap.esm.min.js": "/vendor/bootstrap/js/bootstrap.esm.min.js",
+    "/vendor/bootstrap/js/bootstrap.esm.min.js.map": "/vendor/bootstrap/js/bootstrap.esm.min.js.map",
+    "/vendor/bootstrap/js/bootstrap.js": "/vendor/bootstrap/js/bootstrap.js",
+    "/vendor/bootstrap/js/bootstrap.js.map": "/vendor/bootstrap/js/bootstrap.js.map",
+    "/vendor/bootstrap/js/bootstrap.min.js": "/vendor/bootstrap/js/bootstrap.min.js",
+    "/vendor/bootstrap/js/bootstrap.min.js.map": "/vendor/bootstrap/js/bootstrap.min.js.map"
+}
