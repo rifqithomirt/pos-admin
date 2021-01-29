@@ -1,0 +1,49 @@
+// 
+@import "../../node_modules/perfect-scrollbar/css/perfect-scrollbar.css";
+
+// variables
+$sidebarBackgroundColor: #ebeff4;
+
+// dashboard
+.dashboard {
+    display: flex;
+
+    .sidebar {
+        height: 100vh;
+        max-height: 100vh;
+        width: 250px;
+        background: $sidebarBackgroundColor;
+        z-index: 10;
+        overflow: hidden;
+
+        .sidebar-wrapper {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            position: relative;
+
+            .sidebar-header {
+                @apply tw-mx-2 tw-my-2;
+                .sidebar-brand {
+                    @apply tw-text-lg tw-font-semibold;
+                    @apply tw-bg-gray-300 tw-text-gray-700 tw-rounded-full tw-py-2 tw-px-4;
+                    display: block;
+                    text-align: center;
+                }
+            }
+            .sidebar-menu-wrapper {
+                flex: 1 1 0%;
+                position: relative;
+
+                .sidebar-menu {
+                }
+                .sidebar-footer {
+                }
+            }
+        }
+    }
+
+    .main {
+        flex: 1 1 0%;
+    }
+}

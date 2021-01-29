@@ -1,4 +1,8 @@
-let mix = require("laravel-mix");
+const mix = require("laravel-mix");
+
+// plugin
+require('laravel-mix-tailwind');
+require('laravel-mix-purgecss');
 
 /*
  |--------------------------------------------------------------------------
@@ -14,6 +18,8 @@ let mix = require("laravel-mix");
 //  main
 mix.js("src/scripts/app.js", "dist/js")
   .sass("src/scss/bootstrap.scss", "dist/css")
+  .sass("src/scss/tailwind.scss", "dist/css")
+  .tailwind('./tailwind.config.js')
   .sass("src/scss/app.scss", "dist/css")
   .copyDirectory("src/fonts", "dist/fonts")
   .copyDirectory("node_modules/bootstrap/dist/js", "vendor/bootstrap/js");
