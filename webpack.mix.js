@@ -24,7 +24,8 @@ mix.js("src/scripts/app.js", "dist/js")
   .copyDirectory("src/fonts", "dist/fonts")
   .copyDirectory("node_modules/fontisto", "vendor/fontisto")
   .copyDirectory("node_modules/feather-icons/dist", "vendor/feather-icons")
-  .copyDirectory("node_modules/bootstrap/dist/js", "vendor/bootstrap/js");
+  .copyDirectory("node_modules/bootstrap/dist/js", "vendor/bootstrap/js")
+  .copyDirectory("node_modules/chart.js/dist", "vendor/chart.js");
 
 // option
 mix.disableNotifications();

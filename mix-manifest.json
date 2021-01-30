@@ -23,5 +23,11 @@
     "/vendor/bootstrap/js/bootstrap.js": "/vendor/bootstrap/js/bootstrap.js",
     "/vendor/bootstrap/js/bootstrap.js.map": "/vendor/bootstrap/js/bootstrap.js.map",
     "/vendor/bootstrap/js/bootstrap.min.js": "/vendor/bootstrap/js/bootstrap.min.js",
-    "/vendor/bootstrap/js/bootstrap.min.js.map": "/vendor/bootstrap/js/bootstrap.min.js.map"
+    "/vendor/bootstrap/js/bootstrap.min.js.map": "/vendor/bootstrap/js/bootstrap.min.js.map",
+    "/vendor/chart.js/Chart.bundle.js": "/vendor/chart.js/Chart.bundle.js",
+    "/vendor/chart.js/Chart.bundle.min.js": "/vendor/chart.js/Chart.bundle.min.js",
+    "/vendor/chart.js/Chart.css": "/vendor/chart.js/Chart.css",
+    "/vendor/chart.js/Chart.js": "/vendor/chart.js/Chart.js",
+    "/vendor/chart.js/Chart.min.css": "/vendor/chart.js/Chart.min.css",
+    "/vendor/chart.js/Chart.min.js": "/vendor/chart.js/Chart.min.js"
 }

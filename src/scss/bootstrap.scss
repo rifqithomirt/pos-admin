@@ -1,15 +1,11 @@
+/* Bootstrap */
+// functions
 @import "bootstrap/scss/functions"; 
+
+// variables
 @import "bootstrap/scss/variables";
+@import "variables";
 
-$theme-colors: (
-    "primary": #2563eb,
-    "secondary": #4b5563,
-    "success": #059669,
-    "info": #60a5fa,
-    "warning": #d97706,
-    "danger": #dc2626,
-    "light": #fff,
-    "dark": #1f2937
-);
-
+// all bootstrap
 @import "bootstrap/scss/bootstrap";
+/* Bootstrap:end */

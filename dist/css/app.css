@@ -120,6 +120,10 @@
   }
 }
 
+/* Font */
+
+/* Font:end */
+
 * {
   font-family: "Nunito", sans-serif;
 }
@@ -136,7 +140,76 @@ svg.fh {
   display: flex;
 }
 
-.dashboard .sidebar {
+.dashboard > .overlay .loading {
+  position: fixed;
+  display: block;
+  height: 100vh;
+  width: 100vw;
+  background: #f3f4f6;
+  z-index: 20;
+  display: flex;
+  justify-content: center;
+}
+
+.dashboard > .overlay .loading .lds-ripple {
+  align-self: center;
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.dashboard > .overlay .loading .lds-ripple div {
+  position: absolute;
+  border: 4px solid #2563eb;
+  opacity: 1;
+  border-radius: 50%;
+  -webkit-animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+          animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+.dashboard > .overlay .loading .lds-ripple div:nth-child(2) {
+  -webkit-animation-delay: -0.5s;
+          animation-delay: -0.5s;
+}
+
+@-webkit-keyframes lds-ripple {
+  0% {
+    top: 36px;
+    left: 36px;
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+
+  100% {
+    top: 0px;
+    left: 0px;
+    width: 72px;
+    height: 72px;
+    opacity: 0;
+  }
+}
+
+@keyframes lds-ripple {
+  0% {
+    top: 36px;
+    left: 36px;
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+
+  100% {
+    top: 0px;
+    left: 0px;
+    width: 72px;
+    height: 72px;
+    opacity: 0;
+  }
+}
+
+.dashboard > .sidebar {
   height: 100vh;
   max-height: 100vh;
   position: fixed;
@@ -146,22 +219,23 @@ svg.fh {
   overflow: hidden;
   border-right: 2px solid #d1d5db;
   display: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
 @media (min-width: 1024px) {
-  .dashboard .sidebar {
+  .dashboard > .sidebar {
     display: block;
   }
 }
 
-.dashboard .sidebar .sidebar-wrapper {
+.dashboard > .sidebar .sidebar-wrapper {
   display: flex;
   flex-direction: column;
   height: 100%;
   position: relative;
 }
 
-.dashboard .sidebar .sidebar-wrapper .sidebar-header {
+.dashboard > .sidebar .sidebar-wrapper .sidebar-header {
   position: relative;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
@@ -169,7 +243,7 @@ svg.fh {
   margin-right: 0.5rem;
 }
 
-.dashboard .sidebar .sidebar-wrapper .sidebar-header .sidebar-brand {
+.dashboard > .sidebar .sidebar-wrapper .sidebar-header .sidebar-brand {
   font-weight: 600;
   font-size: 1.125rem;
   line-height: 1.75rem;
@@ -187,60 +261,60 @@ svg.fh {
   text-decoration: none;
 }
 
-.dashboard .sidebar .sidebar-wrapper .sidebar-header .sidebar-brand i.logo {
+.dashboard > .sidebar .sidebar-wrapper .sidebar-header .sidebar-brand i.logo {
   margin-right: 0.4rem;
   margin-left: 0.2rem;
 }
 
-.dashboard .sidebar .sidebar-wrapper .sidebar-header .sidebar-brand svg {
+.dashboard > .sidebar .sidebar-wrapper .sidebar-header .sidebar-brand svg {
   position: absolute;
   right: 0;
   margin-top: 2px;
   margin-right: 0.8rem;
 }
 
-.dashboard .sidebar .sidebar-wrapper .sidebar-menu-wrapper {
+.dashboard > .sidebar .sidebar-wrapper .sidebar-menu-wrapper {
   flex: 1 1 0%;
   position: relative;
 }
 
-.dashboard .sidebar .sidebar-wrapper .sidebar-menu-wrapper .sidebar-menu {
+.dashboard > .sidebar .sidebar-wrapper .sidebar-menu-wrapper .sidebar-menu {
   margin-top: 0.5rem;
 }
 
-.dashboard .sidebar .sidebar-wrapper .sidebar-menu-wrapper .sidebar-menu ul.menu {
+.dashboard > .sidebar .sidebar-wrapper .sidebar-menu-wrapper .sidebar-menu ul.menu {
   padding: 0;
   margin: 0;
 }
 
-.dashboard .sidebar .sidebar-wrapper .sidebar-menu-wrapper .sidebar-menu ul.menu li.item a {
+.dashboard > .sidebar .sidebar-wrapper .sidebar-menu-wrapper .sidebar-menu ul.menu li.item a {
   text-decoration: none;
 }
 
-.dashboard .sidebar .sidebar-wrapper .sidebar-menu-wrapper .sidebar-menu ul.menu li.item:not(.dropdown) {
+.dashboard > .sidebar .sidebar-wrapper .sidebar-menu-wrapper .sidebar-menu ul.menu li.item:not(.dropdown) {
   padding: 12px 32px 12px 62px;
   position: relative;
 }
 
-.dashboard .sidebar .sidebar-wrapper .sidebar-menu-wrapper .sidebar-menu ul.menu li.item:not(.dropdown) a {
+.dashboard > .sidebar .sidebar-wrapper .sidebar-menu-wrapper .sidebar-menu ul.menu li.item:not(.dropdown) a {
   color: #6b7280;
   display: block;
   font-size: 1rem;
   line-height: 1.5rem;
 }
 
-.dashboard .sidebar .sidebar-wrapper .sidebar-menu-wrapper .sidebar-menu ul.menu li.item:not(.dropdown) a svg {
+.dashboard > .sidebar .sidebar-wrapper .sidebar-menu-wrapper .sidebar-menu ul.menu li.item:not(.dropdown) a svg {
   position: absolute;
   top: calc(50% - 14px);
   left: 24px;
 }
 
-.dashboard .sidebar .sidebar-wrapper .sidebar-menu-wrapper .sidebar-menu ul.menu li.item.active:not(.dropdown) a {
+.dashboard > .sidebar .sidebar-wrapper .sidebar-menu-wrapper .sidebar-menu ul.menu li.item.active:not(.dropdown) a {
   color: #2563eb;
   font-weight: 580;
 }
 
-.dashboard .sidebar .sidebar-wrapper .sidebar-menu-wrapper .sidebar-menu ul.menu li.item.dropdown:not(.active):not(.show) .item:not(.dropdown.item)::after {
+.dashboard > .sidebar .sidebar-wrapper .sidebar-menu-wrapper .sidebar-menu ul.menu li.item.dropdown:not(.active):not(.show) .item:not(.dropdown.item)::after {
   position: absolute;
   top: calc(50% - 14px);
   right: 0;
@@ -249,47 +323,47 @@ svg.fh {
   content: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="gray" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right fh"><polyline points="9 18 15 12 9 6"></polyline></svg>');
 }
 
-.dashboard .sidebar .sidebar-wrapper .sidebar-menu-wrapper .sidebar-menu ul.menu li.item.dropdown .item:not(.dropdown.item) {
+.dashboard > .sidebar .sidebar-wrapper .sidebar-menu-wrapper .sidebar-menu ul.menu li.item.dropdown .item:not(.dropdown.item) {
   padding: 12px 32px 12px 62px;
   position: relative;
 }
 
-.dashboard .sidebar .sidebar-wrapper .sidebar-menu-wrapper .sidebar-menu ul.menu li.item.dropdown .item:not(.dropdown.item) a {
+.dashboard > .sidebar .sidebar-wrapper .sidebar-menu-wrapper .sidebar-menu ul.menu li.item.dropdown .item:not(.dropdown.item) a {
   display: block;
   color: #6b7280;
   font-size: 1rem;
   line-height: 1.5rem;
 }
 
-.dashboard .sidebar .sidebar-wrapper .sidebar-menu-wrapper .sidebar-menu ul.menu li.item.dropdown .item:not(.dropdown.item) a svg {
+.dashboard > .sidebar .sidebar-wrapper .sidebar-menu-wrapper .sidebar-menu ul.menu li.item.dropdown .item:not(.dropdown.item) a svg {
   position: absolute;
   top: calc(50% - 14px);
   left: 24px;
 }
 
-.dashboard .sidebar .sidebar-wrapper .sidebar-menu-wrapper .sidebar-menu ul.menu li.item.dropdown .dropdown.menu {
+.dashboard > .sidebar .sidebar-wrapper .sidebar-menu-wrapper .sidebar-menu ul.menu li.item.dropdown .dropdown.menu {
   display: none;
 }
 
-.dashboard .sidebar .sidebar-wrapper .sidebar-menu-wrapper .sidebar-menu ul.menu li.item.dropdown .dropdown.menu .item.dropdown {
+.dashboard > .sidebar .sidebar-wrapper .sidebar-menu-wrapper .sidebar-menu ul.menu li.item.dropdown .dropdown.menu .item.dropdown {
   padding: 4px 32px 4px 62px;
   position: relative;
 }
 
-.dashboard .sidebar .sidebar-wrapper .sidebar-menu-wrapper .sidebar-menu ul.menu li.item.dropdown .dropdown.menu .item.dropdown a {
+.dashboard > .sidebar .sidebar-wrapper .sidebar-menu-wrapper .sidebar-menu ul.menu li.item.dropdown .dropdown.menu .item.dropdown a {
   display: block;
   color: #6b7280;
   font-size: 1rem;
   line-height: 1.5rem;
 }
 
-.dashboard .sidebar .sidebar-wrapper .sidebar-menu-wrapper .sidebar-menu ul.menu li.item.dropdown .dropdown.menu .item.dropdown a svg {
+.dashboard > .sidebar .sidebar-wrapper .sidebar-menu-wrapper .sidebar-menu ul.menu li.item.dropdown .dropdown.menu .item.dropdown a svg {
   position: absolute;
   top: calc(50% - 14px);
   left: 24px;
 }
 
-.dashboard .sidebar .sidebar-wrapper .sidebar-menu-wrapper .sidebar-menu ul.menu li.item.dropdown.active .item:not(.dropdown.item) a::after, .dashboard .sidebar .sidebar-wrapper .sidebar-menu-wrapper .sidebar-menu ul.menu li.item.dropdown.show .item:not(.dropdown.item) a::after {
+.dashboard > .sidebar .sidebar-wrapper .sidebar-menu-wrapper .sidebar-menu ul.menu li.item.dropdown.active .item:not(.dropdown.item) a::after, .dashboard > .sidebar .sidebar-wrapper .sidebar-menu-wrapper .sidebar-menu ul.menu li.item.dropdown.show .item:not(.dropdown.item) a::after {
   position: absolute;
   right: 0;
   margin-right: 24px;
@@ -297,46 +371,75 @@ svg.fh {
   content: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down fh"><polyline points="6 9 12 15 18 9"></polyline></svg>');
 }
 
-.dashboard .sidebar .sidebar-wrapper .sidebar-menu-wrapper .sidebar-menu ul.menu li.item.dropdown.active .item:not(.dropdown.item) a {
+.dashboard > .sidebar .sidebar-wrapper .sidebar-menu-wrapper .sidebar-menu ul.menu li.item.dropdown.active .item:not(.dropdown.item) a {
   color: #374151 !important;
   font-weight: 580;
 }
 
-.dashboard .sidebar .sidebar-wrapper .sidebar-menu-wrapper .sidebar-menu ul.menu li.item.dropdown.active .dropdown.item.active a {
+.dashboard > .sidebar .sidebar-wrapper .sidebar-menu-wrapper .sidebar-menu ul.menu li.item.dropdown.active .dropdown.item.active a {
   color: #2563eb !important;
   font-weight: 530;
 }
 
-.dashboard .sidebar .sidebar-wrapper .sidebar-menu-wrapper .sidebar-menu ul.menu li.item.dropdown.show .dropdown.menu, .dashboard .sidebar .sidebar-wrapper .sidebar-menu-wrapper .sidebar-menu ul.menu li.item.dropdown.active .dropdown.menu {
+.dashboard > .sidebar .sidebar-wrapper .sidebar-menu-wrapper .sidebar-menu ul.menu li.item.dropdown.show .dropdown.menu, .dashboard > .sidebar .sidebar-wrapper .sidebar-menu-wrapper .sidebar-menu ul.menu li.item.dropdown.active .dropdown.menu {
   display: block !important;
 }
 
-.dashboard .sidebar .sidebar-wrapper .sidebar-menu-wrapper .sidebar-menu ul.menu li.item:not(.active) a:hover {
+.dashboard > .sidebar .sidebar-wrapper .sidebar-menu-wrapper .sidebar-menu ul.menu li.item:not(.active) a:hover {
   color: #111827 !important;
 }
 
-.dashboard .main {
+.dashboard > .main {
   flex: 1 1 0%;
-  padding: 24px;
   min-height: 100vh;
   background: #f3f4f6;
 }
 
+.dashboard > .main > .container {
+  padding: 24px;
+  min-height: calc(100vh - 3.6rem);
+}
+
 @media (min-width: 1024px) {
-  .dashboard .main {
+  .dashboard > .main {
     margin-left: 270px;
   }
 }
 
-.dashboard .main .content-header .title {
+.dashboard > .main .content-header .title {
   font-weight: 600;
   font-size: 1.875rem;
   line-height: 2.25rem;
   color: #374151;
 }
 
-.dashboard .main .content {
+.dashboard > .main .content {
   margin-top: 1rem;
+}
+
+.dashboard > .main > .footer {
+  background: #fff;
+  border-top: 1px solid #dee2e6;
+  color: #869099;
+  padding: 1rem;
+}
+
+.dashboard.fixed-footer > .main {
+  margin-bottom: 2rem;
+}
+
+.dashboard.fixed-footer > .main > .footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.alert {
+  border-radius: 0 !important;
+}
+
+.alert.alert-light {
+  border-color: #d1d5db !important;
 }
 
 .breadcrumb {
@@ -352,16 +455,99 @@ svg.fh {
   outline: none !important;
 }
 
-.alert {
-  border-radius: 0 !important;
-}
-
-.alert.alert-light {
-  border-color: #d1d5db !important;
+.btn:not(.btn-light) {
+  color: #f9fafb;
 }
 
 .btn, .btn:focus, .btn:active {
   outline: none !important;
+}
+
+ul.dropdown-menu {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.panel {
+  border-radius: 0.5rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+  transition-duration: 100ms;
+  position: relative;
+  display: flex;
+  cursor: pointer;
+}
+
+.panel:hover {
+  filter: brightness(115%);
+}
+
+.panel .icon {
+  padding: 1rem;
+  color: #f3f4f6;
+}
+
+.panel .icon svg {
+  height: 3rem;
+  width: 3rem;
+}
+
+.panel .content {
+  flex: 1 1 0%;
+  color: #f3f4f6;
+}
+
+.panel .content .title {
+  font-weight: 500;
+}
+
+.panel .content .main {
+  font-weight: 600;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.panel .content .link {
+  position: absolute;
+  display: inline-block;
+  color: #d1d5db;
+  bottom: 0;
+  right: 0;
+  margin-bottom: 0.7rem;
+  margin-right: 0.7rem;
+}
+
+.panel.panel-primary {
+  background: #2F7AF9;
+}
+
+.panel.panel-danger {
+  background: #FA5158;
+}
+
+.panel.panel-warning {
+  background: #F27615;
+}
+
+.panel.panel-success {
+  background: #1ABA51;
+}
+
+.card {
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.17);
+  margin-bottom: 1rem;
+}
+
+.card .card-header {
+  background-color: transparent;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  padding: 0.75rem 1.25rem;
+  position: relative;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+  margin-bottom: 0;
 }
 
 @media (min-width: 1024px) {

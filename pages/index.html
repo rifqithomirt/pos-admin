@@ -9,11 +9,17 @@
     <link rel="stylesheet" href="../dist/css/tailwind.css">
     <link rel="stylesheet" href="../dist/css/bootstrap.css">
     <link rel="stylesheet" href="../vendor/fontisto/css/fontisto/fontisto.min.css">
+    <link rel="stylesheet" href="../vendor/chart.js/Chart.min.css">
     <link rel="stylesheet" href="../dist/css/app.css">
 </head>
 <body>
     <!-- dashboard -->
-    <div class="dashboard">
+    <div class="dashboard fixed-footer">
+        <!-- overlay screen -->
+        <div class="overlay">
+            <div class="loading"><div class="lds-ripple"><div></div><div></div></div></div>
+        </div>
+        <!-- overlay:end -->
         <!-- sidebar -->
         <div class="sidebar">
             <div class="sidebar-wrapper">
@@ -105,9 +111,6 @@
                 </div>
                 <div class="sidebar-footer mx-2 my-2 text-center">
                     <img src="../dist/img/illustrations/1.svg" alt="Illustration" width="170px" class="d-inline">
-                    <p class="my-1 mx-1 tw-text-xs">
-                        &copy; 2021 POS by MojoDev
-                    </p>
                 </div>
             </div>
         </div>
@@ -118,7 +121,8 @@
         <!-- navbar-mobile:end -->
         <!-- main -->
         <div class="main">
-            <div class="container mx-auto">
+            <!-- container -->
+            <div class="container">
                 <!-- content-header -->
                 <div class="content-header">
                     <div class="tw-flex tw-justify-between">
@@ -144,30 +148,137 @@
 
                 <!-- content -->
                 <div class="content">
-                    <!-- section welcome card -->
-                    <div class="tw-mt-4 lg:tw-mt-12 tw-bg-blue-100 tw-block tw-rounded-xl lg:tw-py-8 lg:tw-px-10 tw-py-6 tw-px-8">
-                        <div class="tw-block lg:tw-flex">
-                            <div class="tw-text lg:tw-w-6/12 tw-w-full">
-                                <span class="tw-font-bold tw-text-2xl tw-text-blue-600">Welcome back Alfian!</span>
-                                <p class="tw-pt-4 tw-text-lg tw-text-gray-800">
-                                    You've learned 80% of your goal this week!<br>
-                                    Keep it up and improve your results!
-                                </p>
-                            </div>
-                            <div class="illustration tw-w-6/12 tw-hidden lg:tw-block">
-                                <img src="../dist/img/illustrations/2.svg" class="tw-w-full negative-illustration">
+                    <!-- welcome-card -->
+                    <section id="welcome-card">
+                        <div class="tw-mt-4 lg:tw-mt-12 tw-bg-blue-100 tw-block tw-rounded-xl lg:tw-py-8 lg:tw-px-10 tw-py-6 tw-px-8">
+                            <div class="tw-block lg:tw-flex">
+                                <div class="tw-text lg:tw-w-6/12 tw-w-full">
+                                    <span class="tw-font-bold tw-text-2xl tw-text-blue-600">Welcome back Alfian!</span>
+                                    <p class="tw-pt-4 tw-text-lg tw-text-gray-800">
+                                        You've learned 80% of your goal this week!<br>
+                                        Keep it up and improve your results!
+                                    </p>
+                                </div>
+                                <div class="illustration tw-w-6/12 tw-hidden lg:tw-block">
+                                    <img src="../dist/img/illustrations/2.svg" class="tw-w-full negative-illustration">
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </section>
+                    <!-- welcome-card:end -->
+                    <!-- panel -->
+                    <section id="panel">
+                        <div class="row my-4">
+                            <div class="col-lg-3">
+                                <div class="panel panel-primary">
+                                    <div class="overlay"></div>
+                                    <div class="icon">
+                                        <i data-feather="user"></i>
+                                    </div>
+                                    <div class="content">
+                                        <div class="main">1.0000</div>
+                                        <div class="title">Customer</div>
+                                        <a href="sales-customer.html" class="link">
+                                            <i data-feather="arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="panel panel-danger">
+                                    <div class="icon">
+                                        <i data-feather="shopping-cart"></i>
+                                    </div>
+                                    <div class="content">
+                                        <div class="main">5000</div>
+                                        <div class="title">Product</div>
+                                        <a href="sales-customer.html" class="link">
+                                            <i data-feather="arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="panel panel-success">
+                                    <div class="icon">
+                                        <i data-feather="dollar-sign"></i>
+                                    </div>
+                                    <div class="content">
+                                        <div class="main">1.000K</div>
+                                        <div class="title">Profit</div>
+                                        <a href="sales-customer.html" class="link">
+                                            <i data-feather="arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="panel panel-warning">
+                                    <div class="icon">
+                                        <i data-feather="shopping-cart"></i>
+                                    </div>
+                                    <div class="content">
+                                        <div class="main">5000</div>
+                                        <div class="title">Product</div>
+                                        <a href="sales-customer.html" class="link">
+                                            <i data-feather="arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- panel:end -->
+                    <!-- chart -->
+                    <section id="chart">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="card">
+                                    <div class="card-header">Cash Flow</div>
+                                    <div class="card-body">
+                                        <canvas id="chartCashFlow" width="400" height="300"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="card">
+                                    <div class="card-header">Profit & Loss</div>
+                                    <div class="card-body">
+                                        <canvas id="chartProfitLoss" width="400" height="300"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- chart:end -->
                 </div>
                 <!-- content:end -->
             </div>
+            <!-- container:end -->
+
+            <!-- footer -->
+            <div class="footer">
+                <strong>
+                    Copyright © 2021
+                    <a href="http://viandwi24.github.io">VianDwi</a>
+                    .
+                </strong>
+                All rights reserved.
+                <div class="float-right d-none d-sm-inline-block">
+                    <b>Version</b>
+                    1.0.0
+                </div>
+            </div>
+            <!-- footer:end -->
         </div>
         <!-- main:end -->
     </div>
     <!-- scripts -->
     <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../vendor/feather-icons/feather.min.js"></script>
+    <script src="../vendor/chart.js/Chart.bundle.min.js"></script>
     <script src="../dist/js/app.js"></script>
+    <!-- page:script - you can remove this -->
+    <script src="../dist/js/pages/index.js"></script>
 </body>
 </html>

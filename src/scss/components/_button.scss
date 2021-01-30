@@ -1,0 +1,12 @@
+
+.btn, .btn:focus, .btn:active {
+    outline: none #{!important};
+}
+.btn {
+    &:not(.btn-light) {
+        color: theme('colors.gray.50');
+    }
+}
+.btn, .btn:focus, .btn:active {
+    outline: none #{!important};
+}

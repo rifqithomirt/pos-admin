@@ -1,0 +1,7 @@
+.alert {
+    border-radius: 0 #{!important};
+
+    &.alert-light {
+        border-color: theme('colors.gray.300') #{!important};
+    }
+}

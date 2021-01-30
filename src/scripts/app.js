@@ -8,9 +8,8 @@ const app = function (root) {
   // dom
   this.sidebarOverlay = undefined
 
-  // init all component
-  this.init = function () {
-    // sidebar - scrollbar
+  // init components
+  this.initSidebarScrollbar = function () {
     const sidebar = document.querySelector(`${root} .sidebar .sidebar-wrapper .sidebar-menu-wrapper`)
     this.sidebarOverlay = new PerfectScrollbar(
       `${root} .sidebar .sidebar-wrapper .sidebar-menu-wrapper`, {
@@ -19,8 +18,8 @@ const app = function (root) {
       }
     );
     window.addEventListener('resize', () => this.sidebarOverlay.update())
-    
-    // sidebar - expand menu
+  }
+  this.initSidebarMenu = function () {
     const sidebarDropdown = document.querySelectorAll(`${root} li.item.dropdown > .item a`)
     sidebarDropdown.forEach((item) => {
       item.addEventListener('click', (e) => {
@@ -56,19 +55,89 @@ const app = function (root) {
         e.preventDefault()
       })
     })
-    // sidebar - auto scroll to menu
+  }
+  this.initSidebar = function () {
     const sidebarItem = document.querySelector(`${root} li.item.active`)
     if (sidebarItem != null) sidebarItem.scrollIntoView({ 
       behavior: 'smooth' 
     })
-
-
-    // feather icon
+  }
+  this.initFeatherIcon = function () {
     if (typeof feather == 'object') {
       feather.replace({
         class: 'fh'
       })
     }
+  }
+  this.initLoadingAnimation = function () {
+    setTimeout(() => this.loading.hide(), 1000)
+    const menuLink = document.querySelectorAll('.item a')
+    menuLink.forEach((e) => e.addEventListener('click', async (item) => {
+      item.preventDefault()
+      const href = e.getAttribute('href')
+      if (href != null && href != '#') {
+        this.loading.show()
+        await new Promise(resolve => setTimeout(resolve, 500))
+        window.location.href = href
+      }
+    }))
+  }
+  this.initComponentPanel = function () {
+    const panels = document.querySelectorAll('.panel')
+    panels.forEach((panel) => {
+      panel.addEventListener('click', function (e) {
+        const link = panel.querySelector('.link')
+        if (link != null) {
+          link.click()
+        }
+      })
+    })
+  }
+
+  // init all component
+  this.init = function () {
+    // sidebar - scrollbar
+    this.initSidebarScrollbar()
+    // sidebar - expand menu
+    this.initSidebarMenu()
+    // sidebar - auto scroll to menu
+    this.initSidebar()
+    // feather icon
+    this.initFeatherIcon()
+    // loading
+    this.initLoadingAnimation()
+    // component - panel
+    this.initComponentPanel()
+  }
+
+  // loading
+  this.loading = {
+    show: () => {
+      const overlayLoading = document.querySelector(`${root} .overlay .loading`)
+      if (overlayLoading != null) {
+        overlayLoading.style.display = 'flex'
+        overlayLoading.animate([
+          { opacity: 0 },
+          { opacity: 1 }
+        ], {
+          duration: 250,
+          easing: 'ease-in'
+        })
+      }
+    },
+    hide: () => {
+      const overlayLoading = document.querySelector(`${root} .overlay .loading`)
+      if (overlayLoading != null) {
+        overlayLoading.animate([
+          { opacity: 1 },
+          { opacity: 0 }
+        ], {
+          duration: 250,
+          easing: 'ease-in'
+        })
+        setTimeout(() => overlayLoading.style.display = 'none', 250)
+      }
+    },
   }
 }
 
