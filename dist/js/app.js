@@ -10,6 +10,8 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var perfect_scrollbar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! perfect-scrollbar */ "./node_modules/perfect-scrollbar/dist/perfect-scrollbar.esm.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
 
 
 var OverlayScrollbars = __webpack_require__(/*! overlayscrollbars */ "./node_modules/overlayscrollbars/js/OverlayScrollbars.js");
@@ -21,18 +23,74 @@ var app = function app(root) {
   this.sidebarOverlay = undefined; // init all component
 
   this.init = function () {
+    var _this = this;
+
+    // sidebar - scrollbar
     var sidebar = document.querySelector("".concat(root, " .sidebar .sidebar-wrapper .sidebar-menu-wrapper"));
-    this.sidebarOverlay = new perfect_scrollbar__WEBPACK_IMPORTED_MODULE_0__.default("".concat(root, " .sidebar .sidebar-wrapper .sidebar-menu-wrapper")); // this.OverlayScrollbars = OverlayScrollbars(sidebar, overlayScrollbarOption)
-    // sidebar.querySelector('.os-content-glue').remove()
-    // this.OverlayScrollbars = OverlayScrollbars(sidebar, {
-    //   // className: 'os-theme-minimal-dark',
-    //   sizeAutoCapable: true,
-    //   scrollbars: {
-    //     visibility: 'auto',
-    //     autoHide: 'leave',
-    //     clickScrolling: true
-    //   }
-    // })
+    this.sidebarOverlay = new perfect_scrollbar__WEBPACK_IMPORTED_MODULE_0__.default("".concat(root, " .sidebar .sidebar-wrapper .sidebar-menu-wrapper"), {
+      wheelPropagation: false,
+      swipeEasing: true
+    });
+    window.addEventListener('resize', function () {
+      return _this.sidebarOverlay.update();
+    }); // sidebar - expand menu
+
+    var sidebarDropdown = document.querySelectorAll("".concat(root, " li.item.dropdown > .item a"));
+    sidebarDropdown.forEach(function (item) {
+      item.addEventListener('click', function (e) {
+        var container = item.parentElement.parentElement;
+        var dropdownMenu = container.querySelector('.dropdown.menu'); // remove all show
+
+        sidebarDropdown.forEach(function (i) {
+          return i.classList.remove('show');
+        }); // toggle
+
+        if (!container.classList.contains('show')) {
+          container.classList.add('show');
+          dropdownMenu.animate([{
+            opacity: '0',
+            transform: 'translateY(-30px)'
+          }, {
+            opacity: '0.3',
+            transform: 'translateY(-10px)'
+          }, {
+            opacity: '1',
+            transform: 'translateY(0px)'
+          }], {
+            duration: 250,
+            easing: 'ease-in-out'
+          });
+        } else {
+          dropdownMenu.animate([{
+            opacity: '1',
+            transform: 'translateY(0px)'
+          }, {
+            opacity: '0',
+            transform: 'translateY(-30px)'
+          }], {
+            duration: 250,
+            easing: 'ease-in-out'
+          });
+          setTimeout(function () {
+            return container.classList.remove('show');
+          }, 250);
+        } // 
+
+
+        e.preventDefault();
+      });
+    }); // sidebar - auto scroll to menu
+
+    var sidebarItem = document.querySelector("".concat(root, " li.item.active"));
+    if (sidebarItem != null) sidebarItem.scrollIntoView({
+      behavior: 'smooth'
+    }); // feather icon
+
+    if ((typeof feather === "undefined" ? "undefined" : _typeof(feather)) == 'object') {
+      feather.replace({
+        "class": 'fh'
+      });
+    }
   };
 };
 

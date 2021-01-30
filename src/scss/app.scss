@@ -1,8 +1,33 @@
 // 
+// @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
 @import "../../node_modules/perfect-scrollbar/css/perfect-scrollbar.css";
 
 // variables
-$sidebarBackgroundColor: #ebeff4;
+$primaryColor: theme('colors.blue.600');
+$contentBackgroundColor: theme('colors.gray.100');
+$sidebarWidth: 270px;
+$sidebarBackgroundColor: theme('colors.white');
+$sidebarBorderColor: theme('colors.gray.300');
+$sidebarItemColor: theme('colors.gray.500');
+$sidebarItemActive: $primaryColor;
+$sidebarItemDropdownActive: theme('colors.gray.700');
+
+// default
+* {
+    // font-family: 'Poppins', sans-serif;
+    // font-family: 'Noto Sans TC', sans-serif;
+    font-family: 'Nunito', sans-serif;
+}
+
+// icons
+i {
+    margin: 4px 0;
+}
+svg.fh {
+    display: inline-block;
+}
 
 // dashboard
 .dashboard {
@@ -11,10 +36,12 @@ $sidebarBackgroundColor: #ebeff4;
     .sidebar {
         height: 100vh;
         max-height: 100vh;
-        width: 250px;
+        position: fixed;
+        width: $sidebarWidth;
         background: $sidebarBackgroundColor;
         z-index: 10;
         overflow: hidden;
+        border-right: 2px solid $sidebarBorderColor;
 
         .sidebar-wrapper {
             display: flex;
@@ -23,19 +50,153 @@ $sidebarBackgroundColor: #ebeff4;
             position: relative;
 
             .sidebar-header {
+                position: relative;
                 @apply tw-mx-2 tw-my-2;
                 .sidebar-brand {
                     @apply tw-text-lg tw-font-semibold;
-                    @apply tw-bg-gray-300 tw-text-gray-700 tw-rounded-full tw-py-2 tw-px-4;
+                    @apply tw-bg-gray-200 tw-text-gray-700 tw-rounded-full tw-py-3 tw-px-4;
+                    position: relative;
                     display: block;
-                    text-align: center;
+                    text-decoration: none;
+
+                    i.logo {
+                        margin-right: .4rem;
+                        margin-left: .2rem;
+                    }
+                    svg {
+                        position: absolute;
+                        right: 0;
+                        margin-top: 2px;
+                        margin-right: .8rem;
+                    }
                 }
+
             }
             .sidebar-menu-wrapper {
                 flex: 1 1 0%;
                 position: relative;
 
                 .sidebar-menu {
+                    margin-top: .5rem;
+                    ul.menu {
+                        padding: 0;
+                        margin: 0;
+
+                        // general
+                        li.item {
+                            a {
+                                text-decoration: none;
+                            }
+                        }
+
+                        // item default
+                        li.item:not(.dropdown) {
+                            padding: 12px 32px 12px 62px;
+                            position: relative;
+                            a {
+                                color: $sidebarItemColor;
+                                display: block;
+                                @apply tw-text-base;
+                                svg {
+                                    position: absolute;
+                                    top: calc(50% - 14px);
+                                    left: 24px;
+                                }
+                            }
+                        }
+                        li.item.active:not(.dropdown) {
+                            a {
+                                color: $primaryColor;
+                                font-weight: 580;
+                            }
+                        }
+
+                        // item with dropdown
+                        li.item.dropdown:not(.active):not(.show) .item:not(.dropdown.item) {
+                            &::after {
+                                position: absolute;
+                                top: calc(50% - 14px);
+                                right: 0;
+                                margin-right: 24px;
+                                color: $sidebarItemColor;
+                                content: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="gray" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right fh"><polyline points="9 18 15 12 9 6"></polyline></svg>');
+                            }
+                        }
+                        li.item.dropdown {
+                            ul {
+
+                            }
+                            .item:not(.dropdown.item) {
+                                padding: 12px 32px 12px 62px;
+                                position: relative;
+                                a {
+                                    display: block;
+                                    color: $sidebarItemColor;
+                                    @apply tw-text-base;
+                                    svg {
+                                        position: absolute;
+                                        top: calc(50% - 14px);
+                                        left: 24px;
+                                    }
+                                }
+                            }
+                            .dropdown.menu {
+                                display: none;
+                                .item.dropdown {
+                                    padding: 4px 32px 4px 62px;
+                                    position: relative;
+                                    a {
+                                        display: block;
+                                        color: $sidebarItemColor;
+                                        @apply tw-text-base;
+                                        svg {
+                                            position: absolute;
+                                            top: calc(50% - 14px);
+                                            left: 24px;
+                                        }
+                                    }
+                                }
+                            }
+
+                            &.active, &.show {
+                                .item:not(.dropdown.item) {
+                                    a::after {
+                                        position: absolute;
+                                        right: 0;
+                                        margin-right: 24px;
+                                        color: $sidebarItemColor;
+                                        content: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down fh"><polyline points="6 9 12 15 18 9"></polyline></svg>');
+                                    }
+                                }
+                            }
+                        }
+                        li.item.dropdown.active {
+                            .item:not(.dropdown.item) {
+                                a {
+                                    color: $sidebarItemDropdownActive #{!important};
+                                    font-weight: 580;
+                                }
+                            }
+                            .dropdown.item.active {
+                                a {
+                                    color: $primaryColor #{!important};
+                                    font-weight: 530;
+                                }
+                            }
+                        }
+                        li.item.dropdown.show, li.item.dropdown.active {
+                            .dropdown.menu {
+                                display: block #{!important};
+                            }
+                        }
+
+                        // hover
+                        li.item:not(.active) {
+                            a:hover {
+                                color: theme('colors.gray.900') #{!important};
+                            }
+                        }
+                    }
                 }
                 .sidebar-footer {
                 }
@@ -45,5 +206,50 @@ $sidebarBackgroundColor: #ebeff4;
 
     .main {
         flex: 1 1 0%;
+        padding: 24px;
+        margin-left: $sidebarWidth;
+        background: $contentBackgroundColor;
+        min-height: 100vh;
+
+        .content-header {
+            .title {
+                @apply tw-text-3xl tw-font-semibold;
+                color: theme('colors.gray.700');
+            }
+        }
+
+        .content {
+            margin-top: 1rem;
+        }
+    }
+}
+
+// bootstrap modify
+.breadcrumb {
+    padding-left: .2rem;
+    margin-top: .7rem #{!important};
+
+    a {
+        text-decoration: none;
+    }
+}
+.btn, .btn:focus, .btn:active {
+    outline: none #{!important};
+}
+.alert {
+    border-radius: 0 #{!important};
+
+    &.alert-light {
+        border-color: theme('colors.gray.300') #{!important};
+    }
+}
+.btn, .btn:focus, .btn:active {
+    outline: none #{!important};
+}
+
+// other
+@screen lg {
+    .negative-illustration {
+        margin-top: -80px;
     }
 }
