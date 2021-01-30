@@ -42,6 +42,11 @@ svg.fh {
         z-index: 10;
         overflow: hidden;
         border-right: 2px solid $sidebarBorderColor;
+        display: none;
+
+        @screen lg {
+            display: block;
+        }
 
         .sidebar-wrapper {
             display: flex;
@@ -207,9 +212,12 @@ svg.fh {
     .main {
         flex: 1 1 0%;
         padding: 24px;
-        margin-left: $sidebarWidth;
-        background: $contentBackgroundColor;
         min-height: 100vh;
+        background: $contentBackgroundColor;
+
+        @screen lg {
+            margin-left: $sidebarWidth;
+        }
 
         .content-header {
             .title {

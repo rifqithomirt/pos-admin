@@ -145,6 +145,13 @@ svg.fh {
   z-index: 10;
   overflow: hidden;
   border-right: 2px solid #d1d5db;
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .dashboard .sidebar {
+    display: block;
+  }
 }
 
 .dashboard .sidebar .sidebar-wrapper {
@@ -311,9 +318,14 @@ svg.fh {
 .dashboard .main {
   flex: 1 1 0%;
   padding: 24px;
-  margin-left: 270px;
-  background: #f3f4f6;
   min-height: 100vh;
+  background: #f3f4f6;
+}
+
+@media (min-width: 1024px) {
+  .dashboard .main {
+    margin-left: 270px;
+  }
 }
 
 .dashboard .main .content-header .title {
