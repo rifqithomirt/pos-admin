@@ -1,0 +1,65 @@
+        <!-- sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-wrapper">
+                <div class="sidebar-header">
+                    <a href="index.html" class="sidebar-brand">
+                        <i class="logo fi fi-yelp"></i>
+                        <span class="text">E-POS Admin</span>
+                        <i data-feather="chevron-right"></i>
+                    </a>
+                </div>
+                <div class="sidebar-menu-wrapper">
+                    <div class="sidebar-menu">
+                        <ul class="menu">
+                            {% for item in sidebarItems %}
+                                {% if item.type == 'item' %}
+                                    <li class="item {{ 'active' if (item.url == filename) }}">
+                                        <a href="{{ item.url }}.html">
+                                            <i data-feather="{{ item.icon }}"></i>
+                                            <span>{{ item.text }}</span>
+                                        </a>
+                                    </li>
+                                {% else %}
+                                    <li class="item dropdown">
+                                        <div class="item">
+                                            <a href="#">
+                                                <i data-feather="{{ item.icon }}"></i>
+                                                <span>{{ item.text }}</span>
+                                            </a>
+                                        </div>
+                                        <div class="dropdown menu">
+                                            <ul class="menu">
+                                                {% for subitem in item.subitem %}
+                                                    <li class="dropdown item {{ 'active' if (item.url + '-' + subitem.url == filename) }}">
+                                                        <a href="{{ item.url }}-{{ subitem.url }}.html">{{ subitem.text }}</a>
+                                                    </li>
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                <div class="sidebar-footer mx-2 my-2 text-center">
+                    <img src="../dist/img/illustrations/3.svg" alt="Illustration" width="170px" class="d-inline">
+                </div>
+            </div>
+        </div>
+        <!-- sidebar:end -->
+        <!-- navbar-mobile -->
+        <div class="navbar-mobile">
+            <ul class="menu">
+                <li class="item">
+                    <a href="#" class="toggle-sidebar">
+                        <i data-feather="menu"></i>
+                        Menu
+                    </a>
+                </li>
+                <li class="item">
+                    <a href="#">E-POS Admin</a>
+                </li>
+            </ul>
+        </div>
+        <!-- navbar-mobile:end -->

@@ -1,0 +1,150 @@
+{% set title = 'Dashboard' %}
+{% set filename = 'index' %}
+{% extends 'layouts/dashboard.html' %}
+
+{% block content %}
+    <div class="container">
+        <!-- content-header -->
+        <div class="content-header">
+            <div class="tw-flex tw-justify-between">
+                <div class="title">
+                    Dashboard
+                </div>
+                <div class="btn-group dropstart">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Create a new
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <li><a class="dropdown-item" href="sales-invoices.html">Invoice</a></li>
+                        <li><a class="dropdown-item" href="sales-customer.html">Customer</a></li>
+                        <li><a class="dropdown-item" href="purchases-product-services.html">Product or Service</a></li>
+                        <li><a class="dropdown-item" href="purchases-bills.html">Bill</a></li>
+                        <li><a class="dropdown-item" href="purchases-vendors.html">Vendor</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- content-header:end -->
+
+        <!-- content -->
+        <div class="content">
+            <!-- welcome-card -->
+            <section id="welcome-card">
+                <div class="tw-mt-4 lg:tw-mt-12 tw-bg-blue-100 tw-block tw-rounded-xl lg:tw-py-8 lg:tw-px-10 tw-py-6 tw-px-8">
+                    <div class="tw-block lg:tw-flex">
+                        <div class="tw-text lg:tw-w-6/12 tw-w-full">
+                            <span class="tw-font-bold tw-text-2xl tw-text-blue-600">Welcome back Alfian!</span>
+                            <p class="tw-pt-4 tw-text-lg tw-text-gray-800">
+                                You've learned 80% of your goal this week!<br>
+                                Keep it up and improve your results!
+                            </p>
+                        </div>
+                        <div class="illustration tw-w-6/12 tw-hidden lg:tw-block">
+                            <img src="../dist/img/illustrations/2.svg" class="tw-w-full negative-illustration">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- welcome-card:end -->
+            <!-- panel -->
+            <section id="panel">
+                <div class="row my-4">
+                    <div class="col-lg-3">
+                        <div class="panel panel-primary">
+                            <div class="overlay"></div>
+                            <div class="icon">
+                                <i data-feather="user"></i>
+                            </div>
+                            <div class="content">
+                                <div class="main">1.0000</div>
+                                <div class="title">Customer</div>
+                                <a href="sales-customer.html" class="link">
+                                    <i data-feather="arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="panel panel-danger">
+                            <div class="icon">
+                                <i data-feather="shopping-cart"></i>
+                            </div>
+                            <div class="content">
+                                <div class="main">5000</div>
+                                <div class="title">Product</div>
+                                <a href="sales-customer.html" class="link">
+                                    <i data-feather="arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="panel panel-success">
+                            <div class="icon">
+                                <i data-feather="dollar-sign"></i>
+                            </div>
+                            <div class="content">
+                                <div class="main">1.000K</div>
+                                <div class="title">Profit</div>
+                                <a href="sales-customer.html" class="link">
+                                    <i data-feather="arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="panel panel-warning">
+                            <div class="icon">
+                                <i data-feather="shopping-cart"></i>
+                            </div>
+                            <div class="content">
+                                <div class="main">5000</div>
+                                <div class="title">Product</div>
+                                <a href="sales-customer.html" class="link">
+                                    <i data-feather="arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- panel:end -->
+            <!-- chart -->
+            <section id="chart">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header">Cash Flow</div>
+                            <div class="card-body">
+                                <canvas id="chartCashFlow" width="400" height="300"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header">Profit & Loss</div>
+                            <div class="card-body">
+                                <canvas id="chartProfitLoss" width="400" height="300"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- chart:end -->
+        </div>
+        <!-- content:end -->
+    </div>
+{% endblock %}
+
+{% block styles %}
+    <!-- style:plugin -->
+    <link rel="stylesheet" href="../vendor/chart.js/Chart.min.css">
+{% endblock %}
+
+{% block scripts %}
+    <!-- script:plugin -->
+    <script src="../vendor/chart.js/Chart.bundle.min.js"></script>
+    <!-- script:page - you can remove this -->
+    <script src="../dist/js/pages/index.js"></script>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% set title = 'Sales - Invoices' %}
+{% set filename = 'sales-invoices' %}
+{% extends 'layouts/dashboard.html' %}
+
+{% block content %}
+    <div class="container">
+        <!-- content-header -->
+        <div class="content-header">
+            <div class="tw-flex tw-justify-between">
+                <div class="title">
+                    Invoices
+                </div>
+                <div class="btn-group dropstart">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Create a new
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <li><a class="dropdown-item" href="#">Invoice</a></li>
+                        <li><a class="dropdown-item" href="#">Bill</a></li>
+                        <li><a class="dropdown-item" href="#">Customer</a></li>
+                        <li><a class="dropdown-item" href="#">Vendor</a></li>
+                        <li><a class="dropdown-item" href="#">Product or Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                    <li class="breadcrumb-item">Sales</li>
+                    <li class="breadcrumb-item active" aria-current="page">Invoices</li>
+                </ol>
+            </nav>
+        </div>
+        <!-- content-header:end -->
+        <!-- content -->
+        <div class="content">
+        </div>
+        <!-- content:end -->
+    </div>
+{% endblock %}
+
+
+{% block scripts %}
+    <!-- page:script - you can remove this -->
+{% endblock %}

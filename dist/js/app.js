@@ -53,6 +53,12 @@ var debounce = function debounce(func, wait, immediate) {
   };
 };
 
+var sleep = function sleep(time) {
+  return new Promise(function (resolve) {
+    return setTimeout(resolve, time);
+  });
+};
+
 var app = function app(root) {
   // query for root element
   this.app = root;
@@ -63,14 +69,17 @@ var app = function app(root) {
   this.initSidebarScrollbar = function () {
     var _this = this;
 
-    var sidebar = document.querySelector("".concat(root, " .sidebar .sidebar-wrapper .sidebar-menu-wrapper"));
-    this.sidebarOverlay = new perfect_scrollbar__WEBPACK_IMPORTED_MODULE_1__.default("".concat(root, " .sidebar .sidebar-wrapper .sidebar-menu-wrapper"), {
-      wheelPropagation: false,
-      swipeEasing: true
-    });
-    window.addEventListener('resize', function () {
-      return _this.sidebarOverlay.update();
-    });
+    var sidebar = "".concat(root, " .sidebar .sidebar-wrapper .sidebar-menu-wrapper");
+
+    if (document.querySelector(sidebar) != null) {
+      this.sidebarOverlay = new perfect_scrollbar__WEBPACK_IMPORTED_MODULE_1__.default(sidebar, {
+        wheelPropagation: false,
+        swipeEasing: true
+      });
+      window.addEventListener('resize', function () {
+        return _this.sidebarOverlay.update();
+      });
+    }
   };
 
   this.initSidebarMenu = function () {
@@ -119,13 +128,27 @@ var app = function app(root) {
         e.preventDefault();
       });
     });
+    var sidebarDropdownActive = document.querySelector("".concat(root, " .sidebar .dropdown.menu .active"));
+
+    if (sidebarDropdownActive != null) {
+      var parent = sidebarDropdownActive.parentElement.parentElement.parentElement;
+      if (!parent.classList.contains('active')) parent.classList.add('active');
+    }
   };
 
   this.initSidebar = function () {
-    var sidebarItem = document.querySelector("".concat(root, " li.item.active"));
-    if (sidebarItem != null) sidebarItem.scrollIntoView({
-      behavior: 'smooth'
-    });
+    var sidebarItem = document.querySelector("".concat(root, " .item .menu li.item.active"));
+
+    if (sidebarItem != null) {
+      var wrapper = document.querySelector("".concat(root, " .sidebar-menu-wrapper")); // wrapper.scrollTop = 0
+      // sidebarItem.offsetTop
+
+      wrapper.scroll({
+        top: sidebarItem.offsetTop,
+        behavior: 'smooth'
+      });
+    }
+
     var dashboard = document.querySelector("".concat(root));
     var sidebar = document.querySelector("".concat(root, " > .sidebar"));
     var overlaySidebar = document.querySelector("".concat(root, " .overlay .sidebar"));
@@ -220,7 +243,7 @@ var app = function app(root) {
     setTimeout(function () {
       return _this2.loading.hide();
     }, 1000);
-    var menuLink = document.querySelectorAll('.item a');
+    var menuLink = document.querySelectorAll('a');
     menuLink.forEach(function (e) {
       return e.addEventListener('click', /*#__PURE__*/function () {
         var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(item) {
@@ -240,9 +263,7 @@ var app = function app(root) {
                   _this2.loading.show();
 
                   _context.next = 6;
-                  return new Promise(function (resolve) {
-                    return setTimeout(resolve, 500);
-                  });
+                  return sleep(500);
 
                 case 6:
                   window.location.href = href;
@@ -276,23 +297,37 @@ var app = function app(root) {
   }; // init all component
 
 
-  this.init = function () {
-    // sidebar - scrollbar
-    this.initSidebarScrollbar(); // sidebar - expand menu
+  this.init = /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+      while (1) {
+        switch (_context2.prev = _context2.next) {
+          case 0:
+            // sidebar - scrollbar
+            this.initSidebarScrollbar(); // sidebar - expand menu
 
-    this.initSidebarMenu(); // sidebar - auto scroll to menu
+            this.initSidebarMenu();
+            _context2.next = 4;
+            return sleep(100);
 
-    this.initSidebar(); // navbar
+          case 4:
+            // navbar
+            this.initNavbar(); // feather icon
 
-    this.initNavbar(); // feather icon
+            this.initFeatherIcon(); // loading
 
-    this.initFeatherIcon(); // loading
+            this.initLoadingAnimation(); // component - panel
 
-    this.initLoadingAnimation(); // component - panel
+            this.initComponentPanel(); // sidebar - auto scroll to menu
 
-    this.initComponentPanel();
-  }; // loading
+            this.initSidebar();
 
+          case 9:
+          case "end":
+            return _context2.stop();
+        }
+      }
+    }, _callee2, this);
+  })); // loading
 
   this.loading = {
     show: function show() {
@@ -331,12 +366,30 @@ var app = function app(root) {
 };
 
 function main() {
-  // create instance
-  var admin = new app('.dashboard'); // init all component
+  return _main.apply(this, arguments);
+}
 
-  admin.init(); // setTimeout(() => {
-  //   window.location.reload()
-  // }, 2000)
+function _main() {
+  _main = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
+    var admin;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+      while (1) {
+        switch (_context3.prev = _context3.next) {
+          case 0:
+            // create instance
+            admin = new app('.dashboard'); // init all component
+
+            _context3.next = 3;
+            return admin.init();
+
+          case 3:
+          case "end":
+            return _context3.stop();
+        }
+      }
+    }, _callee3);
+  }));
+  return _main.apply(this, arguments);
 }
 
 document.addEventListener("DOMContentLoaded", main);

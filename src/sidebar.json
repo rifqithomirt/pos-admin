@@ -1,0 +1,100 @@
+[
+    {
+        "type": "item",
+        "url": "index",
+        "text": "Dashboard",
+        "icon": "home"
+    },
+    {
+        "type": "subitem",
+        "url": "sales",
+        "text": "Sales",
+        "icon": "credit-card",
+        "subitem": [
+            {
+                "text": "Invoices",
+                "url": "invoices"
+            },
+            {
+                "text": "Customer",
+                "url": "customer"
+            },
+            {
+                "text": "Product Services",
+                "url": "product-services"
+            }
+        ]
+    },
+    {
+        "type": "subitem",
+        "url": "purchases",
+        "text": "Purchases",
+        "icon": "shopping-cart",
+        "subitem": [
+            {
+                "text": "Bills",
+                "url": "bills"
+            },
+            {
+                "text": "Vendors",
+                "url": "vendors"
+            },
+            {
+                "text": "Product Services",
+                "url": "product-services"
+            }
+        ]
+    },
+    {
+        "type": "subitem",
+        "url": "accounting",
+        "text": "Accounting",
+        "icon": "dollar-sign",
+        "subitem": [
+            {
+                "text": "Transactions",
+                "url": "transactions"
+            },
+            {
+                "text": "Chart of Accounts",
+                "url": "chart-accounts"
+            }
+        ]
+    },
+    {
+        "type": "subitem",
+        "url": "reports",
+        "text": "Reports",
+        "icon": "pie-chart",
+        "subitem": [
+            {
+                "text": "Profit & Loss",
+                "url": "profit-loss"
+            },
+            {
+                "text": "Balance Sheet",
+                "url": "balance-sheet"
+            },
+            {
+                "text": "Cash Flow",
+                "url": "cash-flow"
+            },
+            {
+                "text": "Account Balance",
+                "url": "account-balance"
+            },
+            {
+                "text": "Account Transactions",
+                "url": "account-transactions"
+            }
+        ]
+    },
+    {
+        "type": "item",
+        "url": "setting",
+        "text": "Setting",
+        "icon": "settings"
+    }
+]
+
+

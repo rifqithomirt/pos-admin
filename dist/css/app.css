@@ -228,8 +228,10 @@ svg.fh {
   top: 0;
   width: 100%;
   background: #fff;
-  border-bottom: 2px solid #d1d5db;
+  border-bottom: 1px solid #d1d5db;
   display: none;
+  --tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 .dashboard > .navbar-mobile ul.menu {
@@ -267,7 +269,7 @@ svg.fh {
   background: #fff;
   z-index: 21;
   overflow: hidden;
-  border-right: 2px solid #d1d5db;
+  border-right: 1px solid #d1d5db;
   display: none;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
@@ -361,7 +363,7 @@ svg.fh {
 
 .dashboard > .sidebar .sidebar-wrapper .sidebar-menu-wrapper .sidebar-menu ul.menu li.item.active:not(.dropdown) a {
   color: #2563eb;
-  font-weight: 580;
+  font-weight: 600;
 }
 
 .dashboard > .sidebar .sidebar-wrapper .sidebar-menu-wrapper .sidebar-menu ul.menu li.item.dropdown:not(.active):not(.show) .item:not(.dropdown.item)::after {

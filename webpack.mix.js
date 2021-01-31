@@ -1,8 +1,12 @@
-const mix = require("laravel-mix");
+const mix = require("laravel-mix")
 
 // plugin
-require('laravel-mix-tailwind');
-require('laravel-mix-purgecss');
+require('laravel-mix-tailwind')
+require('laravel-mix-purgecss')
+require('laravel-mix-nunjucks')
+
+// 
+const sidebarItems = require('./src/sidebar.json')
 
 /*
  |--------------------------------------------------------------------------
@@ -25,7 +29,34 @@ mix.js("src/scripts/app.js", "dist/js")
   .copyDirectory("node_modules/fontisto", "vendor/fontisto")
   .copyDirectory("node_modules/feather-icons/dist", "vendor/feather-icons")
   .copyDirectory("node_modules/bootstrap/dist/js", "vendor/bootstrap/js")
-  .copyDirectory("node_modules/chart.js/dist", "vendor/chart.js");
+  .copyDirectory("node_modules/chart.js/dist", "vendor/chart.js")
+
+
+// browser sync
+mix.browserSync({
+  watch: true,
+  // server
+  server: {
+    baseDir: '.',
+    index: './pages/index.html'
+  }
+})
+
+// nunjucks
+mix.njk('src/views/', 'pages/', {
+  ext: '.html',
+  marked: null,
+  watch: true,
+  data: {
+    app_name: 'E-POS Admin',
+    sidebarItems
+  },
+  envOptions: {
+    watch: true,
+    noCache: true
+  },
+  // manageEnv: (nunjucks) => {},
+})
 
 // option
-mix.disableNotifications();
+// mix.disableNotifications();

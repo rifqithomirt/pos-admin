@@ -16,6 +16,8 @@ const debounce = function (func, wait, immediate) {
 	}
 }
 
+const sleep = (time) => new Promise(resolve => setTimeout(resolve, time))
+
 const app = function (root) {
   // query for root element
   this.app = root
@@ -26,14 +28,16 @@ const app = function (root) {
 
   // init components
   this.initSidebarScrollbar = function () {
-    const sidebar = document.querySelector(`${root} .sidebar .sidebar-wrapper .sidebar-menu-wrapper`)
-    this.sidebarOverlay = new PerfectScrollbar(
-      `${root} .sidebar .sidebar-wrapper .sidebar-menu-wrapper`, {
-        wheelPropagation: false,
-        swipeEasing: true
-      }
-    );
-    window.addEventListener('resize', () => this.sidebarOverlay.update())
+    const sidebar = `${root} .sidebar .sidebar-wrapper .sidebar-menu-wrapper`
+    if (document.querySelector(sidebar) != null) {
+      this.sidebarOverlay = new PerfectScrollbar(
+        sidebar, {
+          wheelPropagation: false,
+          swipeEasing: true
+        }
+      );
+      window.addEventListener('resize', () => this.sidebarOverlay.update())
+    }
   }
   this.initSidebarMenu = function () {
     const sidebarDropdown = document.querySelectorAll(`${root} li.item.dropdown > .item a`)
@@ -71,12 +75,21 @@ const app = function (root) {
         e.preventDefault()
       })
     })
+
+    const sidebarDropdownActive = document.querySelector(`${root} .sidebar .dropdown.menu .active`)
+    if (sidebarDropdownActive != null)  {
+      const parent = sidebarDropdownActive.parentElement.parentElement.parentElement
+      if (!parent.classList.contains('active')) parent.classList.add('active')
+    }
   }
   this.initSidebar = function () {
-    const sidebarItem = document.querySelector(`${root} li.item.active`)
-    if (sidebarItem != null) sidebarItem.scrollIntoView({ 
-      behavior: 'smooth' 
-    })
+    const sidebarItem = document.querySelector(`${root} .item .menu li.item.active`)
+    if (sidebarItem != null) {
+      const wrapper = document.querySelector(`${root} .sidebar-menu-wrapper`)
+      // wrapper.scrollTop = 0
+      // sidebarItem.offsetTop
+      wrapper.scroll({ top: sidebarItem.offsetTop, behavior: 'smooth' });
+    }
 
     const dashboard = document.querySelector(`${root}`)
     const sidebar = document.querySelector(`${root} > .sidebar`)
@@ -152,13 +165,13 @@ const app = function (root) {
   }
   this.initLoadingAnimation = function () {
     setTimeout(() => this.loading.hide(), 1000)
-    const menuLink = document.querySelectorAll('.item a')
+    const menuLink = document.querySelectorAll('a')
     menuLink.forEach((e) => e.addEventListener('click', async (item) => {
       item.preventDefault()
       const href = e.getAttribute('href')
       if (href != null && href != '#') {
         this.loading.show()
-        await new Promise(resolve => setTimeout(resolve, 500))
+        await sleep(500)
         window.location.href = href
       }
     }))
@@ -176,13 +189,12 @@ const app = function (root) {
   }
 
   // init all component
-  this.init = function () {
+  this.init = async function () {
     // sidebar - scrollbar
     this.initSidebarScrollbar()
     // sidebar - expand menu
     this.initSidebarMenu()
-    // sidebar - auto scroll to menu
-    this.initSidebar()
+    await sleep(100)
     // navbar
     this.initNavbar()
     // feather icon
@@ -191,6 +203,8 @@ const app = function (root) {
     this.initLoadingAnimation()
     // component - panel
     this.initComponentPanel()
+    // sidebar - auto scroll to menu
+    this.initSidebar()
   }
 
   // loading
@@ -224,12 +238,12 @@ const app = function (root) {
   }
 }
 
-function main () {
+async function main () {
   // create instance
   const admin = new app('.dashboard')
 
   // init all component
-  admin.init()
+  await admin.init()
 
   // setTimeout(() => {
   //   window.location.reload()

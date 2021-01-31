@@ -111,8 +111,9 @@ svg.fh {
         top: 0;
         width: 100%;
         background: $navbarBackgroundColor;
-        border-bottom: 2px solid $navbarBorderColor;
+        border-bottom: 1px solid $navbarBorderColor;
         display: none;
+        @apply tw-shadow;
         ul.menu {
             display: flex;
             flex-direction: row;
@@ -148,7 +149,7 @@ svg.fh {
         background: $sidebarBackgroundColor;
         z-index: 21;
         overflow: hidden;
-        border-right: 2px solid $sidebarBorderColor;
+        border-right: 1px solid $sidebarBorderColor;
         display: none;
         box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 
@@ -220,7 +221,7 @@ svg.fh {
                         li.item.active:not(.dropdown) {
                             a {
                                 color: $primaryColor;
-                                font-weight: 580;
+                                font-weight: 600;
                             }
                         }
 
