@@ -10,6 +10,11 @@
     <link rel="stylesheet" href="../dist/css/tailwind.css">
     <link rel="stylesheet" href="../dist/css/bootstrap.css">
     <link rel="stylesheet" href="../vendor/fontisto/css/fontisto/fontisto.min.css">
+    
+    <!-- style:plugin -->
+    <link rel="stylesheet" href="../vendor/choices.js/styles/choices.min.css">
+    <link rel="stylesheet" href="../vendor/pikaday/css/pikaday.css">    
+
     <link rel="stylesheet" href="../dist/css/app.css">
     
 </head>
@@ -173,9 +178,9 @@
                         </ul>
                     </div>
                 </div>
-                <div class="sidebar-footer mx-2 my-2 text-center">
+                <!-- <div class="sidebar-footer mx-2 my-2 text-center">
                     <img src="../dist/img/illustrations/3.svg" alt="Illustration" width="170px" class="d-inline">
-                </div>
+                </div> -->
             </div>
         </div>
         <!-- sidebar:end -->
@@ -205,19 +210,9 @@
                 <div class="title">
                     Invoices
                 </div>
-                <div class="btn-group dropstart">
-                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        Create a new
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <li><a class="dropdown-item" href="#">Invoice</a></li>
-                        <li><a class="dropdown-item" href="#">Bill</a></li>
-                        <li><a class="dropdown-item" href="#">Customer</a></li>
-                        <li><a class="dropdown-item" href="#">Vendor</a></li>
-                        <li><a class="dropdown-item" href="#">Product or Service</a></li>
-                    </ul>
-                </div>
+                <button class="btn btn-primary">
+                    Create an invoice
+                </button>
             </div>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
@@ -230,6 +225,49 @@
         <!-- content-header:end -->
         <!-- content -->
         <div class="content">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">Invoices</div>
+                        <div class="card-body">
+                            <!-- filters -->
+                            <form action="#">
+                                <div class="row gx-2">
+                                    <div class="col-3 form-group">
+                                        <select id="input-filter-customer" class="choices-default form-select">
+                                            <option value="">All Customer</option>
+                                            <option value="1">Alfian</option>
+                                            <option value="2">Adian</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-3 form-group">
+                                        <select id="input-filter-status" class="choices-default form-select">
+                                            <option value="">All Status</option>
+                                            <option value="1">Draft</option>
+                                            <option value="2">Unsent</option>
+                                            <option value="3">Sent</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-4 form-group">
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text"><i class="fh-16" data-feather="calendar"></i></span>
+                                            <input id="input-filter-datepicker-from" type="text" class="form-control datepicker" placeholder="From..." value="01-01-2021">
+                                            <span class="input-group-text"><i class="fh-16" data-feather="calendar"></i></span>
+                                            <input id="input-filter-datepicker-to" type="text" class="form-control datepicker" placeholder="To..." value="01-01-2021">
+                                        </div>
+                                    </div>
+                                    <div class="col-2 form-group">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" placeholder="Search #invoices...">
+                                            <button class="btn btn-info" type="button"><i class="fh-16" data-feather="search"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <!-- content:end -->
     </div>
@@ -258,9 +296,42 @@
     
     <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../vendor/feather-icons/feather.min.js"></script>
+    
+    <!-- script:plugin -->
+    <script src="../vendor/choices.js/scripts/choices.min.js"></script>
+    <script src="../vendor/pikaday/pikaday.js"></script>
+    <script src="../vendor/moment/moment.js"></script>
+
     <script src="../dist/js/app.js"></script>
     
-    <!-- page:script - you can remove this -->
+    <!-- script:page - you can remove this -->
+    <script>
+        // choice
+        const initChoice = () => {
+            const els = document.querySelectorAll('.choices-default')
+            els.forEach((el) => new Choices(el))
+        }
+        // datepicker
+        const initDatepicker = () => {
+            const els = document.querySelectorAll('.datepicker')
+            els.forEach((el) => new Pikaday({
+                field: el,
+                format: 'DD-MM-YYYY',
+                toString(date, format) {
+                    // you should do formatting based on the passed format,
+                    // but we will just return 'D/M/YYYY' for simplicity
+                    const day = ('0' + date.getDate()).slice(-2);
+                    const month = ('0' + (date.getMonth() + 1)).slice(-2);
+                    const year = date.getFullYear();
+                    return `${day}-${month}-${year}`;
+                },
+            }))
+        }
+
+        // init
+        initChoice()
+        initDatepicker()
+    </script>
 
 </body>
 </html>

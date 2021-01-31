@@ -25,11 +25,16 @@ mix.js("src/scripts/app.js", "dist/js")
   .sass("src/scss/tailwind.scss", "dist/css")
   .tailwind('./tailwind.config.js')
   .sass("src/scss/app.scss", "dist/css")
-  .copyDirectory("src/fonts", "dist/fonts")
+
+  // vendor
+mix.copyDirectory("src/fonts", "dist/fonts")
   .copyDirectory("node_modules/fontisto", "vendor/fontisto")
   .copyDirectory("node_modules/feather-icons/dist", "vendor/feather-icons")
   .copyDirectory("node_modules/bootstrap/dist/js", "vendor/bootstrap/js")
   .copyDirectory("node_modules/chart.js/dist", "vendor/chart.js")
+  .copyDirectory("node_modules/choices.js/public/assets", "vendor/choices.js")
+  .copyDirectory("node_modules/pikaday", "vendor/pikaday")
+  .js("node_modules/moment/moment.js", "vendor/moment")
 
 
 // browser sync

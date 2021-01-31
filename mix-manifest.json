@@ -1,5 +1,6 @@
 {
     "/dist/js/app.js": "/dist/js/app.js",
+    "/vendor/moment/moment.js": "/vendor/moment/moment.js",
     "/dist/css/app.css": "/dist/css/app.css",
     "/dist/css/tailwind.css": "/dist/css/tailwind.css",
     "/dist/css/bootstrap.css": "/dist/css/bootstrap.css",
@@ -29,5 +30,9 @@
     "/vendor/chart.js/Chart.css": "/vendor/chart.js/Chart.css",
     "/vendor/chart.js/Chart.js": "/vendor/chart.js/Chart.js",
     "/vendor/chart.js/Chart.min.css": "/vendor/chart.js/Chart.min.css",
-    "/vendor/chart.js/Chart.min.js": "/vendor/chart.js/Chart.min.js"
+    "/vendor/chart.js/Chart.min.js": "/vendor/chart.js/Chart.min.js",
+    "/vendor/pikaday/CHANGELOG.md": "/vendor/pikaday/CHANGELOG.md",
+    "/vendor/pikaday/README.md": "/vendor/pikaday/README.md",
+    "/vendor/pikaday/package.json": "/vendor/pikaday/package.json",
+    "/vendor/pikaday/pikaday.js": "/vendor/pikaday/pikaday.js"
 }

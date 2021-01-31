@@ -7,10 +7,21 @@
 
 // variables
 @import "variables";
+// $primaryColor: theme('colors.blue.600');
+// $contentBackgroundColor: theme('colors.gray.100');
+// $sidebarWidth: 270px;
+// $sidebarBackgroundColor: theme('colors.white');
+// $sidebarBorderColor: theme('colors.gray.300');
+// $sidebarItemColor: theme('colors.gray.500');
+// $sidebarItemActive: $primaryColor;
+// $sidebarItemDropdownActive: theme('colors.gray.700');
+// $navbarBackgroundColor: $sidebarBackgroundColor;
+// $navbarBorderColor: $sidebarBorderColor;
+
 $primaryColor: theme('colors.blue.600');
-$contentBackgroundColor: theme('colors.gray.100');
-$sidebarWidth: 270px;
-$sidebarBackgroundColor: theme('colors.white');
+$contentBackgroundColor: theme('colors.white');
+$sidebarWidth: 250px;
+$sidebarBackgroundColor: #ebeff4;
 $sidebarBorderColor: theme('colors.gray.300');
 $sidebarItemColor: theme('colors.gray.500');
 $sidebarItemActive: $primaryColor;
@@ -404,6 +415,9 @@ svg.fh {
 @import "components/dropdown";
 @import "components/widget";
 @import "components/card";
+@import "components/input";
+@import "components/select";
+@import "components/icon";
 // @import "components"
 
 // other

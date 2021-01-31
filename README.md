@@ -20,8 +20,19 @@ HTML Admin Template For POS Apps
   ```
 
 ### Library Use
-* bootstrap
-* tailwindcss
-* PerfectScrollbar
-* feather-icons
-* chart.js
+* Base
+  - bootstrap
+  - tailwindcss
+  - PerfectScrollbar
+* Icon
+  - feather-icons
+    [https://www.npmjs.com/package/feather-icons]
+* Chart / Diagram
+  - chart.js
+    [https://www.chartjs.org/]
+* Selectbox
+  - choices.js
+    [https://github.com/jshjohnson/Choices]
+* Datepicker
+  - pikaday
+    [https://github.com/Pikaday/Pikaday]
