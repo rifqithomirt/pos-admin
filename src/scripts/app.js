@@ -1,9 +1,25 @@
 import PerfectScrollbar from 'perfect-scrollbar'
 const OverlayScrollbars = require('overlayscrollbars')
 
+const debounce = function (func, wait, immediate) {
+	var timeout
+	return function() {
+		var context = this, args = arguments
+		var later = function() {
+			timeout = null
+			if (!immediate) func.apply(context, args)
+		};
+		var callNow = immediate && !timeout
+		clearTimeout(timeout)
+		timeout = setTimeout(later, wait)
+		if (callNow) func.apply(context, args)
+	}
+}
+
 const app = function (root) {
   // query for root element
   this.app = root
+  this.mobileSidebarState = true
 
   // dom
   this.sidebarOverlay = undefined
@@ -61,6 +77,71 @@ const app = function (root) {
     if (sidebarItem != null) sidebarItem.scrollIntoView({ 
       behavior: 'smooth' 
     })
+
+    const dashboard = document.querySelector(`${root}`)
+    const sidebar = document.querySelector(`${root} > .sidebar`)
+    const overlaySidebar = document.querySelector(`${root} .overlay .sidebar`)
+    const toggleSidebar = document.querySelectorAll('.toggle-sidebar')
+    const $this = this
+    toggleSidebar.forEach(function (el) {
+      el.addEventListener('click', function (e) {
+        $this.mobileSidebarState = !$this.mobileSidebarState
+        if ($this.mobileSidebarState) {
+          sidebar.animate([
+            { opacity: 1 },
+            { transform: 'translateX(0)' },
+            { transform: 'translateX(-200px)' },
+            { opacity: 0 },
+          ], {
+            easing: 'ease-in-out',
+            duration: 250
+          })
+          setTimeout(() => dashboard.classList.remove('sidebar-mobile-show'), 200)
+          overlaySidebar.style.opacity = 0;
+          overlaySidebar.animate([
+            { opacity: 1 },
+            { opacity: 0 },
+          ], {
+            easing: 'ease-in',
+            duration: 250
+          })
+          setTimeout(() => overlaySidebar.style.display = 'none', 250)
+        } else {
+          dashboard.classList.add('sidebar-mobile-show')
+          sidebar.animate([
+            { transform: 'translateX(-200px)' },
+            { transform: 'translateX(0)' }
+          ], {
+            easing: 'ease-in-out',
+            duration: 250
+          })
+          overlaySidebar.style.display = 'block'
+          overlaySidebar.style.opacity = 1;
+          overlaySidebar.animate([
+            { opacity: 0 },
+            { opacity: 1 },
+          ], {
+            easing: 'ease-in',
+            duration: 250
+          })
+        }
+      })
+    })
+  }
+  this.initNavbar = function () {
+    const onrezise = function(e) {
+      const width = window.innerWidth
+      const dashboard = document.querySelector(`${root}`)
+      if (dashboard != null) {
+        if (width < 1024) {
+          dashboard.classList.add('navbar-mobile-show')
+        } else {
+          dashboard.classList.remove('navbar-mobile-show')
+        }
+      }
+    }
+    window.addEventListener('resize', onrezise)
+    onrezise()
   }
   this.initFeatherIcon = function () {
     if (typeof feather == 'object') {
@@ -102,6 +183,8 @@ const app = function (root) {
     this.initSidebarMenu()
     // sidebar - auto scroll to menu
     this.initSidebar()
+    // navbar
+    this.initNavbar()
     // feather icon
     this.initFeatherIcon()
     // loading

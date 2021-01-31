@@ -15,6 +15,8 @@ $sidebarBorderColor: theme('colors.gray.300');
 $sidebarItemColor: theme('colors.gray.500');
 $sidebarItemActive: $primaryColor;
 $sidebarItemDropdownActive: theme('colors.gray.700');
+$navbarBackgroundColor: $sidebarBackgroundColor;
+$navbarBorderColor: $sidebarBorderColor;
 
 // functions
 @function color($key: "blue") {
@@ -42,6 +44,7 @@ svg.fh {
 // dashboard
 .dashboard {
     display: flex;
+    flex-direction: column;
 
     & > .overlay {
         .loading {
@@ -50,7 +53,7 @@ svg.fh {
             height: 100vh;
             width: 100vw;
             background: $contentBackgroundColor;
-            z-index: 20;
+            z-index: 30;
             display: flex;
             justify-content: center;
 
@@ -88,6 +91,53 @@ svg.fh {
                 }
             }              
         }
+
+        .sidebar {
+            position: fixed;
+            display: none;
+            height: 100vh;
+            width: 100vw;
+            top: 0;
+            left: 0;
+            z-index: 20;
+            background: rgba($color: #000000, $alpha: .7);
+        }
+    }
+
+    & > .navbar-mobile {
+        z-index: 10;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        background: $navbarBackgroundColor;
+        border-bottom: 2px solid $navbarBorderColor;
+        display: none;
+        ul.menu {
+            display: flex;
+            flex-direction: row;
+            padding: 0;
+            margin: 0;
+            li.item {
+                border-left: 2px solid $navbarBorderColor;
+                padding: 1rem;
+
+                &:nth-child(1) {
+                    border: none;
+                }
+
+                a {
+                    color: theme('colors.gray.700');
+                    text-decoration: none;
+                    font-size: 1.125rem;
+                    font-weight: 550;
+                    
+                    svg {
+                        margin-top: -3px;
+                    }
+                }
+            }
+        }
     }
 
     & > .sidebar {
@@ -96,7 +146,7 @@ svg.fh {
         position: fixed;
         width: $sidebarWidth;
         background: $sidebarBackgroundColor;
-        z-index: 10;
+        z-index: 21;
         overflow: hidden;
         border-right: 2px solid $sidebarBorderColor;
         display: none;
@@ -114,7 +164,7 @@ svg.fh {
 
             .sidebar-header {
                 position: relative;
-                @apply tw-mx-2 tw-my-2;
+                @apply tw-mx-3 tw-my-3;
                 .sidebar-brand {
                     @apply tw-text-lg tw-font-semibold;
                     @apply tw-bg-gray-200 tw-text-gray-700 tw-rounded-full tw-py-3 tw-px-4;
@@ -301,6 +351,24 @@ svg.fh {
     }
 }
 
+
+// responsive
+@screen lg {
+    .lg\:fixed-footer {
+        @apply fixed-footer;
+    }
+}
+@screen md {
+    .md\:fixed-footer {
+        @apply fixed-footer;
+    }
+}
+@screen sm {
+    .sm\:fixed-footer {
+        @apply fixed-footer;
+    }
+}
+
 // dashboard layout
 .dashboard {
     &.fixed-footer {
@@ -311,6 +379,19 @@ svg.fh {
                 bottom: 0;
                 width: 100%;
             }
+        }
+    }
+    &.navbar-mobile-show {
+        & > .main {
+            margin-top: 3.6rem;
+        }
+        & > .navbar-mobile {
+            display: block;
+        }
+    }
+    &.sidebar-mobile-show {
+        .sidebar {
+            display: block #{!important};
         }
     }
 }

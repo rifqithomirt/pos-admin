@@ -14,9 +14,10 @@
 </head>
 <body>
     <!-- dashboard -->
-    <div class="dashboard fixed-footer">
+    <div class="dashboard lg:fixed-footer">
         <!-- overlay screen -->
         <div class="overlay">
+            <div class="sidebar toggle-sidebar"></div>
             <div class="loading"><div class="lds-ripple"><div></div><div></div></div></div>
         </div>
         <!-- overlay:end -->
@@ -24,7 +25,7 @@
         <div class="sidebar">
             <div class="sidebar-wrapper">
                 <div class="sidebar-header">
-                    <a href="" class="sidebar-brand">
+                    <a href="index.html" class="sidebar-brand">
                         <i class="logo fi fi-yelp"></i>
                         <span class="text">E-POS Admin</span>
                         <i data-feather="chevron-right"></i>
@@ -117,6 +118,17 @@
         <!-- sidebar:end -->
         <!-- navbar-mobile -->
         <div class="navbar-mobile">
+            <ul class="menu">
+                <li class="item">
+                    <a href="#" class="toggle-sidebar">
+                        <i data-feather="menu"></i>
+                        Menu
+                    </a>
+                </li>
+                <li class="item">
+                    <a href="#">E-POS Admin</a>
+                </li>
+            </ul>
         </div>
         <!-- navbar-mobile:end -->
         <!-- main -->

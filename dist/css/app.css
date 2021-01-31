@@ -138,6 +138,7 @@ svg.fh {
 
 .dashboard {
   display: flex;
+  flex-direction: column;
 }
 
 .dashboard > .overlay .loading {
@@ -146,7 +147,7 @@ svg.fh {
   height: 100vh;
   width: 100vw;
   background: #f3f4f6;
-  z-index: 20;
+  z-index: 30;
   display: flex;
   justify-content: center;
 }
@@ -209,13 +210,62 @@ svg.fh {
   }
 }
 
+.dashboard > .overlay .sidebar {
+  position: fixed;
+  display: none;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.dashboard > .navbar-mobile {
+  z-index: 10;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background: #fff;
+  border-bottom: 2px solid #d1d5db;
+  display: none;
+}
+
+.dashboard > .navbar-mobile ul.menu {
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+  margin: 0;
+}
+
+.dashboard > .navbar-mobile ul.menu li.item {
+  border-left: 2px solid #d1d5db;
+  padding: 1rem;
+}
+
+.dashboard > .navbar-mobile ul.menu li.item:nth-child(1) {
+  border: none;
+}
+
+.dashboard > .navbar-mobile ul.menu li.item a {
+  color: #374151;
+  text-decoration: none;
+  font-size: 1.125rem;
+  font-weight: 550;
+}
+
+.dashboard > .navbar-mobile ul.menu li.item a svg {
+  margin-top: -3px;
+}
+
 .dashboard > .sidebar {
   height: 100vh;
   max-height: 100vh;
   position: fixed;
   width: 270px;
   background: #fff;
-  z-index: 10;
+  z-index: 21;
   overflow: hidden;
   border-right: 2px solid #d1d5db;
   display: none;
@@ -237,10 +287,10 @@ svg.fh {
 
 .dashboard > .sidebar .sidebar-wrapper .sidebar-header {
   position: relative;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
 }
 
 .dashboard > .sidebar .sidebar-wrapper .sidebar-header .sidebar-brand {
@@ -424,6 +474,42 @@ svg.fh {
   padding: 1rem;
 }
 
+@media (min-width: 1024px) {
+  .dashboard.lg\:fixed-footer > .main {
+    margin-bottom: 2rem;
+  }
+
+  .dashboard.lg\:fixed-footer > .main > .footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  .dashboard.md\:fixed-footer > .main {
+    margin-bottom: 2rem;
+  }
+
+  .dashboard.md\:fixed-footer > .main > .footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+}
+
+@media (min-width: 640px) {
+  .dashboard.sm\:fixed-footer > .main {
+    margin-bottom: 2rem;
+  }
+
+  .dashboard.sm\:fixed-footer > .main > .footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+}
+
 .dashboard.fixed-footer > .main {
   margin-bottom: 2rem;
 }
@@ -432,6 +518,18 @@ svg.fh {
   position: fixed;
   bottom: 0;
   width: 100%;
+}
+
+.dashboard.navbar-mobile-show > .main {
+  margin-top: 3.6rem;
+}
+
+.dashboard.navbar-mobile-show > .navbar-mobile {
+  display: block;
+}
+
+.dashboard.sidebar-mobile-show .sidebar {
+  display: block !important;
 }
 
 .alert {

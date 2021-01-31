@@ -35,9 +35,28 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
 var OverlayScrollbars = __webpack_require__(/*! overlayscrollbars */ "./node_modules/overlayscrollbars/js/OverlayScrollbars.js");
 
+var debounce = function debounce(func, wait, immediate) {
+  var timeout;
+  return function () {
+    var context = this,
+        args = arguments;
+
+    var later = function later() {
+      timeout = null;
+      if (!immediate) func.apply(context, args);
+    };
+
+    var callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+    if (callNow) func.apply(context, args);
+  };
+};
+
 var app = function app(root) {
   // query for root element
-  this.app = root; // dom
+  this.app = root;
+  this.mobileSidebarState = true; // dom
 
   this.sidebarOverlay = undefined; // init components
 
@@ -107,6 +126,84 @@ var app = function app(root) {
     if (sidebarItem != null) sidebarItem.scrollIntoView({
       behavior: 'smooth'
     });
+    var dashboard = document.querySelector("".concat(root));
+    var sidebar = document.querySelector("".concat(root, " > .sidebar"));
+    var overlaySidebar = document.querySelector("".concat(root, " .overlay .sidebar"));
+    var toggleSidebar = document.querySelectorAll('.toggle-sidebar');
+    var $this = this;
+    toggleSidebar.forEach(function (el) {
+      el.addEventListener('click', function (e) {
+        $this.mobileSidebarState = !$this.mobileSidebarState;
+
+        if ($this.mobileSidebarState) {
+          sidebar.animate([{
+            opacity: 1
+          }, {
+            transform: 'translateX(0)'
+          }, {
+            transform: 'translateX(-200px)'
+          }, {
+            opacity: 0
+          }], {
+            easing: 'ease-in-out',
+            duration: 250
+          });
+          setTimeout(function () {
+            return dashboard.classList.remove('sidebar-mobile-show');
+          }, 200);
+          overlaySidebar.style.opacity = 0;
+          overlaySidebar.animate([{
+            opacity: 1
+          }, {
+            opacity: 0
+          }], {
+            easing: 'ease-in',
+            duration: 250
+          });
+          setTimeout(function () {
+            return overlaySidebar.style.display = 'none';
+          }, 250);
+        } else {
+          dashboard.classList.add('sidebar-mobile-show');
+          sidebar.animate([{
+            transform: 'translateX(-200px)'
+          }, {
+            transform: 'translateX(0)'
+          }], {
+            easing: 'ease-in-out',
+            duration: 250
+          });
+          overlaySidebar.style.display = 'block';
+          overlaySidebar.style.opacity = 1;
+          overlaySidebar.animate([{
+            opacity: 0
+          }, {
+            opacity: 1
+          }], {
+            easing: 'ease-in',
+            duration: 250
+          });
+        }
+      });
+    });
+  };
+
+  this.initNavbar = function () {
+    var onrezise = function onrezise(e) {
+      var width = window.innerWidth;
+      var dashboard = document.querySelector("".concat(root));
+
+      if (dashboard != null) {
+        if (width < 1024) {
+          dashboard.classList.add('navbar-mobile-show');
+        } else {
+          dashboard.classList.remove('navbar-mobile-show');
+        }
+      }
+    };
+
+    window.addEventListener('resize', onrezise);
+    onrezise();
   };
 
   this.initFeatherIcon = function () {
@@ -185,7 +282,9 @@ var app = function app(root) {
 
     this.initSidebarMenu(); // sidebar - auto scroll to menu
 
-    this.initSidebar(); // feather icon
+    this.initSidebar(); // navbar
+
+    this.initNavbar(); // feather icon
 
     this.initFeatherIcon(); // loading
 
