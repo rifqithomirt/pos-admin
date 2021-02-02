@@ -271,7 +271,6 @@ svg.fh {
   overflow: hidden;
   border-right: 1px solid #d1d5db;
   display: none;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
 @media (min-width: 1024px) {
@@ -687,6 +686,10 @@ input[type=number]:focus,
   padding-bottom: 2px;
 }
 
+.choices__list.choices__list--single {
+  min-height: 22px;
+}
+
 .fh-16 {
   width: 16px;
   height: 16px;
@@ -700,6 +703,14 @@ input[type=number]:focus,
 .fh-32 {
   width: 32px;
   height: 32px;
+}
+
+.card-table {
+  word-break: break-all;
+}
+
+.table > :not(:last-child) > :last-child > * {
+  border-bottom: 1px solid #9ca3af !important;
 }
 
 @media (min-width: 1024px) {

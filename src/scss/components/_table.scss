@@ -1,0 +1,8 @@
+.card-table {
+    word-break: break-all;
+}
+
+.table > :not(:last-child) > :last-child > * {
+    // border: none #{!important};
+    border-bottom: 1px solid theme('colors.gray.400') #{!important};
+}

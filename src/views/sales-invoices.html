@@ -10,9 +10,9 @@
                 <div class="title">
                     Invoices
                 </div>
-                <button class="btn btn-primary">
+                <a href="sales-invoices-create.html" class="btn btn-primary">
                     Create an invoice
-                </button>
+                </a>
             </div>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
@@ -32,57 +32,46 @@
                         <div class="card-body">
                             <!-- filters -->
                             <form action="#">
+                                <div class="tw-font-semibold">Filter :</div>
                                 <div class="row gx-2">
-                                    <div class="col-3 form-group">
-                                        <select id="input-filter-customer" class="choices-default form-select">
+                                    <div class="col-md-6 col-lg-3 form-group my-1">
+                                        <select id="input-filter-customer" class="choices form-select">
                                             <option value="">All Customer</option>
                                             <option value="1">Alfian</option>
                                             <option value="2">Adian</option>
                                         </select>
                                     </div>
-                                    <div class="col-3 form-group">
-                                        <select id="input-filter-status" class="choices-default form-select">
+                                    <div class="col-md-6 col-lg-3 form-group my-1">
+                                        <select id="input-filter-status" class="choices form-select">
                                             <option value="">All Status</option>
                                             <option value="1">Draft</option>
                                             <option value="2">Unsent</option>
                                             <option value="3">Sent</option>
                                         </select>
                                     </div>
-                                    <div class="col-4 form-group">
-                                        <div class="input-group mb-3">
+                                    <div class="col-md-6 col-lg-3 form-group my-1">
+                                        <div class="input-group">
                                             <span class="input-group-text"><i class="fh-16" data-feather="calendar"></i></span>
-                                            <input id="input-filter-datepicker-from" type="text" class="form-control datepicker" placeholder="From..." value="01-01-2021">
-                                            <span class="input-group-text"><i class="fh-16" data-feather="calendar"></i></span>
-                                            <input id="input-filter-datepicker-to" type="text" class="form-control datepicker" placeholder="To..." value="01-01-2021">
+                                            <input id="input-filter-datepicker-from" type="text" class="form-control datepicker" placeholder="From...">
                                         </div>
                                     </div>
-                                    <div class="col-2 form-group">
+                                    <div class="col-md-6 col-lg-3 form-group my-1">
                                         <div class="input-group">
-                                            <input type="text" class="form-control" placeholder="Search #invoices...">
-                                            <button class="btn btn-info" type="button"><i class="fh-16" data-feather="search"></i></button>
+                                            <span class="input-group-text"><i class="fh-16" data-feather="calendar"></i></span>
+                                            <input id="input-filter-datepicker-to" type="text" class="form-control datepicker" placeholder="To...">
                                         </div>
                                     </div>
                                 </div>
                             </form>
                             <!-- table -->
-                            <table id="table-invoices" class="display">
-                                <thead>
-                                    <tr>
-                                        <th>Column 1</th>
-                                        <th>Column 2</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Row 1 Data 1</td>
-                                        <td>Row 1 Data 2</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Row 2 Data 1</td>
-                                        <td>Row 2 Data 2</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            <div class="mt-4">
+                                <ul class="nav nav-tabs mb-4">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" aria-current="page" href="#">All Invoices</a>
+                                    </li>
+                                </ul>
+                                <table id="table-invoices" class="table card-table"></table>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -95,7 +84,8 @@
 
 {% block stylesPlugin %}
     <!-- style:plugin -->
-    <link rel="stylesheet" href="../vendor/datatables/css/dataTables.bootstrap4.min.css">    
+    <!-- <link rel="stylesheet" href="../vendor/datatables/css/jquery.dataTables.min.css"> -->
+    <link rel="stylesheet" href="../vendor/datatables/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="../vendor/choices.js/styles/choices.min.css">
     <link rel="stylesheet" href="../vendor/pikaday/css/pikaday.css">    
 {% endblock %}
@@ -103,7 +93,8 @@
 {% block scriptsPlugin %}
     <!-- script:plugin -->
     <script src="../vendor/jquery/jquery.min.js"></script>
-    <script src="../vendor/datatables/js/dataTables.bootstrap4.min.js"></script>
+    <script src="../vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="../vendor/datatables/js/dataTables.bootstrap5.min.js"></script>
     <script src="../vendor/choices.js/scripts/choices.min.js"></script>
     <script src="../vendor/pikaday/pikaday.js"></script>
     <script src="../vendor/moment/moment.js"></script>
@@ -112,10 +103,18 @@
 {% block scripts %}
     <!-- script:page - you can remove this -->
     <script>
+        // variables
+        let filter = {
+            customer: null,
+            status: null,
+            to: null,
+            from: null
+        }
+
         // choice
         const initChoice = () => {
-            const els = document.querySelectorAll('.choices-default')
-            els.forEach((el) => new Choices(el))
+            const els = document.querySelectorAll('.choices')
+            els.forEach((el) => console.log(new Choices(el)))
         }
         // datepicker
         const initDatepicker = () => {
@@ -133,16 +132,61 @@
                 },
             }))
         }
+        // filter input
+        const initFilterData = (filter) => {
+            const filterEl = {
+                customer: document.getElementById('input-filter-customer'),
+                status: document.getElementById('input-filter-status'),
+                to: document.getElementById('input-filter-datepicker-to'),
+                from: document.getElementById('input-filter-datepicker-from')
+            }
+        }
         // datatables
         const initTable = () => {
-            $(document).ready(function () {
-                $('#table-invoices').DataTable();
+            $('#table-invoices').DataTable({
+                order: [[0, 'asc']],
+                columnDefs: [
+                    { orderable: false, targets: [7] }
+                ],
+                columns: [
+                    { title: '#', render: (data, type, row, meta) => meta.row + meta.settings._iDisplayStart + 1 },
+                    { title: 'Status', data: 'status' },
+                    { title: 'Date', data: 'date' },
+                    { title: 'Number', data: 'number' },
+                    { title: 'Customer', data: 'customer' },
+                    { title: 'Total', data: 'total' },
+                    { title: 'Amount Due', data: 'amount_due' },
+                    {
+                        title: 'Action',
+                        data: null,
+                        render: (data, type, row) => `
+                            <div>
+                                a
+                            </div>
+                        `
+                    },
+                ],
+                data: [
+                    {
+                        id: 1,
+                        status: 'Overdue',
+                        date: '2021-01-20',
+                        number: 1,
+                        customer: 'Alfian',
+                        total: 5000,
+                        amount_due: 5000
+                    }
+                ]
             });
         }
 
+
         // init
-        initChoice()
-        initDatepicker()
-        initTable()
+        document.addEventListener('DOMContentLoaded', function () {
+            initChoice()
+            initDatepicker()
+            initFilterData(filter)
+            initTable()
+        })
     </script>
 {% endblock %}

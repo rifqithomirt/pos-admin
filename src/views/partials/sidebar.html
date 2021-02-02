@@ -13,7 +13,7 @@
                         <ul class="menu">
                             {% for item in sidebarItems %}
                                 {% if item.type == 'item' %}
-                                    <li class="item {{ 'active' if (item.url == filename) }}">
+                                    <li class="item {{ 'active' if (item.url == filename or filename|startsWith(item.url)) }}">
                                         <a href="{{ item.url }}.html">
                                             <i data-feather="{{ item.icon }}"></i>
                                             <span>{{ item.text }}</span>
@@ -30,7 +30,7 @@
                                         <div class="dropdown menu">
                                             <ul class="menu">
                                                 {% for subitem in item.subitem %}
-                                                    <li class="dropdown item {{ 'active' if (item.url + '-' + subitem.url == filename) }}">
+                                                    <li class="dropdown item {{ 'active' if (item.url + '-' + subitem.url == filename or filename|startsWith(item.url + '-' + subitem.url)) }}">
                                                         <a href="{{ item.url }}-{{ subitem.url }}.html">{{ subitem.text }}</a>
                                                     </li>
                                                 {% endfor %}

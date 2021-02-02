@@ -4,7 +4,7 @@
     <!-- meta -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sales - Invoices - E-POS Admin</title>
+    <title>Sales - Invoices - Create - E-POS Admin</title>
     <!-- styles -->
     
     <link rel="stylesheet" href="../dist/css/tailwind.css">
@@ -12,8 +12,6 @@
     <link rel="stylesheet" href="../vendor/fontisto/css/fontisto/fontisto.min.css">
     
     <!-- style:plugin -->
-    <!-- <link rel="stylesheet" href="../vendor/datatables/css/jquery.dataTables.min.css"> -->
-    <link rel="stylesheet" href="../vendor/datatables/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="../vendor/choices.js/styles/choices.min.css">
     <link rel="stylesheet" href="../vendor/pikaday/css/pikaday.css">    
 
@@ -210,11 +208,8 @@
         <div class="content-header">
             <div class="tw-flex tw-justify-between">
                 <div class="title">
-                    Invoices
+                    Create Invoice
                 </div>
-                <a href="sales-invoices-create.html" class="btn btn-primary">
-                    Create an invoice
-                </a>
             </div>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
@@ -230,50 +225,75 @@
             <div class="row">
                 <div class="col-12">
                     <div class="card">
-                        <div class="card-header">Invoices</div>
+                        <div class="card-header">General Information</div>
                         <div class="card-body">
-                            <!-- filters -->
-                            <form action="#">
-                                <div class="tw-font-semibold">Filter :</div>
-                                <div class="row gx-2">
-                                    <div class="col-md-6 col-lg-3 form-group my-1">
-                                        <select id="input-filter-customer" class="choices form-select">
-                                            <option value="">All Customer</option>
-                                            <option value="1">Alfian</option>
-                                            <option value="2">Adian</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-6 col-lg-3 form-group my-1">
-                                        <select id="input-filter-status" class="choices form-select">
-                                            <option value="">All Status</option>
-                                            <option value="1">Draft</option>
-                                            <option value="2">Unsent</option>
-                                            <option value="3">Sent</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-6 col-lg-3 form-group my-1">
-                                        <div class="input-group">
-                                            <span class="input-group-text"><i class="fh-16" data-feather="calendar"></i></span>
-                                            <input id="input-filter-datepicker-from" type="text" class="form-control datepicker" placeholder="From...">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-lg-3 form-group my-1">
-                                        <div class="input-group">
-                                            <span class="input-group-text"><i class="fh-16" data-feather="calendar"></i></span>
-                                            <input id="input-filter-datepicker-to" type="text" class="form-control datepicker" placeholder="To...">
+                            <div class="row">
+                                <div class="col-12 col-lg-6">
+                                    <div class="form-group row mb-1">
+                                        <div class="col-sm-1 tw-hidden lg:tw-block"></div>
+                                        <label for="input-customer" class="col-sm-4 col-md-4 col-lg-3 col-form-label">Customer</label>
+                                        <div class="col-lg-6 col-md-8 col-sm-8">
+                                            <select id="input-customer" class="choices form-select"></select>
                                         </div>
                                     </div>
                                 </div>
-                            </form>
-                            <!-- table -->
-                            <div class="mt-4">
-                                <ul class="nav nav-tabs mb-4">
-                                    <li class="nav-item">
-                                        <a class="nav-link active" aria-current="page" href="#">All Invoices</a>
-                                    </li>
-                                </ul>
-                                <table id="table-invoices" class="table card-table"></table>
+                                <div class="col-12 col-lg-6">
+                                    <div class="form-group row mb-1">
+                                        <label for="input-invoice-number" class="col-sm-4 col-form-label text-md-right">
+                                            Invoice number
+                                        </label>
+                                        <div class="col-sm-8 col-md-8">
+                                            <input type="text" id="input-invoice-number" class="form-control" value="1">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row mb-1">
+                                        <label for="input-invoice-number" class="col-sm-4 col-form-label text-md-right">
+                                            P.O./S.O. number
+                                        </label>
+                                        <div class="col-sm-8 col-md-8">
+                                            <input type="text" id="input-po-so-number" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row mb-1">
+                                        <label for="input-invoice-number" class="col-sm-4 col-form-label text-md-right">
+                                            Invoice date
+                                        </label>
+                                        <div class="col-sm-8 col-md-8">
+                                            <div class="input-group">
+                                                <span class="input-group-text"><i class="fh-16" data-feather="calendar"></i></span>
+                                                <input id="input-filter-datepicker-from" type="text" class="form-control datepicker" placeholder="From...">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row mb-1">
+                                        <label for="input-invoice-number" class="col-sm-4 col-form-label text-md-right">
+                                            Payment due
+                                        </label>
+                                        <div class="col-sm-8 col-md-8">
+                                            <div class="input-group">
+                                                <span class="input-group-text"><i class="fh-16" data-feather="calendar"></i></span>
+                                                <input id="input-filter-datepicker-from" type="text" class="form-control datepicker" placeholder="From...">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">Item Table</div>
+                        <div class="card-body table-responsive p-0">
+                            <table class="table table-stripped table-border">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Item</th>
+                                        <th>Quantity</th>
+                                        <th>Price</th>
+                                        <th>Amount</th>
+                                    </tr>
+                                </thead>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -308,9 +328,6 @@
     <script src="../vendor/feather-icons/feather.min.js"></script>
     
     <!-- script:plugin -->
-    <script src="../vendor/jquery/jquery.min.js"></script>
-    <script src="../vendor/datatables/js/jquery.dataTables.min.js"></script>
-    <script src="../vendor/datatables/js/dataTables.bootstrap5.min.js"></script>
     <script src="../vendor/choices.js/scripts/choices.min.js"></script>
     <script src="../vendor/pikaday/pikaday.js"></script>
     <script src="../vendor/moment/moment.js"></script>
@@ -319,18 +336,26 @@
     
     <!-- script:page - you can remove this -->
     <script>
-        // variables
-        let filter = {
-            customer: null,
-            status: null,
-            to: null,
-            from: null
-        }
+        // variable
+        const dataCustomers = [
+            { id: 1, name: 'Alfian' },
+            { id: 2, name: 'Adian' },
+        ]
+
 
         // choice
         const initChoice = () => {
-            const els = document.querySelectorAll('.choices')
-            els.forEach((el) => console.log(new Choices(el)))
+            const el = document.querySelector('.choices#input-customer')
+            const elC = (new Choices(el))
+            const data = [];
+
+            dataCustomers.forEach((e) => data.push({
+                value: e.id,
+                label: e.name,
+            }))
+
+            // set data
+            elC.setChoices(data)
         }
         // datepicker
         const initDatepicker = () => {
@@ -348,61 +373,11 @@
                 },
             }))
         }
-        // filter input
-        const initFilterData = (filter) => {
-            const filterEl = {
-                customer: document.getElementById('input-filter-customer'),
-                status: document.getElementById('input-filter-status'),
-                to: document.getElementById('input-filter-datepicker-to'),
-                from: document.getElementById('input-filter-datepicker-from')
-            }
-        }
-        // datatables
-        const initTable = () => {
-            $('#table-invoices').DataTable({
-                order: [[0, 'asc']],
-                columnDefs: [
-                    { orderable: false, targets: [7] }
-                ],
-                columns: [
-                    { title: '#', render: (data, type, row, meta) => meta.row + meta.settings._iDisplayStart + 1 },
-                    { title: 'Status', data: 'status' },
-                    { title: 'Date', data: 'date' },
-                    { title: 'Number', data: 'number' },
-                    { title: 'Customer', data: 'customer' },
-                    { title: 'Total', data: 'total' },
-                    { title: 'Amount Due', data: 'amount_due' },
-                    {
-                        title: 'Action',
-                        data: null,
-                        render: (data, type, row) => `
-                            <div>
-                                a
-                            </div>
-                        `
-                    },
-                ],
-                data: [
-                    {
-                        id: 1,
-                        status: 'Overdue',
-                        date: '2021-01-20',
-                        number: 1,
-                        customer: 'Alfian',
-                        total: 5000,
-                        amount_due: 5000
-                    }
-                ]
-            });
-        }
-
 
         // init
         document.addEventListener('DOMContentLoaded', function () {
             initChoice()
             initDatepicker()
-            initFilterData(filter)
-            initTable()
         })
     </script>
 

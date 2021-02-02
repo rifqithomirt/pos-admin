@@ -66,7 +66,12 @@ mix.njk('src/views/', 'pages/', {
     watch: true,
     noCache: true
   },
-  // manageEnv: (nunjucks) => {},
+  manageEnv: (nunjucks) => {
+    nunjucks.addFilter('startsWith', function (str, targetStr) {
+        if (str == undefined) return false;
+        return str.startsWith(targetStr)
+    })
+  },
 })
 
 // option
