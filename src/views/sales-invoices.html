@@ -64,6 +64,25 @@
                                     </div>
                                 </div>
                             </form>
+                            <!-- table -->
+                            <table id="table-invoices" class="display">
+                                <thead>
+                                    <tr>
+                                        <th>Column 1</th>
+                                        <th>Column 2</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Row 1 Data 1</td>
+                                        <td>Row 1 Data 2</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Row 2 Data 1</td>
+                                        <td>Row 2 Data 2</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -76,12 +95,15 @@
 
 {% block stylesPlugin %}
     <!-- style:plugin -->
+    <link rel="stylesheet" href="../vendor/datatables/css/dataTables.bootstrap4.min.css">    
     <link rel="stylesheet" href="../vendor/choices.js/styles/choices.min.css">
     <link rel="stylesheet" href="../vendor/pikaday/css/pikaday.css">    
 {% endblock %}
 
 {% block scriptsPlugin %}
     <!-- script:plugin -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/datatables/js/dataTables.bootstrap4.min.js"></script>
     <script src="../vendor/choices.js/scripts/choices.min.js"></script>
     <script src="../vendor/pikaday/pikaday.js"></script>
     <script src="../vendor/moment/moment.js"></script>
@@ -111,9 +133,16 @@
                 },
             }))
         }
+        // datatables
+        const initTable = () => {
+            $(document).ready(function () {
+                $('#table-invoices').DataTable();
+            });
+        }
 
         // init
         initChoice()
         initDatepicker()
+        initTable()
     </script>
 {% endblock %}

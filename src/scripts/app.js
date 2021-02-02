@@ -40,7 +40,7 @@ const app = function (root) {
     }
   }
   this.initSidebarMenu = function () {
-    const sidebarDropdown = document.querySelectorAll(`${root} li.item.dropdown > .item a`)
+    const sidebarDropdown = document.querySelectorAll(`${root} li.item.dropdown:not(.active) > .item:not(.active) a`)
     sidebarDropdown.forEach((item) => {
       item.addEventListener('click', (e) => {
         const container = item.parentElement.parentElement;

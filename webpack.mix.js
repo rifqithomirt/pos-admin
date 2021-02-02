@@ -35,17 +35,23 @@ mix.copyDirectory("src/fonts", "dist/fonts")
   .copyDirectory("node_modules/choices.js/public/assets", "vendor/choices.js")
   .copyDirectory("node_modules/pikaday", "vendor/pikaday")
   .js("node_modules/moment/moment.js", "vendor/moment")
+  .copyDirectory("node_modules/jquery/dist", "vendor/jquery")
+  .copyDirectory("node_modules/datatables.net/js", "vendor/datatables/js")
+  .copyDirectory("node_modules/datatables.net-dt/css", "vendor/datatables/css")
+  .copyDirectory("node_modules/datatables.net-dt/images", "vendor/datatables/images")
+  .copyDirectory("node_modules/datatables.net-bs4/css", "vendor/datatables/css")
+  .copyDirectory("node_modules/datatables.net-bs4/js", "vendor/datatables/js")
 
 
 // browser sync
-mix.browserSync({
-  watch: true,
-  // server
-  server: {
-    baseDir: '.',
-    index: './pages/index.html'
-  }
-})
+// mix.browserSync({
+//   watch: true,
+//   // server
+//   server: {
+//     baseDir: '.',
+//     index: './pages/index.html'
+//   }
+// })
 
 // nunjucks
 mix.njk('src/views/', 'pages/', {

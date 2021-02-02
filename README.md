@@ -24,6 +24,8 @@ HTML Admin Template For POS Apps
   - bootstrap
   - tailwindcss
   - PerfectScrollbar
+* Optional
+  - jQuery
 * Icon
   - feather-icons
     [https://www.npmjs.com/package/feather-icons]
@@ -36,3 +38,6 @@ HTML Admin Template For POS Apps
 * Datepicker
   - pikaday
     [https://github.com/Pikaday/Pikaday]
+* Table
+  - DataTables
+    [https://datatables.net/manual/installation]

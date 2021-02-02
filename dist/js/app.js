@@ -83,7 +83,7 @@ var app = function app(root) {
   };
 
   this.initSidebarMenu = function () {
-    var sidebarDropdown = document.querySelectorAll("".concat(root, " li.item.dropdown > .item a"));
+    var sidebarDropdown = document.querySelectorAll("".concat(root, " li.item.dropdown:not(.active) > .item:not(.active) a"));
     sidebarDropdown.forEach(function (item) {
       item.addEventListener('click', function (e) {
         var container = item.parentElement.parentElement;
