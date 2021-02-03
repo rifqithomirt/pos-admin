@@ -710,7 +710,7 @@ input[type=number]:focus,
 }
 
 .table > :not(:last-child) > :last-child > * {
-  border-bottom: 1px solid #9ca3af !important;
+  border-bottom: 1px solid #d1d5db !important;
 }
 
 @media (min-width: 1024px) {

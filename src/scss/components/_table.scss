@@ -4,5 +4,5 @@
 
 .table > :not(:last-child) > :last-child > * {
     // border: none #{!important};
-    border-bottom: 1px solid theme('colors.gray.400') #{!important};
+    border-bottom: 1px solid theme('colors.gray.300') #{!important};
 }
