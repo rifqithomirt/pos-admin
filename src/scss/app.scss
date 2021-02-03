@@ -26,7 +26,7 @@ $sidebarBorderColor: theme('colors.gray.300');
 $sidebarItemColor: theme('colors.gray.500');
 $sidebarItemActive: $primaryColor;
 $sidebarItemDropdownActive: theme('colors.gray.700');
-$navbarBackgroundColor: $sidebarBackgroundColor;
+$navbarBackgroundColor: $contentBackgroundColor;
 $navbarBorderColor: $sidebarBorderColor;
 
 // functions
@@ -124,7 +124,6 @@ svg.fh {
         background: $navbarBackgroundColor;
         border-bottom: 1px solid $navbarBorderColor;
         display: none;
-        @apply tw-shadow;
         ul.menu {
             display: flex;
             flex-direction: row;

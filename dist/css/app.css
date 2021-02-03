@@ -227,11 +227,9 @@ svg.fh {
   left: 0;
   top: 0;
   width: 100%;
-  background: #ebeff4;
+  background: #f9fafb;
   border-bottom: 1px solid #d1d5db;
   display: none;
-  --tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 .dashboard > .navbar-mobile ul.menu {
