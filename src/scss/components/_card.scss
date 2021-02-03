@@ -1,5 +1,5 @@
 .card {
-    box-shadow: 0 0 1px rgb(0 0 0 / 10%), 0 1px 3px rgb(0 0 0 / 17%);
+    box-shadow: 0 0 20px 0 rgba(76, 87, 125, .15);
     margin-bottom: 1rem;
     .card-header {
         background-color: transparent;
@@ -9,5 +9,322 @@
         border-top-left-radius: .25rem;
         border-top-right-radius: .25rem;
         margin-bottom: 0;
+    }
+}
+
+
+
+// card custom
+.card.card-custom {
+    box-shadow: 0 0 20px 0 rgba(76, 87, 125, .15);
+    border: 0
+}
+
+.card.card-custom>.card-header {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    flex-wrap: wrap;
+    padding: 0 2.25rem;
+    background-color: transparent;
+    border: 0;
+}
+
+.card.card-custom>.card-header .card-title {
+    display: flex;
+    align-items: center;
+    margin: .5rem;
+    margin-left: 0
+}
+
+.card.card-custom>.card-header .card-title .card-icon {
+    margin-right: .75rem;
+    line-height: 0
+}
+
+.card.card-custom>.card-header .card-title .card-icon i {
+    font-size: 1.25rem;
+    color: #7e8299;
+    line-height: 0
+}
+
+.card.card-custom>.card-header .card-title .card-icon i:after,
+.card.card-custom>.card-header .card-title .card-icon i:before {
+    line-height: 0
+}
+
+.card.card-custom>.card-header .card-title .card-icon .svg-icon svg {
+    height: 24px;
+    width: 24px
+}
+
+.card.card-custom>.card-header .card-title .card-icon .svg-icon svg g [fill]:not(.permanent) {
+    transition: fill .3s ease;
+    fill: #7e8299
+}
+
+.card.card-custom>.card-header .card-title .card-icon .svg-icon svg:hover g [fill] {
+    transition: fill .3s ease
+}
+
+.card.card-custom>.card-header .card-title,
+.card.card-custom>.card-header .card-title .card-label {
+    font-weight: 500;
+    font-size: 1rem;
+    color: #181c32
+}
+
+.card.card-custom>.card-header .card-title .card-label {
+    margin: 0 .75rem 0 0;
+    flex-wrap: wrap
+}
+
+.card.card-custom>.card-header .card-title .small,
+.card.card-custom>.card-header .card-title small {
+    color: #a1a5b7;
+    font-size: 1rem
+}
+
+.card.card-custom>.card-header .card-toolbar {
+    display: flex;
+    align-items: center;
+    margin: .5rem 0;
+    flex-wrap: wrap
+}
+
+.card.card-custom>.card-body {
+    padding: 2rem 2.25rem;
+    padding-top: 1rem;
+}
+
+.card.card-custom>.card-footer {
+    padding: 2rem 2.25rem;
+    background-color: transparent
+}
+
+.card.card-custom .card-scroll {
+    position: relative;
+    overflow: auto
+}
+
+.card.card-custom.card-flush>.card-header {
+    border-bottom: 0
+}
+
+.card.card-custom.card-flush>.card-footer {
+    border-top: 0
+}
+
+.card.card-custom.card-px-0 .card-body,
+.card.card-custom.card-px-0 .card-footer,
+.card.card-custom.card-px-0 .card-header {
+    padding-left: 0;
+    padding-right: 0
+}
+
+.card.card-custom.card-border {
+    box-shadow: none;
+    border: 1px solid #eff2f5
+}
+
+.card.card-custom.card-stretch {
+    height: calc(100% - var(--bs-gutter-y))
+}
+
+.card.card-custom.card-stretch-75 {
+    height: calc(75% - var(--bs-gutter-y))
+}
+
+.card.card-custom.card-stretch-50 {
+    height: calc(50% - var(--bs-gutter-y))
+}
+
+.card.card-custom.card-stretch-33 {
+    height: calc(33.333% - var(--bs-gutter-y))
+}
+
+.card.card-custom.card-stretch-25 {
+    height: calc(25% - var(--bs-gutter-y))
+}
+
+.card.card-custom .card-header-stretch {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    align-items: stretch
+}
+
+.card.card-custom .card-header-stretch .card-toolbar {
+    margin: 0;
+    align-items: stretch
+}
+
+@media (min-width:576px) {
+    .card.card-custom.card-sm-stretch {
+        height: calc(100% - var(--bs-gutter-y))
+    }
+    .card.card-custom.card-sm-stretch-75 {
+        height: calc(75% - var(--bs-gutter-y))
+    }
+    .card.card-custom.card-sm-stretch-50 {
+        height: calc(50% - var(--bs-gutter-y))
+    }
+    .card.card-custom.card-sm-stretch-33 {
+        height: calc(33.333% - var(--bs-gutter-y))
+    }
+    .card.card-custom.card-sm-stretch-25 {
+        height: calc(25% - var(--bs-gutter-y))
+    }
+    .card.card-custom .card-header-sm-stretch {
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        align-items: stretch
+    }
+    .card.card-custom .card-header-sm-stretch .card-toolbar {
+        margin: 0;
+        align-items: stretch
+    }
+}
+
+@media (min-width:768px) {
+    .card.card-custom.card-md-stretch {
+        height: calc(100% - var(--bs-gutter-y))
+    }
+    .card.card-custom.card-md-stretch-75 {
+        height: calc(75% - var(--bs-gutter-y))
+    }
+    .card.card-custom.card-md-stretch-50 {
+        height: calc(50% - var(--bs-gutter-y))
+    }
+    .card.card-custom.card-md-stretch-33 {
+        height: calc(33.333% - var(--bs-gutter-y))
+    }
+    .card.card-custom.card-md-stretch-25 {
+        height: calc(25% - var(--bs-gutter-y))
+    }
+    .card.card-custom .card-header-md-stretch {
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        align-items: stretch
+    }
+    .card.card-custom .card-header-md-stretch .card-toolbar {
+        margin: 0;
+        align-items: stretch
+    }
+}
+
+@media (min-width:992px) {
+    .card.card-custom.card-lg-stretch {
+        height: calc(100% - var(--bs-gutter-y))
+    }
+    .card.card-custom.card-lg-stretch-75 {
+        height: calc(75% - var(--bs-gutter-y))
+    }
+    .card.card-custom.card-lg-stretch-50 {
+        height: calc(50% - var(--bs-gutter-y))
+    }
+    .card.card-custom.card-lg-stretch-33 {
+        height: calc(33.333% - var(--bs-gutter-y))
+    }
+    .card.card-custom.card-lg-stretch-25 {
+        height: calc(25% - var(--bs-gutter-y))
+    }
+    .card.card-custom .card-header-lg-stretch {
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        align-items: stretch
+    }
+    .card.card-custom .card-header-lg-stretch .card-toolbar {
+        margin: 0;
+        align-items: stretch
+    }
+}
+
+@media (min-width:1200px) {
+    .card.card-custom.card-xl-stretch {
+        height: calc(100% - var(--bs-gutter-y))
+    }
+    .card.card-custom.card-xl-stretch-75 {
+        height: calc(75% - var(--bs-gutter-y))
+    }
+    .card.card-custom.card-xl-stretch-50 {
+        height: calc(50% - var(--bs-gutter-y))
+    }
+    .card.card-custom.card-xl-stretch-33 {
+        height: calc(33.333% - var(--bs-gutter-y))
+    }
+    .card.card-custom.card-xl-stretch-25 {
+        height: calc(25% - var(--bs-gutter-y))
+    }
+    .card.card-custom .card-header-xl-stretch {
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        align-items: stretch
+    }
+    .card.card-custom .card-header-xl-stretch .card-toolbar {
+        margin: 0;
+        align-items: stretch
+    }
+}
+
+@media (min-width:1400px) {
+    .card.card-custom.card-xxl-stretch {
+        height: calc(100% - var(--bs-gutter-y))
+    }
+    .card.card-custom.card-xxl-stretch-75 {
+        height: calc(75% - var(--bs-gutter-y))
+    }
+    .card.card-custom.card-xxl-stretch-50 {
+        height: calc(50% - var(--bs-gutter-y))
+    }
+    .card.card-custom.card-xxl-stretch-33 {
+        height: calc(33.333% - var(--bs-gutter-y))
+    }
+    .card.card-custom.card-xxl-stretch-25 {
+        height: calc(25% - var(--bs-gutter-y))
+    }
+    .card.card-custom .card-header-xxl-stretch {
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        align-items: stretch
+    }
+    .card.card-custom .card-header-xxl-stretch .card-toolbar {
+        margin: 0;
+        align-items: stretch
+    }
+}
+
+.card-p {
+    padding: 2rem 2.25rem !important
+}
+
+.card-px {
+    padding-left: 2.25rem !important;
+    padding-right: 2.25rem !important
+}
+
+.card-py {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important
+}
+
+.card-rounded {
+    border-radius: .65rem
+}
+
+.card-rounded-top {
+    border-top-left-radius: .65rem;
+    border-top-right-radius: .65rem
+}
+
+.card-rounded-bottom {
+    border-bottom-left-radius: .65rem;
+    border-bottom-right-radius: .65rem
+}
+
+@media (max-width:767.98px) {
+    .card.card-custom>.card-header:not(.flex-nowrap) {
+        padding-top: .5rem;
+        padding-bottom: .5rem
     }
 }

@@ -1,0 +1,130 @@
+{% set title = 'Sales - Product & Services - Edit' %}
+{% set filename = 'sales-product-services-edit' %}
+{% extends 'layouts/dashboard.html' %}
+
+{% block content %}
+    <div class="container">
+        <!-- content-header -->
+        <div class="content-header">
+            <div class="tw-flex tw-justify-between">
+                <div class="title">
+                    Edit Product
+                </div>
+                <div>
+                    <a href="sales-customers.html" class="btn btn-primary">
+                        Save and Continue
+                    </a>
+                </div>
+            </div>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                    <li class="breadcrumb-item">Sales</li>
+                    <li class="breadcrumb-item"><a href="sales-product-services.html">Product & Services</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Edit</li>
+                </ol>
+            </nav>
+        </div>
+        <!-- content-header:end -->
+        <!-- content -->
+        <div class="content">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card card-custom">
+                        <div class="card-header">
+                            <h3 class="card-title align-items-start flex-column">
+                                <span class="fw-bolder tw-text-gray-700 fs-5">
+                                    Product
+                                </span>
+                            </h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group row my-2">
+                                <label class="col-sm-4 col-form-label text-md-end">Name :</label>
+                                <div class="col-md-4">
+                                    <input type="text" class="form-control" placeholder="Name..." value="Aqua Water Mineral 1L">
+                                </div>
+                            </div>
+                            <div class="form-group row my-2">
+                                <label class="col-sm-4 col-form-label text-md-end">Description :</label>
+                                <div class="col-md-4">
+                                    <textarea class="form-control" placeholder="Description...">Description your product</textarea>
+                                </div>
+                            </div>
+                            <div class="form-group row my-2">
+                                <label class="col-sm-4 col-form-label text-md-end">Price :</label>
+                                <div class="col-md-4">
+                                    <input type="number" class="form-control" placeholder="Price..." value="3000">
+                                </div>
+                            </div>
+                            <div class="form-group row my-2">
+                                <label class="col-sm-4 col-form-label text-md-end">Sales tax :</label>
+                                <div class="col-md-4">
+                                    <select id="input-tax" class="choices form-select">
+                                        <option value="" placeholder>Select tax</option>
+                                        <option value="1" selected>Tax 1</option>
+                                        <option value="2" selected>Tax 2</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-4 text-end">
+                        <a href="sales-customers.html" class="btn btn-primary">
+                            Save and Continue
+                        </a>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <!-- content:end -->
+    </div>
+{% endblock %}
+
+
+{% block stylesPlugin %}
+    <!-- style:plugin -->
+    <link rel="stylesheet" href="../vendor/choices.js/styles/choices.min.css">
+    <link rel="stylesheet" href="../vendor/pikaday/css/pikaday.css">    
+{% endblock %}
+
+{% block scriptsPlugin %}
+    <!-- script:plugin -->
+    <script src="../vendor/choices.js/scripts/choices.min.js"></script>
+    <script src="../vendor/pikaday/pikaday.js"></script>
+    <script src="../vendor/moment/moment.js"></script>
+{% endblock %}
+
+{% block scripts %}
+    <!-- script:page - you can remove this -->
+    <script>
+        // choice
+        const initChoice = () => {
+            const els = document.querySelectorAll('.choices')
+            els.forEach((el) => new Choices(el))
+        }
+        // datepicker
+        const initDatepicker = () => {
+            const els = document.querySelectorAll('.datepicker')
+            els.forEach((el) => new Pikaday({
+                field: el,
+                format: 'DD-MM-YYYY',
+                toString(date, format) {
+                    // you should do formatting based on the passed format,
+                    // but we will just return 'D/M/YYYY' for simplicity
+                    const day = ('0' + date.getDate()).slice(-2);
+                    const month = ('0' + (date.getMonth() + 1)).slice(-2);
+                    const year = date.getFullYear();
+                    return `${day}-${month}-${year}`;
+                },
+            }))
+        }
+
+        // init
+        document.addEventListener('DOMContentLoaded', function () {
+            initChoice()
+            initDatepicker()
+        })
+    </script>
+{% endblock %}

@@ -1,0 +1,255 @@
+{% set title = 'Sales - Invoices - Edit' %}
+{% set filename = 'sales-invoices-edit' %}
+{% extends 'layouts/dashboard.html' %}
+
+{% block content %}
+    <div class="container">
+        <!-- content-header -->
+        <div class="content-header">
+            <div class="tw-flex tw-justify-between">
+                <div class="title">
+                    Edit Invoice
+                </div>
+                <div>
+                    <a href="sales-invoices.html" class="btn btn-outline-secondary">
+                        Preview
+                    </a>
+                    <a href="sales-invoices.html" class="btn btn-primary">
+                        Save invoice and continue
+                    </a>
+                </div>
+            </div>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                    <li class="breadcrumb-item">Sales</li>
+                    <li class="breadcrumb-item"><a href="sales-invoices.html">Invoices</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Edit</li>
+                </ol>
+            </nav>
+        </div>
+        <!-- content-header:end -->
+        <!-- content -->
+        <div class="content">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">Header</div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-12 col-lg-6">
+                                    <div class="form-group row mb-1">
+                                        <div class="col-sm-1 tw-hidden lg:tw-block"></div>
+                                        <label for="input-customer" class="col-sm-4 col-md-4 col-lg-3 col-form-label">Customer</label>
+                                        <div class="col-lg-6 col-md-8 col-sm-8">
+                                            <select id="input-customer" class="choices form-select">
+                                                <option value="" placeholder>Select customer</option>
+                                                <option value="1" selected>Alfian</option>
+                                                <option value="2">Adian</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-6">
+                                    <div class="form-group row mb-1">
+                                        <label for="input-invoice-number" class="col-sm-4 col-form-label text-md-right">
+                                            Invoice number
+                                        </label>
+                                        <div class="col-sm-8 col-md-8">
+                                            <input type="text" id="input-invoice-number" class="form-control" value="1">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row mb-1">
+                                        <label for="input-invoice-number" class="col-sm-4 col-form-label text-md-right">
+                                            P.O./S.O. number
+                                        </label>
+                                        <div class="col-sm-8 col-md-8">
+                                            <input type="text" id="input-po-so-number" class="form-control" value="awe5a6e17823a">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row mb-1">
+                                        <label for="input-invoice-number" class="col-sm-4 col-form-label text-md-right">
+                                            Invoice date
+                                        </label>
+                                        <div class="col-sm-8 col-md-8">
+                                            <div class="input-group">
+                                                <span class="input-group-text"><i class="fh-16" data-feather="calendar"></i></span>
+                                                <input id="input-filter-datepicker-from" type="text" class="form-control datepicker" placeholder="From..." value="01-02-2021">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row mb-1">
+                                        <label for="input-invoice-number" class="col-sm-4 col-form-label text-md-right">
+                                            Payment due
+                                        </label>
+                                        <div class="col-sm-8 col-md-8">
+                                            <div class="input-group">
+                                                <span class="input-group-text"><i class="fh-16" data-feather="calendar"></i></span>
+                                                <input id="input-filter-datepicker-from" type="text" class="form-control datepicker" placeholder="From..." value="01-02-2021">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">Items</div>
+                        <div class="card-body p-0">
+                            <table class="table table-stripped table-border m-0">
+                                <thead>
+                                    <tr>
+                                        <th width="2%"></th>
+                                        <th width="50%">Item Name</th>
+                                        <th width="10%">Quantity</th>
+                                        <th width="10%">Price</th>
+                                        <th width="10%" class="text-end">Amount</th>
+                                        <th width="5%" class="text-center">
+                                            ...
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td></td>
+                                        <td>
+                                            <select name="item[0]" class="choices choice-item">
+                                                <option value="" placeholder>Select item</option>
+                                                <option value="1" selected>Aqua Mineral Water 1L</option>
+                                                <option value="2">Pocari Sweet 1L</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <input type="number" name="quantity[0]" class="form-control" value="1">
+                                        </td>
+                                        <td>
+                                            <input type="number" name="price[0]" class="form-control" value="3000">
+                                        </td>
+                                        <td class="text-end">
+                                            Rp3.000
+                                        </td>
+                                        <td class="text-center">
+                                            <a href="btn btn-link btn-link-danger">
+                                                <i class="bi bi-trash"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>
+                                            <select name="item[0]" class="choices choice-item">
+                                                <option value="" placeholder>Select item</option>
+                                                <option value="1">Aqua Mineral Water 1L</option>
+                                                <option value="2" selected>Pocari Sweet 1L</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <input type="number" name="quantity[0]" class="form-control" value="1">
+                                        </td>
+                                        <td>
+                                            <input type="number" name="price[0]" class="form-control" value="4500">
+                                        </td>
+                                        <td class="text-end">
+                                            Rp4.500
+                                        </td>
+                                        <td class="text-center">
+                                            <a href="btn btn-link btn-link-danger">
+                                                <i class="bi bi-trash"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4" class="text-end">
+                                            Total
+                                        </td>
+                                        <td class="text-end">
+                                            Rp7.500
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="card-footer">
+                            <div class="d-grid">
+                                <button class="btn btn-outline-primary">
+                                    <i class="bi bi-plus" style="font-size: 1rem;"></i>
+                                    Add new item
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">Footer</div>
+                        <div class="card-body p-0">
+                            <textarea class="form-control no-rounded" name="note" cols="30" rows="5" placeholder="Enter a footer for this invoice">Thanks for buy</textarea>
+                        </div>
+                    </div>
+                    <div class="mb-4 text-end">
+                        <a href="sales-invoices.html" class="btn btn-outline-secondary">
+                            Preview
+                        </a>
+                        <a href="sales-invoices.html" class="btn btn-primary">
+                            Save invoice and continue
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- content:end -->
+    </div>
+{% endblock %}
+
+
+{% block stylesPlugin %}
+    <!-- style:plugin -->
+    <link rel="stylesheet" href="../vendor/choices.js/styles/choices.min.css">
+    <link rel="stylesheet" href="../vendor/pikaday/css/pikaday.css">    
+{% endblock %}
+
+{% block scriptsPlugin %}
+    <!-- script:plugin -->
+    <script src="../vendor/choices.js/scripts/choices.min.js"></script>
+    <script src="../vendor/pikaday/pikaday.js"></script>
+    <script src="../vendor/moment/moment.js"></script>
+{% endblock %}
+
+{% block scripts %}
+    <!-- script:page - you can remove this -->
+    <script>
+        // variable
+        const dataCustomers = [
+            { id: 1, name: 'Alfian' },
+            { id: 2, name: 'Adian' },
+        ]
+
+
+        // choice
+        const initChoice = () => {
+            const els = document.querySelectorAll('.choices')
+            els.forEach((el) => new Choices(el))
+        }
+        // datepicker
+        const initDatepicker = () => {
+            const els = document.querySelectorAll('.datepicker')
+            els.forEach((el) => new Pikaday({
+                field: el,
+                format: 'DD-MM-YYYY',
+                toString(date, format) {
+                    // you should do formatting based on the passed format,
+                    // but we will just return 'D/M/YYYY' for simplicity
+                    const day = ('0' + date.getDate()).slice(-2);
+                    const month = ('0' + (date.getMonth() + 1)).slice(-2);
+                    const year = date.getFullYear();
+                    return `${day}-${month}-${year}`;
+                },
+            }))
+        }
+
+        // init
+        document.addEventListener('DOMContentLoaded', function () {
+            initChoice()
+            initDatepicker()
+        })
+    </script>
+{% endblock %}

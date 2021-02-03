@@ -1,0 +1,120 @@
+{% set title = 'Sales - Customers' %}
+{% set filename = 'sales-customers' %}
+{% extends 'layouts/dashboard.html' %}
+
+{% block content %}
+    <div class="container">
+        <!-- content-header -->
+        <div class="content-header">
+            <div class="tw-flex tw-justify-between">
+                <div class="title">
+                    Customers
+                </div>
+                <a href="sales-customers-create.html" class="btn btn-primary">
+                    Create a customer
+                </a>
+            </div>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                    <li class="breadcrumb-item">Sales</li>
+                    <li class="breadcrumb-item active" aria-current="page">Customers</li>
+                </ol>
+            </nav>
+        </div>
+        <!-- content-header:end -->
+        <!-- content -->
+        <div class="content">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card card-custom">
+                        <div class="card-header">
+                            <h3 class="card-title align-items-start flex-column">
+                                <span class="fw-bolder tw-text-gray-700 fs-5">
+                                    Customers
+                                </span>
+                            </h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table id="table-invoices" class="table card-table"></table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- content:end -->
+    </div>
+{% endblock %}
+
+
+{% block stylesPlugin %}
+    <!-- style:plugin -->
+    <!-- <link rel="stylesheet" href="../vendor/datatables/css/jquery.dataTables.min.css"> -->
+    <link rel="stylesheet" href="../vendor/datatables/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="../vendor/datatables/css/responsive.css">
+    <link rel="stylesheet" href="../vendor/choices.js/styles/choices.min.css">
+    <link rel="stylesheet" href="../vendor/pikaday/css/pikaday.css">    
+{% endblock %}
+
+{% block scriptsPlugin %}
+    <!-- script:plugin -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="../vendor/datatables/js/dataTables.bootstrap5.min.js"></script>
+    <script src="../vendor/datatables/js/responsive.js"></script>
+{% endblock %}
+
+{% block scripts %}
+    <!-- script:page - you can remove this -->
+    <script>
+        // datatables
+        const initTable = () => {
+            $('#table-invoices').DataTable({
+                order: [[0, 'asc']],
+                columnDefs: [
+                    { orderable: false, targets: [6] }
+                ],
+                columns: [
+                    { title: '#', render: (data, type, row, meta) => meta.row + meta.settings._iDisplayStart + 1 },
+                    { title: 'Name', data: 'name' },
+                    { title: 'Email', data: 'email' },
+                    { title: 'Phone', data: 'phone' },
+                    { title: 'Balance', data: 'balance' },
+                    { title: 'Overdue', data: 'overdue' },
+                    {
+                        title: 'Actions',
+                        data: null,
+                        render: (data, type, row) => `
+                        <div>
+                            <a href="sales-customers-edit.html" class="btn btn-sm btn-outline-warning">
+                                <i class="bi bi-pencil" style="font-size: .8rem;"></i>
+                            </a>
+                            <a class="btn btn-sm btn-outline-danger">
+                                <i class="bi bi-trash" style="font-size: .8rem;"></i>
+                            </a>
+                        </div>
+                        `
+                    },
+                ],
+                data: [
+                    {
+                        id: 1,
+                        name: 'Adian',
+                        phone: '0895337617550',
+                        email: 'adian@mail.com',
+                        balance: 5000,
+                        overdue: 5000
+                    }
+                ]
+            });
+        }
+
+
+        // init
+        document.addEventListener('DOMContentLoaded', function () {
+            initTable()
+        })
+    </script>
+{% endblock %}

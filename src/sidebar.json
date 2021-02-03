@@ -16,8 +16,8 @@
                 "url": "invoices"
             },
             {
-                "text": "Customer",
-                "url": "customer"
+                "text": "Customers",
+                "url": "customers"
             },
             {
                 "text": "Product Services",

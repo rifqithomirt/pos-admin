@@ -9,7 +9,7 @@
     
     <link rel="stylesheet" href="../dist/css/tailwind.css">
     <link rel="stylesheet" href="../dist/css/bootstrap.css">
-    <link rel="stylesheet" href="../vendor/fontisto/css/fontisto/fontisto.min.css">
+    <link rel="stylesheet" href="../vendor/bootstrap-icons/font/bootstrap-icons.css">
     
     <!-- style:plugin -->
     <link rel="stylesheet" href="../vendor/choices.js/styles/choices.min.css">
@@ -32,7 +32,7 @@
             <div class="sidebar-wrapper">
                 <div class="sidebar-header">
                     <a href="index.html" class="sidebar-brand">
-                        <i class="logo fi fi-yelp"></i>
+                        <i class="logo bi bi-app-indicator"></i>
                         <span class="text">E-POS Admin</span>
                         <i data-feather="chevron-right"></i>
                     </a>
@@ -66,7 +66,7 @@
                                                     </li>
                                                 
                                                     <li class="dropdown item ">
-                                                        <a href="sales-customer.html">Customer</a>
+                                                        <a href="sales-customers.html">Customers</a>
                                                     </li>
                                                 
                                                     <li class="dropdown item ">
@@ -210,12 +210,21 @@
                 <div class="title">
                     Create Invoice
                 </div>
+                <div>
+                    <a href="sales-invoices.html" class="btn btn-outline-secondary">
+                        Preview
+                    </a>
+                    <a href="sales-invoices.html" class="btn btn-primary">
+                        Save invoice and continue
+                    </a>
+                </div>
             </div>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
                     <li class="breadcrumb-item">Sales</li>
-                    <li class="breadcrumb-item active" aria-current="page">Invoices</li>
+                    <li class="breadcrumb-item"><a href="sales-invoices.html">Invoices</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Create</li>
                 </ol>
             </nav>
         </div>
@@ -225,7 +234,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="card">
-                        <div class="card-header">General Information</div>
+                        <div class="card-header">Header</div>
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-12 col-lg-6">
@@ -233,7 +242,11 @@
                                         <div class="col-sm-1 tw-hidden lg:tw-block"></div>
                                         <label for="input-customer" class="col-sm-4 col-md-4 col-lg-3 col-form-label">Customer</label>
                                         <div class="col-lg-6 col-md-8 col-sm-8">
-                                            <select id="input-customer" class="choices form-select"></select>
+                                            <select id="input-customer" class="choices form-select">
+                                                <option value="" placeholder>Select customer</option>
+                                                <option value="1">Alfian</option>
+                                                <option value="2">Adian</option>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
@@ -281,43 +294,80 @@
                         </div>
                     </div>
                     <div class="card">
-                        <div class="card-header">Item Table</div>
-                        <div class="card-body table-responsive p-0">
-                            <table class="table table-stripped table-border">
+                        <div class="card-header">Items</div>
+                        <div class="card-body p-0">
+                            <table class="table table-stripped table-border m-0">
                                 <thead>
                                     <tr>
-                                        <th>#</th>
-                                        <th>Item</th>
-                                        <th>Quantity</th>
-                                        <th>Price</th>
-                                        <th>Amount</th>
-                                        <th>
+                                        <th width="2%"></th>
+                                        <th width="50%">Item Name</th>
+                                        <th width="10%">Quantity</th>
+                                        <th width="10%">Price</th>
+                                        <th width="10%" class="text-end">Amount</th>
+                                        <th width="5%" class="text-center">
                                             ...
                                         </th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>1</td>
+                                        <td></td>
                                         <td>
-                                            <select name="item[0]" class="choices choice-item form-select"></select>
+                                            <select name="item[0]" class="choices choice-item">
+                                                <option value="" placeholder>Select item</option>
+                                                <option value="1">Aqua Mineral Water 1L</option>
+                                                <option value="2">Pocari Sweet 1L</option>
+                                            </select>
                                         </td>
                                         <td>
-                                            <input type="text" name="quantity[0]" class="form-control">
+                                            <input type="number" name="quantity[0]" class="form-control" value="1">
                                         </td>
                                         <td>
-                                            <input type="text" name="price[0]" class="form-control">
+                                            <input type="number" name="price[0]" class="form-control" value="1000">
                                         </td>
-                                        <td>
-                                            <input type="text" name="amount[0]" class="form-control">
+                                        <td class="text-end">
+                                            Rp1.000
                                         </td>
-                                        <td>
-                                            btn
+                                        <td class="text-center">
+                                            <a href="btn btn-link btn-link-danger">
+                                                <i class="bi bi-trash"></i>
+                                            </a>
                                         </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4" class="text-end">
+                                            Total
+                                        </td>
+                                        <td class="text-end">
+                                            Rp1.000
+                                        </td>
+                                        <td></td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
+                        <div class="card-footer">
+                            <div class="d-grid">
+                                <button class="btn btn-outline-primary">
+                                    <i class="bi bi-plus" style="font-size: 1rem;"></i>
+                                    Add new item
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">Footer</div>
+                        <div class="card-body p-0">
+                            <textarea class="form-control no-rounded" name="note" cols="30" rows="5" placeholder="Enter a footer for this invoice"></textarea>
+                        </div>
+                    </div>
+                    <div class="mb-4 text-end">
+                        <a href="sales-invoices.html" class="btn btn-outline-secondary">
+                            Preview
+                        </a>
+                        <a href="sales-invoices.html" class="btn btn-primary">
+                            Save invoice and continue
+                        </a>
                     </div>
                 </div>
             </div>
@@ -359,26 +409,10 @@
     
     <!-- script:page - you can remove this -->
     <script>
-        // variable
-        const dataCustomers = [
-            { id: 1, name: 'Alfian' },
-            { id: 2, name: 'Adian' },
-        ]
-
-
         // choice
         const initChoice = () => {
-            const el = document.querySelector('.choices#input-customer')
-            const elC = (new Choices(el))
-            const data = [];
-
-            dataCustomers.forEach((e) => data.push({
-                value: e.id,
-                label: e.name,
-            }))
-
-            // set data
-            elC.setChoices(data)
+            const els = document.querySelectorAll('.choices')
+            els.forEach((el) => new Choices(el))
         }
         // datepicker
         const initDatepicker = () => {

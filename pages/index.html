@@ -9,7 +9,7 @@
     
     <link rel="stylesheet" href="../dist/css/tailwind.css">
     <link rel="stylesheet" href="../dist/css/bootstrap.css">
-    <link rel="stylesheet" href="../vendor/fontisto/css/fontisto/fontisto.min.css">
+    <link rel="stylesheet" href="../vendor/bootstrap-icons/font/bootstrap-icons.css">
     
     <link rel="stylesheet" href="../dist/css/app.css">
     
@@ -31,7 +31,7 @@
             <div class="sidebar-wrapper">
                 <div class="sidebar-header">
                     <a href="index.html" class="sidebar-brand">
-                        <i class="logo fi fi-yelp"></i>
+                        <i class="logo bi bi-app-indicator"></i>
                         <span class="text">E-POS Admin</span>
                         <i data-feather="chevron-right"></i>
                     </a>
@@ -65,7 +65,7 @@
                                                     </li>
                                                 
                                                     <li class="dropdown item ">
-                                                        <a href="sales-customer.html">Customer</a>
+                                                        <a href="sales-customers.html">Customers</a>
                                                     </li>
                                                 
                                                     <li class="dropdown item ">
@@ -313,16 +313,31 @@
             <section id="chart">
                 <div class="row">
                     <div class="col-lg-6">
-                        <div class="card">
-                            <div class="card-header">Cash Flow</div>
+                        <div class="card card-custom">
+                            <div class="card-header">
+                                <h3 class="card-title">
+                                    <span class="fw-bolder tw-text-gray-700 fs-5">
+                                        Cash Flow
+                                    </span>
+                                </h3>
+                            </div>
                             <div class="card-body">
                                 <canvas id="chartCashFlow" width="400" height="300"></canvas>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-6">
-                        <div class="card">
-                            <div class="card-header">Profit & Loss</div>
+                        <div class="card card-custom">
+                            <div class="card-header">
+                                <h3 class="card-title align-items-start flex-column">
+                                    <span class="fw-bolder tw-text-gray-700 fs-5">
+                                        Profit & Loss
+                                    </span>
+                                    <!-- <span class="text-muted mt-2 fw-bold fs-6">
+                                        Profit income and get loss
+                                    </span> -->
+                                </h3>
+                            </div>
                             <div class="card-body">
                                 <canvas id="chartProfitLoss" width="400" height="300"></canvas>
                             </div>

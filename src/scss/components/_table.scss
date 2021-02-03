@@ -6,3 +6,10 @@
     // border: none #{!important};
     border-bottom: 1px solid theme('colors.gray.300') #{!important};
 }
+
+.table {
+    tbody {
+        padding-left: 2rem #{!important};
+        padding-right: 2rem #{!important};
+    }
+}

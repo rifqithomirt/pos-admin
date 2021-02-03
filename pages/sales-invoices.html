@@ -9,11 +9,12 @@
     
     <link rel="stylesheet" href="../dist/css/tailwind.css">
     <link rel="stylesheet" href="../dist/css/bootstrap.css">
-    <link rel="stylesheet" href="../vendor/fontisto/css/fontisto/fontisto.min.css">
+    <link rel="stylesheet" href="../vendor/bootstrap-icons/font/bootstrap-icons.css">
     
     <!-- style:plugin -->
     <!-- <link rel="stylesheet" href="../vendor/datatables/css/jquery.dataTables.min.css"> -->
     <link rel="stylesheet" href="../vendor/datatables/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="../vendor/datatables/css/responsive.css">
     <link rel="stylesheet" href="../vendor/choices.js/styles/choices.min.css">
     <link rel="stylesheet" href="../vendor/pikaday/css/pikaday.css">    
 
@@ -34,7 +35,7 @@
             <div class="sidebar-wrapper">
                 <div class="sidebar-header">
                     <a href="index.html" class="sidebar-brand">
-                        <i class="logo fi fi-yelp"></i>
+                        <i class="logo bi bi-app-indicator"></i>
                         <span class="text">E-POS Admin</span>
                         <i data-feather="chevron-right"></i>
                     </a>
@@ -68,7 +69,7 @@
                                                     </li>
                                                 
                                                     <li class="dropdown item ">
-                                                        <a href="sales-customer.html">Customer</a>
+                                                        <a href="sales-customers.html">Customers</a>
                                                     </li>
                                                 
                                                     <li class="dropdown item ">
@@ -229,8 +230,14 @@
         <div class="content">
             <div class="row">
                 <div class="col-12">
-                    <div class="card">
-                        <div class="card-header">Invoices</div>
+                    <div class="card card-custom">
+                        <div class="card-header">
+                            <h3 class="card-title align-items-start flex-column">
+                                <span class="fw-bolder tw-text-gray-700 fs-5">
+                                    Invoices
+                                </span>
+                            </h3>
+                        </div>
                         <div class="card-body">
                             <!-- filters -->
                             <form action="#">
@@ -272,7 +279,9 @@
                                         <a class="nav-link active" aria-current="page" href="#">All Invoices</a>
                                     </li>
                                 </ul>
-                                <table id="table-invoices" class="table card-table"></table>
+                                <div class="table-responsive">
+                                    <table id="table-invoices" class="table card-table"></table>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -311,6 +320,7 @@
     <script src="../vendor/jquery/jquery.min.js"></script>
     <script src="../vendor/datatables/js/jquery.dataTables.min.js"></script>
     <script src="../vendor/datatables/js/dataTables.bootstrap5.min.js"></script>
+    <script src="../vendor/datatables/js/responsive.js"></script>
     <script src="../vendor/choices.js/scripts/choices.min.js"></script>
     <script src="../vendor/pikaday/pikaday.js"></script>
     <script src="../vendor/moment/moment.js"></script>
@@ -373,12 +383,20 @@
                     { title: 'Total', data: 'total' },
                     { title: 'Amount Due', data: 'amount_due' },
                     {
-                        title: 'Action',
+                        title: 'Actions',
                         data: null,
                         render: (data, type, row) => `
-                            <div>
-                                a
-                            </div>
+                        <div>
+                            <a class="btn btn-sm btn-link">
+                                Record payment
+                            </a>
+                            <a href="sales-invoices-edit.html" class="btn btn-sm btn-outline-warning">
+                                <i class="bi bi-pencil" style="font-size: .8rem;"></i>
+                            </a>
+                            <a class="btn btn-sm btn-outline-danger">
+                                <i class="bi bi-trash" style="font-size: .8rem;"></i>
+                            </a>
+                        </div>
                         `
                     },
                 ],

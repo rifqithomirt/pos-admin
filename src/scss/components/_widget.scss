@@ -3,6 +3,7 @@
     position: relative;
     display: flex;
     cursor: pointer;
+    box-shadow: 0 0 20px 0 rgba(76, 87, 125, .20);
     
     &:hover {
         filter: brightness(115%);

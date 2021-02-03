@@ -10,3 +10,7 @@
     width: 32px;
     height: 32px;
 }
+
+[class^="bi-"]::before, [class*=" bi-"]::before {
+    line-height: 1.5 #{!important};
+}
