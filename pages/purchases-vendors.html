@@ -4,7 +4,7 @@
     <!-- meta -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sales - Product &amp; Services - E-POS Admin</title>
+    <title>Purchases - Vendors - E-POS Admin</title>
     <!-- styles -->
     
     <link rel="stylesheet" href="../dist/css/tailwind.css">
@@ -72,7 +72,7 @@
                                                         <a href="sales-customers.html">Customers</a>
                                                     </li>
                                                 
-                                                    <li class="dropdown item active">
+                                                    <li class="dropdown item ">
                                                         <a href="sales-product-services.html">Product Services</a>
                                                     </li>
                                                 
@@ -96,7 +96,7 @@
                                                         <a href="purchases-bills.html">Bills</a>
                                                     </li>
                                                 
-                                                    <li class="dropdown item ">
+                                                    <li class="dropdown item active">
                                                         <a href="purchases-vendors.html">Vendors</a>
                                                     </li>
                                                 
@@ -211,17 +211,17 @@
         <div class="content-header">
             <div class="tw-flex tw-justify-between">
                 <div class="title">
-                    Product & Services
+                    Vendors
                 </div>
-                <a href="sales-product-services-create.html" class="btn btn-primary">
-                    Create a Product
+                <a href="purchases-vendors-create.html" class="btn btn-primary">
+                    Create a vendor
                 </a>
             </div>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                    <li class="breadcrumb-item">Sales</li>
-                    <li class="breadcrumb-item active" aria-current="page">Product & Services</li>
+                    <li class="breadcrumb-item">Purchases</li>
+                    <li class="breadcrumb-item active" aria-current="page">Vendors</li>
                 </ol>
             </nav>
         </div>
@@ -283,18 +283,19 @@
                 autoWidth: false,
                 order: [[0, 'asc']],
                 columnDefs: [
-                    { orderable: false, targets: [3] }
+                    { orderable: false, targets: [4] }
                 ],
                 columns: [
                     { title: '#', data: 'id', render: (data, type, row, meta) => meta.row + meta.settings._iDisplayStart + 1 },
                     { title: 'Name', data: 'name' },
-                    { title: 'Price', data: 'price', render: (data) => `Rp${data}` },
+                    { title: 'Email', data: 'email' },
+                    { title: 'Phone', data: 'phone' },
                     {
                         title: 'Actions',
                         data: null,
                         render: (data, type, row) => `
                         <div>
-                            <a href="sales-product-services-edit.html" class="btn btn-sm btn-outline-warning">
+                            <a href="purchases-vendors-edit.html" class="btn btn-sm btn-outline-warning">
                                 <i class="bi bi-pencil" style="font-size: .8rem;"></i>
                             </a>
                             <a class="btn btn-sm btn-outline-danger">
@@ -307,13 +308,15 @@
                 data: [
                     {
                         id: 1,
-                        name: 'Aqua Water Mineral 1L',
-                        price: 3000
+                        name: 'Vendor 1',
+                        phone: '0895337617550',
+                        email: 'adian@mail.com'
                     },
                     {
-                        id: 1,
-                        name: 'Pocari Sweet 1L',
-                        price: 4500
+                        id: 2,
+                        name: 'Vendor 2',
+                        phone: '123124981278',
+                        email: 'alfian@mail.com'
                     }
                 ]
             });

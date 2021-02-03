@@ -4,7 +4,7 @@
     <!-- meta -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sales - Product &amp; Services - E-POS Admin</title>
+    <title>Purchases - Product &amp; Services - E-POS Admin</title>
     <!-- styles -->
     
     <link rel="stylesheet" href="../dist/css/tailwind.css">
@@ -72,7 +72,7 @@
                                                         <a href="sales-customers.html">Customers</a>
                                                     </li>
                                                 
-                                                    <li class="dropdown item active">
+                                                    <li class="dropdown item ">
                                                         <a href="sales-product-services.html">Product Services</a>
                                                     </li>
                                                 
@@ -100,7 +100,7 @@
                                                         <a href="purchases-vendors.html">Vendors</a>
                                                     </li>
                                                 
-                                                    <li class="dropdown item ">
+                                                    <li class="dropdown item active">
                                                         <a href="purchases-product-services.html">Product Services</a>
                                                     </li>
                                                 
@@ -213,14 +213,14 @@
                 <div class="title">
                     Product & Services
                 </div>
-                <a href="sales-product-services-create.html" class="btn btn-primary">
+                <a href="purchases-product-services-create.html" class="btn btn-primary">
                     Create a Product
                 </a>
             </div>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                    <li class="breadcrumb-item">Sales</li>
+                    <li class="breadcrumb-item">Purchases</li>
                     <li class="breadcrumb-item active" aria-current="page">Product & Services</li>
                 </ol>
             </nav>
@@ -294,7 +294,7 @@
                         data: null,
                         render: (data, type, row) => `
                         <div>
-                            <a href="sales-product-services-edit.html" class="btn btn-sm btn-outline-warning">
+                            <a href="purchases-product-services-edit.html" class="btn btn-sm btn-outline-warning">
                                 <i class="bi bi-pencil" style="font-size: .8rem;"></i>
                             </a>
                             <a class="btn btn-sm btn-outline-danger">
@@ -307,13 +307,13 @@
                 data: [
                     {
                         id: 1,
-                        name: 'Aqua Water Mineral 1L',
+                        name: 'Test 1',
                         price: 3000
                     },
                     {
                         id: 1,
-                        name: 'Pocari Sweet 1L',
-                        price: 4500
+                        name: 'Test 2',
+                        price: 3000
                     }
                 ]
             });

@@ -1,5 +1,5 @@
-{% set title = 'Sales - Customers' %}
-{% set filename = 'sales-customers' %}
+{% set title = 'Purchases - Product & Services' %}
+{% set filename = 'purchases-product-services' %}
 {% extends 'layouts/dashboard.html' %}
 
 {% block content %}
@@ -8,17 +8,17 @@
         <div class="content-header">
             <div class="tw-flex tw-justify-between">
                 <div class="title">
-                    Customers
+                    Product & Services
                 </div>
-                <a href="sales-customers-create.html" class="btn btn-primary">
-                    Create a customer
+                <a href="purchases-product-services-create.html" class="btn btn-primary">
+                    Create a Product
                 </a>
             </div>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                    <li class="breadcrumb-item">Sales</li>
-                    <li class="breadcrumb-item active" aria-current="page">Customers</li>
+                    <li class="breadcrumb-item">Purchases</li>
+                    <li class="breadcrumb-item active" aria-current="page">Product & Services</li>
                 </ol>
             </nav>
         </div>
@@ -67,21 +67,18 @@
                 autoWidth: false,
                 order: [[0, 'asc']],
                 columnDefs: [
-                    { orderable: false, targets: [6] }
+                    { orderable: false, targets: [3] }
                 ],
                 columns: [
                     { title: '#', data: 'id', render: (data, type, row, meta) => meta.row + meta.settings._iDisplayStart + 1 },
                     { title: 'Name', data: 'name' },
-                    { title: 'Email', data: 'email' },
-                    { title: 'Phone', data: 'phone' },
-                    { title: 'Balance', data: 'balance' },
-                    { title: 'Overdue', data: 'overdue' },
+                    { title: 'Price', data: 'price', render: (data) => `Rp${data}` },
                     {
                         title: 'Actions',
                         data: null,
                         render: (data, type, row) => `
                         <div>
-                            <a href="sales-customers-edit.html" class="btn btn-sm btn-outline-warning">
+                            <a href="purchases-product-services-edit.html" class="btn btn-sm btn-outline-warning">
                                 <i class="bi bi-pencil" style="font-size: .8rem;"></i>
                             </a>
                             <a class="btn btn-sm btn-outline-danger">
@@ -94,11 +91,13 @@
                 data: [
                     {
                         id: 1,
-                        name: 'Adian',
-                        phone: '0895337617550',
-                        email: 'adian@mail.com',
-                        balance: 5000,
-                        overdue: 5000
+                        name: 'Test 1',
+                        price: 3000
+                    },
+                    {
+                        id: 1,
+                        name: 'Test 2',
+                        price: 3000
                     }
                 ]
             });

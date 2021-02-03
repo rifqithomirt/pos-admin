@@ -4,7 +4,7 @@
     <!-- meta -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sales - Product &amp; Services - E-POS Admin</title>
+    <title>Purchases - Vendors - Edit - E-POS Admin</title>
     <!-- styles -->
     
     <link rel="stylesheet" href="../dist/css/tailwind.css">
@@ -12,9 +12,6 @@
     <link rel="stylesheet" href="../vendor/bootstrap-icons/font/bootstrap-icons.css">
     
     <!-- style:plugin -->
-    <!-- <link rel="stylesheet" href="../vendor/datatables/css/jquery.dataTables.min.css"> -->
-    <link rel="stylesheet" href="../vendor/datatables/css/dataTables.bootstrap5.min.css">
-    <link rel="stylesheet" href="../vendor/datatables/css/responsive.css">
     <link rel="stylesheet" href="../vendor/choices.js/styles/choices.min.css">
     <link rel="stylesheet" href="../vendor/pikaday/css/pikaday.css">    
 
@@ -72,7 +69,7 @@
                                                         <a href="sales-customers.html">Customers</a>
                                                     </li>
                                                 
-                                                    <li class="dropdown item active">
+                                                    <li class="dropdown item ">
                                                         <a href="sales-product-services.html">Product Services</a>
                                                     </li>
                                                 
@@ -96,7 +93,7 @@
                                                         <a href="purchases-bills.html">Bills</a>
                                                     </li>
                                                 
-                                                    <li class="dropdown item ">
+                                                    <li class="dropdown item active">
                                                         <a href="purchases-vendors.html">Vendors</a>
                                                     </li>
                                                 
@@ -211,17 +208,20 @@
         <div class="content-header">
             <div class="tw-flex tw-justify-between">
                 <div class="title">
-                    Product & Services
+                    Edit vendor
                 </div>
-                <a href="sales-product-services-create.html" class="btn btn-primary">
-                    Create a Product
-                </a>
+                <div>
+                    <a href="purchases-vendors.html" class="btn btn-primary">
+                        Save and Continue
+                    </a>
+                </div>
             </div>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
                     <li class="breadcrumb-item">Sales</li>
-                    <li class="breadcrumb-item active" aria-current="page">Product & Services</li>
+                    <li class="breadcrumb-item"><a href="sales-customers.html">Customers</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Create</li>
                 </ol>
             </nav>
         </div>
@@ -231,11 +231,101 @@
             <div class="row">
                 <div class="col-12">
                     <div class="card card-custom">
-                        <div class="card-body pt-4">
-                            <table id="table-invoices" class="table table-bordered table-hover table-stripped"></table>
+                        <div class="card-header">
+                            <h3 class="card-title align-items-start flex-column">
+                                <span class="fw-bolder tw-text-gray-700 fs-5">
+                                    Contact
+                                </span>
+                            </h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group row my-2">
+                                <label class="col-sm-4 col-form-label text-md-end">Vendor Name :</label>
+                                <div class="col-md-4">
+                                    <input type="text" class="form-control" value="Vendor 1">
+                                </div>
+                            </div>
+                            <div class="form-group row my-2">
+                                <label class="col-sm-4 col-form-label text-md-end">Email :</label>
+                                <div class="col-md-4">
+                                    <input type="email" class="form-control" value="adian@mail.com">
+                                </div>
+                            </div>
+                            <div class="form-group row my-2">
+                                <label class="col-sm-4 col-form-label text-md-end">First Name :</label>
+                                <div class="col-md-4">
+                                    <input type="text" class="form-control" value="Adian">
+                                </div>
+                            </div>
+                            <div class="form-group row my-2">
+                                <label class="col-sm-4 col-form-label text-md-end">Last Name :</label>
+                                <div class="col-md-4">
+                                    <input type="text" class="form-control" value="ilham">
+                                </div>
+                            </div>
+                            <div class="form-group row my-2">
+                                <label class="col-sm-4 col-form-label text-md-end">Phone :</label>
+                                <div class="col-md-4">
+                                    <input type="text" class="form-control" value="0895012312">
+                                </div>
+                            </div>
+                            <div class="form-group row my-2">
+                                <label class="col-sm-4 col-form-label text-md-end">Address line 1 :</label>
+                                <div class="col-md-4">
+                                    <input type="text" class="form-control" value="Pasar Mleto">
+                                </div>
+                            </div>
+                            <div class="form-group row my-2">
+                                <label class="col-sm-4 col-form-label text-md-end">Address line 2 :</label>
+                                <div class="col-md-4">
+                                    <input type="text" class="form-control" value="GG 2 RT 3 RW 1">
+                                </div>
+                            </div>
+                            <div class="form-group row my-2">
+                                <label class="col-sm-4 col-form-label text-md-end">City :</label>
+                                <div class="col-md-4">
+                                    <input type="text" class="form-control" value="Surabaya">
+                                </div>
+                            </div>
+                            <div class="form-group row my-2">
+                                <label class="col-sm-4 col-form-label text-md-end">Postal / Zip code :</label>
+                                <div class="col-md-4">
+                                    <input type="text" class="form-control" value="61361">
+                                </div>
+                            </div>
+                            <div class="form-group row my-2">
+                                <label class="col-sm-4 col-form-label text-md-end">Country :</label>
+                                <div class="col-md-4">
+                                    <input type="text" class="form-control" value="Indonesia">
+                                </div>
+                            </div>
+                            <div class="form-group row my-2">
+                                <label class="col-sm-4 col-form-label text-md-end">Account number :</label>
+                                <div class="col-md-4">
+                                    <input type="text" class="form-control" value="">
+                                </div>
+                            </div>
+                            <div class="form-group row my-2">
+                                <label class="col-sm-4 col-form-label text-md-end">Fax :</label>
+                                <div class="col-md-4">
+                                    <input type="text" class="form-control" value="">
+                                </div>
+                            </div>
+                            <div class="form-group row my-2">
+                                <label class="col-sm-4 col-form-label text-md-end">Internal notes :</label>
+                                <div class="col-md-4">
+                                    <textarea cols="30" rows="10" class="form-control"></textarea>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                    <div class="mb-4 text-end">
+                        <a href="purchases-vendors.html" class="btn btn-primary">
+                            Save and Continue
+                        </a>
+                    </div>
                 </div>
+                
             </div>
         </div>
         <!-- content:end -->
@@ -267,62 +357,40 @@
     <script src="../vendor/feather-icons/feather.min.js"></script>
     
     <!-- script:plugin -->
-    <script src="../vendor/jquery/jquery.min.js"></script>
-    <script src="../vendor/datatables/js/jquery.dataTables.min.js"></script>
-    <script src="../vendor/datatables/js/dataTables.bootstrap5.min.js"></script>
-    <script src="../vendor/datatables/js/responsive.js"></script>
+    <script src="../vendor/choices.js/scripts/choices.min.js"></script>
+    <script src="../vendor/pikaday/pikaday.js"></script>
+    <script src="../vendor/moment/moment.js"></script>
 
     <script src="../dist/js/app.js"></script>
     
     <!-- script:page - you can remove this -->
     <script>
-        // datatables
-        const initTable = () => {
-            $('#table-invoices').DataTable({
-                responsive: true,
-                autoWidth: false,
-                order: [[0, 'asc']],
-                columnDefs: [
-                    { orderable: false, targets: [3] }
-                ],
-                columns: [
-                    { title: '#', data: 'id', render: (data, type, row, meta) => meta.row + meta.settings._iDisplayStart + 1 },
-                    { title: 'Name', data: 'name' },
-                    { title: 'Price', data: 'price', render: (data) => `Rp${data}` },
-                    {
-                        title: 'Actions',
-                        data: null,
-                        render: (data, type, row) => `
-                        <div>
-                            <a href="sales-product-services-edit.html" class="btn btn-sm btn-outline-warning">
-                                <i class="bi bi-pencil" style="font-size: .8rem;"></i>
-                            </a>
-                            <a class="btn btn-sm btn-outline-danger">
-                                <i class="bi bi-trash" style="font-size: .8rem;"></i>
-                            </a>
-                        </div>
-                        `
-                    },
-                ],
-                data: [
-                    {
-                        id: 1,
-                        name: 'Aqua Water Mineral 1L',
-                        price: 3000
-                    },
-                    {
-                        id: 1,
-                        name: 'Pocari Sweet 1L',
-                        price: 4500
-                    }
-                ]
-            });
+        // choice
+        const initChoice = () => {
+            const els = document.querySelectorAll('.choices')
+            els.forEach((el) => new Choices(el))
         }
-
+        // datepicker
+        const initDatepicker = () => {
+            const els = document.querySelectorAll('.datepicker')
+            els.forEach((el) => new Pikaday({
+                field: el,
+                format: 'DD-MM-YYYY',
+                toString(date, format) {
+                    // you should do formatting based on the passed format,
+                    // but we will just return 'D/M/YYYY' for simplicity
+                    const day = ('0' + date.getDate()).slice(-2);
+                    const month = ('0' + (date.getMonth() + 1)).slice(-2);
+                    const year = date.getFullYear();
+                    return `${day}-${month}-${year}`;
+                },
+            }))
+        }
 
         // init
         document.addEventListener('DOMContentLoaded', function () {
-            initTable()
+            initChoice()
+            initDatepicker()
         })
     </script>
 

@@ -14,7 +14,7 @@
     <!-- style:plugin -->
     <!-- <link rel="stylesheet" href="../vendor/datatables/css/jquery.dataTables.min.css"> -->
     <link rel="stylesheet" href="../vendor/datatables/css/dataTables.bootstrap5.min.css">
-    <link rel="stylesheet" href="../vendor/datatables/css/responsive.css">
+    <link rel="stylesheet" href="../vendor/datatables/css/responsive.bootstrap4.min.css">
     <link rel="stylesheet" href="../vendor/choices.js/styles/choices.min.css">
     <link rel="stylesheet" href="../vendor/pikaday/css/pikaday.css">    
 
@@ -231,14 +231,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="card card-custom">
-                        <div class="card-header">
-                            <h3 class="card-title align-items-start flex-column">
-                                <span class="fw-bolder tw-text-gray-700 fs-5">
-                                    Invoices
-                                </span>
-                            </h3>
-                        </div>
-                        <div class="card-body">
+                        <div class="card-body pt-4">
                             <!-- filters -->
                             <form action="#">
                                 <div class="tw-font-semibold">Filter :</div>
@@ -279,9 +272,7 @@
                                         <a class="nav-link active" aria-current="page" href="#">All Invoices</a>
                                     </li>
                                 </ul>
-                                <div class="table-responsive">
-                                    <table id="table-invoices" class="table card-table"></table>
-                                </div>
+                                <table id="table-invoices" class="table table-bordered table-hover table-stripped"></table>
                             </div>
                         </div>
                     </div>
@@ -320,7 +311,7 @@
     <script src="../vendor/jquery/jquery.min.js"></script>
     <script src="../vendor/datatables/js/jquery.dataTables.min.js"></script>
     <script src="../vendor/datatables/js/dataTables.bootstrap5.min.js"></script>
-    <script src="../vendor/datatables/js/responsive.js"></script>
+    <script src="../vendor/datatables/js/dataTables.responsive.min.js"></script>
     <script src="../vendor/choices.js/scripts/choices.min.js"></script>
     <script src="../vendor/pikaday/pikaday.js"></script>
     <script src="../vendor/moment/moment.js"></script>
@@ -370,12 +361,14 @@
         // datatables
         const initTable = () => {
             $('#table-invoices').DataTable({
+                responsive: true,
+                autoWidth: false,
                 order: [[0, 'asc']],
                 columnDefs: [
                     { orderable: false, targets: [7] }
                 ],
                 columns: [
-                    { title: '#', render: (data, type, row, meta) => meta.row + meta.settings._iDisplayStart + 1 },
+                    { title: '#', data: 'id', render: (data, type, row, meta) => meta.row + meta.settings._iDisplayStart + 1 },
                     { title: 'Status', data: 'status' },
                     { title: 'Date', data: 'date' },
                     { title: 'Number', data: 'number' },

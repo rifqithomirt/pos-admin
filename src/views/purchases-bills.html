@@ -1,5 +1,5 @@
-{% set title = 'Sales - Invoices' %}
-{% set filename = 'sales-invoices' %}
+{% set title = 'Purchases - Bills' %}
+{% set filename = 'purchases-bills' %}
 {% extends 'layouts/dashboard.html' %}
 
 {% block content %}
@@ -8,17 +8,17 @@
         <div class="content-header">
             <div class="tw-flex tw-justify-between">
                 <div class="title">
-                    Invoices
+                    Bills
                 </div>
-                <a href="sales-invoices-create.html" class="btn btn-primary">
-                    Create an invoice
+                <a href="purchases-bills-create.html" class="btn btn-primary">
+                    Create a bill
                 </a>
             </div>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                    <li class="breadcrumb-item">Sales</li>
-                    <li class="breadcrumb-item active" aria-current="page">Invoices</li>
+                    <li class="breadcrumb-item">Purchases</li>
+                    <li class="breadcrumb-item active" aria-current="page">Bills</li>
                 </ol>
             </nav>
         </div>
@@ -35,17 +35,9 @@
                                 <div class="row gx-2">
                                     <div class="col-md-6 col-lg-3 form-group my-1">
                                         <select id="input-filter-customer" class="choices form-select">
-                                            <option value="">All Customer</option>
-                                            <option value="1">Alfian</option>
-                                            <option value="2">Adian</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-6 col-lg-3 form-group my-1">
-                                        <select id="input-filter-status" class="choices form-select">
-                                            <option value="">All Status</option>
-                                            <option value="1">Draft</option>
-                                            <option value="2">Unsent</option>
-                                            <option value="3">Sent</option>
+                                            <option value="">All Vendors</option>
+                                            <option value="1">Vendor 1</option>
+                                            <option value="2">Vendor 2</option>
                                         </select>
                                     </div>
                                     <div class="col-md-6 col-lg-3 form-group my-1">
@@ -66,7 +58,7 @@
                             <div class="mt-4">
                                 <ul class="nav nav-tabs mb-4">
                                     <li class="nav-item">
-                                        <a class="nav-link active" aria-current="page" href="#">All Invoices</a>
+                                        <a class="nav-link active" aria-current="page" href="#">All Bills</a>
                                     </li>
                                 </ul>
                                 <table id="table-invoices" class="table table-bordered table-hover table-stripped"></table>
@@ -115,7 +107,7 @@
         // choice
         const initChoice = () => {
             const els = document.querySelectorAll('.choices')
-            els.forEach((el) => console.log(new Choices(el)))
+            els.forEach((el) => (new Choices(el)))
         }
         // datepicker
         const initDatepicker = () => {
@@ -149,16 +141,15 @@
                 autoWidth: false,
                 order: [[0, 'asc']],
                 columnDefs: [
-                    { orderable: false, targets: [7] }
+                    { orderable: false, targets: [6] }
                 ],
                 columns: [
                     { title: '#', data: 'id', render: (data, type, row, meta) => meta.row + meta.settings._iDisplayStart + 1 },
-                    { title: 'Status', data: 'status' },
                     { title: 'Date', data: 'date' },
                     { title: 'Number', data: 'number' },
-                    { title: 'Customer', data: 'customer' },
-                    { title: 'Total', data: 'total' },
+                    { title: 'Vendor', data: 'vendor' },
                     { title: 'Amount Due', data: 'amount_due' },
+                    { title: 'Payment_status', data: 'payment_status' },
                     {
                         title: 'Actions',
                         data: null,
@@ -180,12 +171,11 @@
                 data: [
                     {
                         id: 1,
-                        status: 'Overdue',
                         date: '2021-01-20',
                         number: 1,
-                        customer: 'Alfian',
-                        total: 5000,
-                        amount_due: 5000
+                        vendor: 'Vendor 1',
+                        amount_due: 5000,
+                        payment_status: 'Paid'
                     }
                 ]
             });

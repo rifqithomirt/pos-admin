@@ -4,7 +4,7 @@
     <!-- meta -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sales - Product &amp; Services - E-POS Admin</title>
+    <title>Purchases - Bills - E-POS Admin</title>
     <!-- styles -->
     
     <link rel="stylesheet" href="../dist/css/tailwind.css">
@@ -14,7 +14,7 @@
     <!-- style:plugin -->
     <!-- <link rel="stylesheet" href="../vendor/datatables/css/jquery.dataTables.min.css"> -->
     <link rel="stylesheet" href="../vendor/datatables/css/dataTables.bootstrap5.min.css">
-    <link rel="stylesheet" href="../vendor/datatables/css/responsive.css">
+    <link rel="stylesheet" href="../vendor/datatables/css/responsive.bootstrap4.min.css">
     <link rel="stylesheet" href="../vendor/choices.js/styles/choices.min.css">
     <link rel="stylesheet" href="../vendor/pikaday/css/pikaday.css">    
 
@@ -72,7 +72,7 @@
                                                         <a href="sales-customers.html">Customers</a>
                                                     </li>
                                                 
-                                                    <li class="dropdown item active">
+                                                    <li class="dropdown item ">
                                                         <a href="sales-product-services.html">Product Services</a>
                                                     </li>
                                                 
@@ -92,7 +92,7 @@
                                         <div class="dropdown menu">
                                             <ul class="menu">
                                                 
-                                                    <li class="dropdown item ">
+                                                    <li class="dropdown item active">
                                                         <a href="purchases-bills.html">Bills</a>
                                                     </li>
                                                 
@@ -211,17 +211,17 @@
         <div class="content-header">
             <div class="tw-flex tw-justify-between">
                 <div class="title">
-                    Product & Services
+                    Bills
                 </div>
-                <a href="sales-product-services-create.html" class="btn btn-primary">
-                    Create a Product
+                <a href="purchases-bills-create.html" class="btn btn-primary">
+                    Create a bill
                 </a>
             </div>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                    <li class="breadcrumb-item">Sales</li>
-                    <li class="breadcrumb-item active" aria-current="page">Product & Services</li>
+                    <li class="breadcrumb-item">Purchases</li>
+                    <li class="breadcrumb-item active" aria-current="page">Bills</li>
                 </ol>
             </nav>
         </div>
@@ -232,7 +232,40 @@
                 <div class="col-12">
                     <div class="card card-custom">
                         <div class="card-body pt-4">
-                            <table id="table-invoices" class="table table-bordered table-hover table-stripped"></table>
+                            <!-- filters -->
+                            <form action="#">
+                                <div class="tw-font-semibold">Filter :</div>
+                                <div class="row gx-2">
+                                    <div class="col-md-6 col-lg-3 form-group my-1">
+                                        <select id="input-filter-customer" class="choices form-select">
+                                            <option value="">All Vendors</option>
+                                            <option value="1">Vendor 1</option>
+                                            <option value="2">Vendor 2</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 col-lg-3 form-group my-1">
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="fh-16" data-feather="calendar"></i></span>
+                                            <input id="input-filter-datepicker-from" type="text" class="form-control datepicker" placeholder="From...">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-3 form-group my-1">
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="fh-16" data-feather="calendar"></i></span>
+                                            <input id="input-filter-datepicker-to" type="text" class="form-control datepicker" placeholder="To...">
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- table -->
+                            <div class="mt-4">
+                                <ul class="nav nav-tabs mb-4">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" aria-current="page" href="#">All Bills</a>
+                                    </li>
+                                </ul>
+                                <table id="table-invoices" class="table table-bordered table-hover table-stripped"></table>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -270,12 +303,53 @@
     <script src="../vendor/jquery/jquery.min.js"></script>
     <script src="../vendor/datatables/js/jquery.dataTables.min.js"></script>
     <script src="../vendor/datatables/js/dataTables.bootstrap5.min.js"></script>
-    <script src="../vendor/datatables/js/responsive.js"></script>
+    <script src="../vendor/datatables/js/dataTables.responsive.min.js"></script>
+    <script src="../vendor/choices.js/scripts/choices.min.js"></script>
+    <script src="../vendor/pikaday/pikaday.js"></script>
+    <script src="../vendor/moment/moment.js"></script>
 
     <script src="../dist/js/app.js"></script>
     
     <!-- script:page - you can remove this -->
     <script>
+        // variables
+        let filter = {
+            customer: null,
+            status: null,
+            to: null,
+            from: null
+        }
+
+        // choice
+        const initChoice = () => {
+            const els = document.querySelectorAll('.choices')
+            els.forEach((el) => (new Choices(el)))
+        }
+        // datepicker
+        const initDatepicker = () => {
+            const els = document.querySelectorAll('.datepicker')
+            els.forEach((el) => new Pikaday({
+                field: el,
+                format: 'DD-MM-YYYY',
+                toString(date, format) {
+                    // you should do formatting based on the passed format,
+                    // but we will just return 'D/M/YYYY' for simplicity
+                    const day = ('0' + date.getDate()).slice(-2);
+                    const month = ('0' + (date.getMonth() + 1)).slice(-2);
+                    const year = date.getFullYear();
+                    return `${day}-${month}-${year}`;
+                },
+            }))
+        }
+        // filter input
+        const initFilterData = (filter) => {
+            const filterEl = {
+                customer: document.getElementById('input-filter-customer'),
+                status: document.getElementById('input-filter-status'),
+                to: document.getElementById('input-filter-datepicker-to'),
+                from: document.getElementById('input-filter-datepicker-from')
+            }
+        }
         // datatables
         const initTable = () => {
             $('#table-invoices').DataTable({
@@ -283,18 +357,24 @@
                 autoWidth: false,
                 order: [[0, 'asc']],
                 columnDefs: [
-                    { orderable: false, targets: [3] }
+                    { orderable: false, targets: [6] }
                 ],
                 columns: [
                     { title: '#', data: 'id', render: (data, type, row, meta) => meta.row + meta.settings._iDisplayStart + 1 },
-                    { title: 'Name', data: 'name' },
-                    { title: 'Price', data: 'price', render: (data) => `Rp${data}` },
+                    { title: 'Date', data: 'date' },
+                    { title: 'Number', data: 'number' },
+                    { title: 'Vendor', data: 'vendor' },
+                    { title: 'Amount Due', data: 'amount_due' },
+                    { title: 'Payment_status', data: 'payment_status' },
                     {
                         title: 'Actions',
                         data: null,
                         render: (data, type, row) => `
                         <div>
-                            <a href="sales-product-services-edit.html" class="btn btn-sm btn-outline-warning">
+                            <a class="btn btn-sm btn-link">
+                                Record payment
+                            </a>
+                            <a href="sales-invoices-edit.html" class="btn btn-sm btn-outline-warning">
                                 <i class="bi bi-pencil" style="font-size: .8rem;"></i>
                             </a>
                             <a class="btn btn-sm btn-outline-danger">
@@ -307,13 +387,11 @@
                 data: [
                     {
                         id: 1,
-                        name: 'Aqua Water Mineral 1L',
-                        price: 3000
-                    },
-                    {
-                        id: 1,
-                        name: 'Pocari Sweet 1L',
-                        price: 4500
+                        date: '2021-01-20',
+                        number: 1,
+                        vendor: 'Vendor 1',
+                        amount_due: 5000,
+                        payment_status: 'Paid'
                     }
                 ]
             });
@@ -322,6 +400,9 @@
 
         // init
         document.addEventListener('DOMContentLoaded', function () {
+            initChoice()
+            initDatepicker()
+            initFilterData(filter)
             initTable()
         })
     </script>

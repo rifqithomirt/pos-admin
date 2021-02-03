@@ -1,5 +1,5 @@
-{% set title = 'Sales - Invoices - Edit' %}
-{% set filename = 'sales-invoices-edit' %}
+{% set title = 'Purchases - Bills - Create' %}
+{% set filename = 'purchases-bills-create' %}
 {% extends 'layouts/dashboard.html' %}
 
 {% block content %}
@@ -8,23 +8,23 @@
         <div class="content-header">
             <div class="tw-flex tw-justify-between">
                 <div class="title">
-                    Edit Invoice
+                    Create Bill
                 </div>
                 <div>
-                    <a href="sales-invoices.html" class="btn btn-outline-secondary">
-                        Preview
+                    <a href="purchases-bills.html" class="btn btn-secondary">
+                        Cancel
                     </a>
-                    <a href="sales-invoices.html" class="btn btn-primary">
-                        Save invoice and continue
+                    <a href="purchases-bills.html" class="btn btn-primary">
+                        Save bill and continue
                     </a>
                 </div>
             </div>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                    <li class="breadcrumb-item">Sales</li>
-                    <li class="breadcrumb-item"><a href="sales-invoices.html">Invoices</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Edit</li>
+                    <li class="breadcrumb-item">Purchases</li>
+                    <li class="breadcrumb-item"><a href="purchases-bills.html">Bills</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Create</li>
                 </ol>
             </nav>
         </div>
@@ -43,9 +43,9 @@
                                         <label for="input-customer" class="col-sm-4 col-md-4 col-lg-3 col-form-label">Customer</label>
                                         <div class="col-lg-6 col-md-8 col-sm-8">
                                             <select id="input-customer" class="choices form-select">
-                                                <option value="" placeholder>Select customer</option>
-                                                <option value="1" selected>Alfian</option>
-                                                <option value="2">Adian</option>
+                                                <option value="" placeholder>Select vendor</option>
+                                                <option value="1">Vendor 1</option>
+                                                <option value="2">Vendor 2</option>
                                             </select>
                                         </div>
                                     </div>
@@ -53,7 +53,7 @@
                                 <div class="col-12 col-lg-6">
                                     <div class="form-group row mb-1">
                                         <label for="input-invoice-number" class="col-sm-4 col-form-label text-md-right">
-                                            Invoice number
+                                            Bill #
                                         </label>
                                         <div class="col-sm-8 col-md-8">
                                             <input type="text" id="input-invoice-number" class="form-control" value="1">
@@ -64,29 +64,37 @@
                                             P.O./S.O. number
                                         </label>
                                         <div class="col-sm-8 col-md-8">
-                                            <input type="text" id="input-po-so-number" class="form-control" value="awe5a6e17823a">
+                                            <input type="text" id="input-po-so-number" class="form-control">
                                         </div>
                                     </div>
                                     <div class="form-group row mb-1">
                                         <label for="input-invoice-number" class="col-sm-4 col-form-label text-md-right">
-                                            Invoice date
+                                            Date
                                         </label>
                                         <div class="col-sm-8 col-md-8">
                                             <div class="input-group">
                                                 <span class="input-group-text"><i class="fh-16" data-feather="calendar"></i></span>
-                                                <input id="input-filter-datepicker-from" type="text" class="form-control datepicker" placeholder="From..." value="01-02-2021">
+                                                <input type="text" class="form-control datepicker" placeholder="Date...">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group row mb-1">
                                         <label for="input-invoice-number" class="col-sm-4 col-form-label text-md-right">
-                                            Payment due
+                                            Due date
                                         </label>
                                         <div class="col-sm-8 col-md-8">
                                             <div class="input-group">
                                                 <span class="input-group-text"><i class="fh-16" data-feather="calendar"></i></span>
-                                                <input id="input-filter-datepicker-from" type="text" class="form-control datepicker" placeholder="From..." value="01-02-2021">
+                                                <input type="text" class="form-control datepicker" placeholder="Due date...">
                                             </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row mb-1">
+                                        <label for="input-invoice-number" class="col-sm-4 col-form-label text-md-right">
+                                            Notes
+                                        </label>
+                                        <div class="col-sm-8 col-md-8">
+                                            <textarea class="form-control" placeholder="Notes..."></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -115,7 +123,7 @@
                                         <td>
                                             <select name="item[0]" class="choices choice-item">
                                                 <option value="" placeholder>Select item</option>
-                                                <option value="1" selected>Aqua Mineral Water 1L</option>
+                                                <option value="1">Aqua Mineral Water 1L</option>
                                                 <option value="2">Pocari Sweet 1L</option>
                                             </select>
                                         </td>
@@ -123,34 +131,10 @@
                                             <input type="number" name="quantity[0]" class="form-control" value="1">
                                         </td>
                                         <td>
-                                            <input type="number" name="price[0]" class="form-control" value="3000">
+                                            <input type="number" name="price[0]" class="form-control" value="1000">
                                         </td>
                                         <td class="text-end">
-                                            Rp3.000
-                                        </td>
-                                        <td class="text-center">
-                                            <a href="btn btn-link btn-link-danger">
-                                                <i class="bi bi-trash"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td>
-                                            <select name="item[0]" class="choices choice-item">
-                                                <option value="" placeholder>Select item</option>
-                                                <option value="1">Aqua Mineral Water 1L</option>
-                                                <option value="2" selected>Pocari Sweet 1L</option>
-                                            </select>
-                                        </td>
-                                        <td>
-                                            <input type="number" name="quantity[0]" class="form-control" value="1">
-                                        </td>
-                                        <td>
-                                            <input type="number" name="price[0]" class="form-control" value="4500">
-                                        </td>
-                                        <td class="text-end">
-                                            Rp4.500
+                                            Rp1.000
                                         </td>
                                         <td class="text-center">
                                             <a href="btn btn-link btn-link-danger">
@@ -163,7 +147,7 @@
                                             Total
                                         </td>
                                         <td class="text-end">
-                                            Rp7.500
+                                            Rp1.000
                                         </td>
                                         <td></td>
                                     </tr>
@@ -179,18 +163,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card">
-                        <div class="card-header">Footer</div>
-                        <div class="card-body p-0">
-                            <textarea class="form-control no-rounded" name="note" cols="30" rows="5" placeholder="Enter a footer for this invoice">Thanks for buy</textarea>
-                        </div>
-                    </div>
                     <div class="mb-4 text-end">
-                        <a href="sales-invoices.html" class="btn btn-outline-secondary">
-                            Preview
+                        <a href="purchases-bills.html" class="btn btn-secondary">
+                            Cancel
                         </a>
-                        <a href="sales-invoices.html" class="btn btn-primary">
-                            Save invoice and continue
+                        <a href="purchases-bills.html" class="btn btn-primary">
+                            Save bill and continue
                         </a>
                     </div>
                 </div>
@@ -217,13 +195,6 @@
 {% block scripts %}
     <!-- script:page - you can remove this -->
     <script>
-        // variable
-        const dataCustomers = [
-            { id: 1, name: 'Alfian' },
-            { id: 2, name: 'Adian' },
-        ]
-
-
         // choice
         const initChoice = () => {
             const els = document.querySelectorAll('.choices')
