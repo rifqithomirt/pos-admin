@@ -19,7 +19,7 @@
 // $navbarBorderColor: $sidebarBorderColor;
 
 $primaryColor: theme('colors.blue.600');
-$contentBackgroundColor: theme('colors.gray.50');
+$contentBackgroundColor: theme('colors.white');
 $sidebarWidth: 250px;
 $sidebarBackgroundColor: #ebeff4;
 $sidebarBorderColor: theme('colors.gray.300');
@@ -41,7 +41,7 @@ $navbarBorderColor: $sidebarBorderColor;
 * {
     // font-family: 'Poppins', sans-serif;
     // font-family: 'Noto Sans TC', sans-serif;
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Nunito', sans-serif #{!important};
 }
 
 // icons
@@ -351,6 +351,8 @@ svg.fh {
 
         .content {
             margin-top: 1rem;
+            padding-left: .4rem;
+            padding-right: .4rem;
         }
 
         & > .footer {
@@ -384,7 +386,9 @@ svg.fh {
 .dashboard {
     &.fixed-footer {
         & > .main {
-            margin-bottom: 2rem;
+            & > .container {
+                margin-bottom: 2rem;
+            }
             & > .footer {
                 position: fixed;
                 bottom: 0;
@@ -431,4 +435,13 @@ svg.fh {
 }
 .ps__thumb-y {
     border-radius: 0 #{!important};
+}
+hr {
+    display: block;
+    height: 0;
+    padding: 0;
+    border: none;
+    border-bottom: 1px solid theme('colors.gray.500');
+    overflow: hidden;
+    margin: 24px auto;
 }

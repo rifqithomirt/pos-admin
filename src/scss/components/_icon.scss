@@ -11,6 +11,10 @@
     height: 32px;
 }
 
+i {
+    vertical-align: middle #{!important};
+}
+
 [class^="bi-"]::before, [class*=" bi-"]::before {
     line-height: 1.5 #{!important};
 }

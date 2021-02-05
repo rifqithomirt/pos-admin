@@ -10,3 +10,7 @@
 .btn, .btn:focus, .btn:active {
     outline: none #{!important};
 }
+
+.btn-link {
+    text-decoration: none;
+}

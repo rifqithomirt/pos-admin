@@ -230,43 +230,33 @@
         <div class="content">
             <div class="row">
                 <div class="col-12">
-                    <div class="card card-custom">
-                        <div class="card-body pt-4">
-                            <!-- filters -->
-                            <form action="#">
-                                <div class="tw-font-semibold">Filter :</div>
-                                <div class="row gx-2">
-                                    <div class="col-md-6 col-lg-3 form-group my-1">
-                                        <select id="input-filter-customer" class="choices form-select">
-                                            <option value="">All Vendors</option>
-                                            <option value="1">Vendor 1</option>
-                                            <option value="2">Vendor 2</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-6 col-lg-3 form-group my-1">
-                                        <div class="input-group">
-                                            <span class="input-group-text"><i class="fh-16" data-feather="calendar"></i></span>
-                                            <input id="input-filter-datepicker-from" type="text" class="form-control datepicker" placeholder="From...">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-lg-3 form-group my-1">
-                                        <div class="input-group">
-                                            <span class="input-group-text"><i class="fh-16" data-feather="calendar"></i></span>
-                                            <input id="input-filter-datepicker-to" type="text" class="form-control datepicker" placeholder="To...">
-                                        </div>
+                    <!-- table -->
+                    <div class="mt-2">
+                        <form action="#" class="mb-4">
+                            <!-- <div class="tw-font-semibold">Filter :</div> -->
+                            <div class="row gx-2">
+                                <div class="col-md-6 col-lg-3 form-group my-1">
+                                    <select id="input-filter-customer" class="choices form-select">
+                                        <option value="">All Vendors</option>
+                                        <option value="1">Vendor 1</option>
+                                        <option value="2">Vendor 2</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6 col-lg-3 form-group my-1">
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fh-16" data-feather="calendar"></i></span>
+                                        <input id="input-filter-datepicker-from" type="text" class="form-control datepicker" placeholder="From...">
                                     </div>
                                 </div>
-                            </form>
-                            <!-- table -->
-                            <div class="mt-4">
-                                <ul class="nav nav-tabs mb-4">
-                                    <li class="nav-item">
-                                        <a class="nav-link active" aria-current="page" href="#">All Bills</a>
-                                    </li>
-                                </ul>
-                                <table id="table-invoices" class="table table-bordered table-hover table-stripped"></table>
+                                <div class="col-md-6 col-lg-3 form-group my-1">
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fh-16" data-feather="calendar"></i></span>
+                                        <input id="input-filter-datepicker-to" type="text" class="form-control datepicker" placeholder="To...">
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+                        </form>
+                        <table id="table-invoices" class="table table-hover table-stripped"></table>
                     </div>
                 </div>
             </div>

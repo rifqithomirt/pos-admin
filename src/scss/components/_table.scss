@@ -4,6 +4,7 @@
 
 .table > :not(:last-child) > :last-child > * {
     // border: none #{!important};
+    background: theme('colors.gray.100');
     border-bottom: 1px solid theme('colors.gray.300') #{!important};
 }
 
@@ -27,8 +28,8 @@
   
   .table th,
   .table td {
-    padding: 0.75rem;
-    vertical-align: top;
+    padding: 0.5rem;
+    vertical-align: middle;
     border-top: 1px solid #dee2e6;
   }
   
@@ -46,13 +47,14 @@
     padding: 0.3rem;
   }
   
+  $table-border: theme('colors.gray.200');
   .table-bordered {
-    border: 1px solid #dee2e6;
+    border: 1px solid $table-border;
   }
   
   .table-bordered th,
   .table-bordered td {
-    border: 1px solid #dee2e6;
+    border: 1px solid $table-border;
   }
   
   .table-bordered thead th,
@@ -374,5 +376,23 @@
 
 //   
 .dataTables_wrapper .row:nth-child(1) {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+// table.dataTable>thead .sorting:before, table.dataTable>thead .sorting:after, table.dataTable>thead .sorting_asc:before, table.dataTable>thead .sorting_asc:after, table.dataTable>thead .sorting_desc:before, table.dataTable>thead .sorting_desc:after, table.dataTable>thead .sorting_asc_disabled:before, table.dataTable>thead .sorting_asc_disabled:after, table.dataTable>thead .sorting_desc_disabled:before, table.dataTable>thead .sorting_desc_disabled:after {
+//   bottom: .5em;
+// }
+table.dataTable>thead .sorting:before, table.dataTable>thead .sorting_asc:before, table.dataTable>thead .sorting_desc:before, table.dataTable>thead .sorting_asc_disabled:before, table.dataTable>thead .sorting_desc_disabled:before {
+  right: .5em;
+  top: .4em;
+  transform: rotate(-90deg) translateY(-3px);
+  content: "›";
+}
+table.dataTable>thead .sorting:after, table.dataTable>thead .sorting_asc:after, table.dataTable>thead .sorting_desc:after, table.dataTable>thead .sorting_asc_disabled:after, table.dataTable>thead .sorting_desc_disabled:after {
+  right: .5em;
+  bottom: .4em;
+  transform: rotate(90deg);
+  content: "›";
+}
+table.dataTable>thead .sorting_asc:before, table.dataTable>thead .sorting_desc:after {
+  opacity: .7;
 }
