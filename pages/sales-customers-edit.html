@@ -24,6 +24,7 @@
         <!-- overlay screen -->
         <div class="overlay">
             <div class="sidebar toggle-sidebar"></div>
+            <div class="sidebar-menu toggle-sidebar-menu"></div>
             <div class="loading"><div class="lds-ripple"><div></div><div></div></div></div>
         </div>
         <!-- overlay:end -->
@@ -31,7 +32,7 @@
         <div class="sidebar">
             <div class="sidebar-wrapper">
                 <div class="sidebar-header">
-                    <a href="index.html" class="sidebar-brand">
+                    <a href="#" class="sidebar-brand toggle-sidebar-menu">
                         <i class="logo bi bi-app-indicator"></i>
                         <span class="text">E-POS Admin</span>
                         <i data-feather="chevron-right"></i>
@@ -199,6 +200,46 @@
             </ul>
         </div>
         <!-- navbar-mobile:end -->
+        <!-- menu-extend -->
+        <div class="sidebar-menu">
+            <div class="menu-header">
+                <button class="toggle-sidebar-menu">
+                    <i class="bi bi-x"></i>
+                </button>
+                <div class="brand">Your Account</div>
+            </div>
+            <div class="menu-wrapper">
+                <ul>
+                    <li><a href="#">Personal</a></li>
+                    <li><a href="#">Retail 2</a></li>
+                </ul>
+            </div>
+            <div class="menu-add">
+                <a href="#" class="">
+                    <i class="bi bi-plus" style="font-size: 1rem;"></i>
+                    Create a new bussiness
+                </a>
+            </div>
+            <div class="menu-action">
+                <p>
+                    You're signed in as <b>test.chotoni123@gmail.com.</b>
+                </p>
+                <a href="" class="link-primary">
+                    <i class="bi bi-person-square" style="font-size: 1rem;"></i>
+                    Manage your profile
+                </a>
+                <a href="" class="link-primary">
+                    <i class="bi bi-box-arrow-right" style="font-size: 1rem;"></i>
+                    Sign out
+                </a>
+            </div>
+            <div class="menu-footer">
+                <a href="#">Terms</a>
+                <span>•</span>
+                <a href="#">Privacy</a>
+            </div>
+        </div>
+        <!-- menu-extend:end -->
         <!-- main -->
         <div class="main">
             <!-- container -->
@@ -221,7 +262,7 @@
                     <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
                     <li class="breadcrumb-item">Sales</li>
                     <li class="breadcrumb-item"><a href="sales-customers.html">Customers</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Create</li>
+                    <li class="breadcrumb-item active" aria-current="page">Edit</li>
                 </ol>
             </nav>
         </div>
@@ -230,15 +271,11 @@
         <div class="content">
             <div class="row">
                 <div class="col-12">
-                    <div class="card card-custom">
-                        <div class="card-header">
-                            <h3 class="card-title align-items-start flex-column">
-                                <span class="fw-bolder tw-text-gray-700 fs-5">
-                                    Contact
-                                </span>
-                            </h3>
-                        </div>
-                        <div class="card-body">
+                    <div class="mt-2">
+                        <section>
+                            <h2 class="fw-bolder tw-text-gray-700 fs-4">
+                                Contact
+                            </h2>
                             <div class="form-group row my-2">
                                 <label class="col-sm-4 col-form-label text-md-end">Name :</label>
                                 <div class="col-md-4">
@@ -254,36 +291,31 @@
                             <div class="form-group row my-2">
                                 <label class="col-sm-4 col-form-label text-md-end">Phone :</label>
                                 <div class="col-md-4">
-                                    <input type="text" class="form-control" value="0895012312">
+                                    <input type="text" class="form-control" value="089633761064">
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="card card-custom">
-                        <div class="card-header">
-                            <h3 class="card-title align-items-start flex-column">
-                                <span class="fw-bolder tw-text-gray-700 fs-5">
-                                    Billing
-                                </span>
-                            </h3>
-                        </div>
-                        <div class="card-body">
+                        </section>
+                        <hr>
+                        <section>
+                            <h2 class="fw-bolder tw-text-gray-700 fs-4">
+                                Billing
+                            </h2>
                             <div class="form-group row my-2">
                                 <label class="col-sm-4 col-form-label text-md-end">Address line 1 :</label>
                                 <div class="col-md-4">
-                                    <input type="text" class="form-control" value="Pasar Mleto">
+                                    <input type="text" class="form-control" value="JL Empunala Kota Mojokerto">
                                 </div>
                             </div>
                             <div class="form-group row my-2">
                                 <label class="col-sm-4 col-form-label text-md-end">Address line 2 :</label>
                                 <div class="col-md-4">
-                                    <input type="text" class="form-control" value="GG 2 RT 3 RW 1">
+                                    <input type="text" class="form-control" value="Kec Magersari RT 06 RW 03">
                                 </div>
                             </div>
                             <div class="form-group row my-2">
                                 <label class="col-sm-4 col-form-label text-md-end">City :</label>
                                 <div class="col-md-4">
-                                    <input type="text" class="form-control" value="Surabaya">
+                                    <input type="text" class="form-control" value="Mojokerto">
                                 </div>
                             </div>
                             <div class="form-group row my-2">
@@ -298,17 +330,12 @@
                                     <input type="text" class="form-control" value="Indonesia">
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="card card-custom">
-                        <div class="card-header">
-                            <h3 class="card-title align-items-start flex-column">
-                                <span class="fw-bolder tw-text-gray-700 fs-5">
-                                    More
-                                </span>
-                            </h3>
-                        </div>
-                        <div class="card-body">
+                        </section>
+                        <hr>
+                        <section>
+                            <h2 class="fw-bolder tw-text-gray-700 fs-4">
+                                More
+                            </h2>
                             <div class="form-group row my-2">
                                 <label class="col-sm-4 col-form-label text-md-end">Account number :</label>
                                 <div class="col-md-4">
@@ -327,12 +354,16 @@
                                     <textarea cols="30" rows="10" class="form-control"></textarea>
                                 </div>
                             </div>
-                        </div>
+                        </section>
                     </div>
-                    <div class="mb-4 text-end">
-                        <a href="sales-customers.html" class="btn btn-primary">
-                            Save and Continue
-                        </a>
+                    <div class="mb-4">
+                        <div class="row">
+                            <div class="col-md-4 offset-md-4">
+                                <a href="sales-customers.html" class="btn btn-primary">
+                                    Save and Continue
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 

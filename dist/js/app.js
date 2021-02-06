@@ -62,7 +62,8 @@ var sleep = function sleep(time) {
 var app = function app(root) {
   // query for root element
   this.app = root;
-  this.mobileSidebarState = true; // dom
+  this.mobileSidebarState = true;
+  this.mobileSidebarMenuState = true; // dom
 
   this.sidebarOverlay = undefined; // init components
 
@@ -151,8 +152,11 @@ var app = function app(root) {
 
     var dashboard = document.querySelector("".concat(root));
     var sidebar = document.querySelector("".concat(root, " > .sidebar"));
+    var sidebarMenu = document.querySelector("".concat(root, " > .sidebar-menu"));
     var overlaySidebar = document.querySelector("".concat(root, " .overlay .sidebar"));
     var toggleSidebar = document.querySelectorAll('.toggle-sidebar');
+    var overlaySidebarMenu = document.querySelector("".concat(root, " .overlay .sidebar-menu"));
+    var toggleSidebarMenu = document.querySelectorAll('.toggle-sidebar-menu');
     var $this = this;
     toggleSidebar.forEach(function (el) {
       el.addEventListener('click', function (e) {
@@ -199,6 +203,61 @@ var app = function app(root) {
           overlaySidebar.style.display = 'block';
           overlaySidebar.style.opacity = 1;
           overlaySidebar.animate([{
+            opacity: 0
+          }, {
+            opacity: 1
+          }], {
+            easing: 'ease-in',
+            duration: 250
+          });
+        }
+      });
+    });
+    toggleSidebarMenu.forEach(function (el) {
+      el.addEventListener('click', function (e) {
+        $this.mobileSidebarMenuState = !$this.mobileSidebarMenuState;
+
+        if ($this.mobileSidebarMenuState) {
+          sidebarMenu.animate([{
+            opacity: 1
+          }, {
+            transform: 'translateX(0)'
+          }, {
+            transform: 'translateX(-200px)'
+          }, {
+            opacity: 0
+          }], {
+            easing: 'ease-in-out',
+            duration: 250
+          });
+          setTimeout(function () {
+            return dashboard.classList.remove('sidebar-menu-mobile-show');
+          }, 200);
+          overlaySidebarMenu.style.opacity = 0;
+          overlaySidebarMenu.animate([{
+            opacity: 1
+          }, {
+            opacity: 0
+          }], {
+            easing: 'ease-in',
+            duration: 250
+          });
+          setTimeout(function () {
+            return overlaySidebarMenu.style.display = 'none';
+          }, 250);
+        } else {
+          dashboard.classList.add('sidebar-menu-mobile-show');
+          sidebarMenu.animate([{
+            transform: 'translateX(-200px)'
+          }, {
+            transform: 'translateX(0)'
+          }], {
+            easing: 'ease-in-out',
+            duration: 250
+          });
+          overlaySidebarMenu.style.display = 'block';
+          overlaySidebarMenu.style.opacity = 1;
+          overlaySidebarMenu.animate([{
             opacity: 0
           }, {
             opacity: 1

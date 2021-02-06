@@ -223,6 +223,17 @@ svg.fh {
   background: rgba(0, 0, 0, 0.7);
 }
 
+.dashboard > .overlay .sidebar-menu {
+  position: fixed;
+  display: none;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  z-index: 30;
+  background: rgba(0, 0, 0, 0.4);
+}
+
 .dashboard > .navbar-mobile {
   z-index: 10;
   position: fixed;
@@ -259,6 +270,139 @@ svg.fh {
 
 .dashboard > .navbar-mobile ul.menu li.item a svg {
   margin-top: -3px;
+}
+
+.dashboard > .sidebar-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  max-height: calc(100% - (2rem));
+  flex-direction: column;
+  z-index: 31;
+  background: #fff;
+  padding: 1rem;
+  height: 100vh;
+  margin: 0;
+  border-radius: 0.5rem;
+  --tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+@media (min-width: 768px) {
+  .dashboard > .sidebar-menu {
+    width: calc(250px + (250px / 2));
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard > .sidebar-menu {
+    height: auto;
+    margin-top: 1rem;
+    margin-left: 1rem;
+  }
+}
+
+.dashboard > .sidebar-menu a {
+  text-decoration: none;
+  color: #6b7280;
+}
+
+.dashboard > .sidebar-menu a i {
+  margin-right: 0.2rem;
+}
+
+.dashboard > .sidebar-menu a:hover {
+  color: #374151;
+}
+
+.dashboard > .sidebar-menu .menu-action > p {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  color: #4b5563;
+}
+
+.dashboard > .sidebar-menu .menu-header {
+  position: relative;
+  padding-bottom: 0.2rem;
+}
+
+.dashboard > .sidebar-menu .menu-header .toggle-sidebar-menu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: 0.4rem;
+  color: #9ca3af;
+}
+
+.dashboard > .sidebar-menu .menu-header .toggle-sidebar-menu i {
+  font-size: 2rem;
+}
+
+.dashboard > .sidebar-menu .menu-header .brand {
+  font-weight: 600;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  color: #374151;
+}
+
+.dashboard > .sidebar-menu .menu-wrapper {
+  padding-top: 0;
+  padding-bottom: 0;
+  flex: 1 1 0%;
+  overflow-y: auto;
+  margin-right: 0.5rem;
+}
+
+.dashboard > .sidebar-menu > div {
+  padding: 1rem;
+}
+
+.dashboard > .sidebar-menu > div.menu-action {
+  border-top: 2px solid #e5e7eb;
+}
+
+.dashboard > .sidebar-menu > div.menu-action {
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.dashboard > .sidebar-menu > div.menu-action a {
+  display: block;
+}
+
+.dashboard > .sidebar-menu > div.menu-footer {
+  padding-top: 1rem;
+  padding-bottom: 0;
+}
+
+.dashboard > .sidebar-menu > div.menu-footer * {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: #6b7280;
+}
+
+.dashboard > .sidebar-menu > div.menu-add {
+  padding-top: 0.3rem;
+}
+
+.dashboard > .sidebar-menu ul {
+  padding: 0;
+  margin: 0;
+}
+
+.dashboard > .sidebar-menu ul li a {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  display: block;
+  width: 100%;
+  color: #4b5563;
+  padding: 0.4rem;
+}
+
+.dashboard > .sidebar-menu ul li a:hover {
+  background: #f3f4f6;
+  border-radius: 0.4rem;
 }
 
 .dashboard > .sidebar {
@@ -533,6 +677,10 @@ svg.fh {
 
 .dashboard.sidebar-mobile-show .sidebar {
   display: block !important;
+}
+
+.dashboard.sidebar-menu-mobile-show .sidebar-menu {
+  display: flex !important;
 }
 
 .alert {
@@ -1467,4 +1615,8 @@ hr {
   border-bottom: 1px solid #6b7280;
   overflow: hidden;
   margin: 24px auto;
+}
+
+.btn-sm i {
+  font-size: 0.8rem;
 }

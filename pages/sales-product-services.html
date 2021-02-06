@@ -27,6 +27,7 @@
         <!-- overlay screen -->
         <div class="overlay">
             <div class="sidebar toggle-sidebar"></div>
+            <div class="sidebar-menu toggle-sidebar-menu"></div>
             <div class="loading"><div class="lds-ripple"><div></div><div></div></div></div>
         </div>
         <!-- overlay:end -->
@@ -34,7 +35,7 @@
         <div class="sidebar">
             <div class="sidebar-wrapper">
                 <div class="sidebar-header">
-                    <a href="index.html" class="sidebar-brand">
+                    <a href="#" class="sidebar-brand toggle-sidebar-menu">
                         <i class="logo bi bi-app-indicator"></i>
                         <span class="text">E-POS Admin</span>
                         <i data-feather="chevron-right"></i>
@@ -202,6 +203,46 @@
             </ul>
         </div>
         <!-- navbar-mobile:end -->
+        <!-- menu-extend -->
+        <div class="sidebar-menu">
+            <div class="menu-header">
+                <button class="toggle-sidebar-menu">
+                    <i class="bi bi-x"></i>
+                </button>
+                <div class="brand">Your Account</div>
+            </div>
+            <div class="menu-wrapper">
+                <ul>
+                    <li><a href="#">Personal</a></li>
+                    <li><a href="#">Retail 2</a></li>
+                </ul>
+            </div>
+            <div class="menu-add">
+                <a href="#" class="">
+                    <i class="bi bi-plus" style="font-size: 1rem;"></i>
+                    Create a new bussiness
+                </a>
+            </div>
+            <div class="menu-action">
+                <p>
+                    You're signed in as <b>test.chotoni123@gmail.com.</b>
+                </p>
+                <a href="" class="link-primary">
+                    <i class="bi bi-person-square" style="font-size: 1rem;"></i>
+                    Manage your profile
+                </a>
+                <a href="" class="link-primary">
+                    <i class="bi bi-box-arrow-right" style="font-size: 1rem;"></i>
+                    Sign out
+                </a>
+            </div>
+            <div class="menu-footer">
+                <a href="#">Terms</a>
+                <span>•</span>
+                <a href="#">Privacy</a>
+            </div>
+        </div>
+        <!-- menu-extend:end -->
         <!-- main -->
         <div class="main">
             <!-- container -->
@@ -294,10 +335,10 @@
                         render: (data, type, row) => `
                         <div>
                             <a href="sales-product-services-edit.html" class="btn btn-sm btn-outline-warning">
-                                <i class="bi bi-pencil" style="font-size: .8rem;"></i>
+                                <i class="bi bi-pencil"></i>
                             </a>
                             <a class="btn btn-sm btn-outline-danger">
-                                <i class="bi bi-trash" style="font-size: .8rem;"></i>
+                                <i class="bi bi-trash"></i>
                             </a>
                         </div>
                         `

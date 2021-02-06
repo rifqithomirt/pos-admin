@@ -22,6 +22,7 @@ const app = function (root) {
   // query for root element
   this.app = root
   this.mobileSidebarState = true
+  this.mobileSidebarMenuState = true
 
   // dom
   this.sidebarOverlay = undefined
@@ -93,8 +94,11 @@ const app = function (root) {
 
     const dashboard = document.querySelector(`${root}`)
     const sidebar = document.querySelector(`${root} > .sidebar`)
+    const sidebarMenu = document.querySelector(`${root} > .sidebar-menu`)
     const overlaySidebar = document.querySelector(`${root} .overlay .sidebar`)
     const toggleSidebar = document.querySelectorAll('.toggle-sidebar')
+    const overlaySidebarMenu = document.querySelector(`${root} .overlay .sidebar-menu`)
+    const toggleSidebarMenu = document.querySelectorAll('.toggle-sidebar-menu')
     const $this = this
     toggleSidebar.forEach(function (el) {
       el.addEventListener('click', function (e) {
@@ -131,6 +135,50 @@ const app = function (root) {
           overlaySidebar.style.display = 'block'
           overlaySidebar.style.opacity = 1;
           overlaySidebar.animate([
+            { opacity: 0 },
+            { opacity: 1 },
+          ], {
+            easing: 'ease-in',
+            duration: 250
+          })
+        }
+      })
+    })
+    toggleSidebarMenu.forEach(function (el) {
+      el.addEventListener('click', function (e) {
+        $this.mobileSidebarMenuState = !$this.mobileSidebarMenuState
+        if ($this.mobileSidebarMenuState) {
+          sidebarMenu.animate([
+            { opacity: 1 },
+            { transform: 'translateX(0)' },
+            { transform: 'translateX(-200px)' },
+            { opacity: 0 },
+          ], {
+            easing: 'ease-in-out',
+            duration: 250
+          })
+          setTimeout(() => dashboard.classList.remove('sidebar-menu-mobile-show'), 200)
+          overlaySidebarMenu.style.opacity = 0;
+          overlaySidebarMenu.animate([
+            { opacity: 1 },
+            { opacity: 0 },
+          ], {
+            easing: 'ease-in',
+            duration: 250
+          })
+          setTimeout(() => overlaySidebarMenu.style.display = 'none', 250)
+        } else {
+          dashboard.classList.add('sidebar-menu-mobile-show')
+          sidebarMenu.animate([
+            { transform: 'translateX(-200px)' },
+            { transform: 'translateX(0)' }
+          ], {
+            easing: 'ease-in-out',
+            duration: 250
+          })
+          overlaySidebarMenu.style.display = 'block'
+          overlaySidebarMenu.style.opacity = 1;
+          overlaySidebarMenu.animate([
             { opacity: 0 },
             { opacity: 1 },
           ], {
