@@ -32,8 +32,16 @@
     vertical-align: middle;
     border-top: 1px solid #dee2e6;
   }
+
+  .table td {
+    @apply tw-text-sm;
+    color: theme('colors.gray.600') #{!important}
+  }
   
   .table thead th {
+    @apply tw-text-sm;
+    font-size: 500;
+    color: theme('colors.gray.700') #{!important};
     vertical-align: bottom;
     border-bottom: 2px solid #dee2e6;
   }

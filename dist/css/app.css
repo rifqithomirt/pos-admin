@@ -1079,7 +1079,17 @@ i {
   border-top: 1px solid #dee2e6;
 }
 
+.table td {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: #4b5563 !important;
+}
+
 .table thead th {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-size: 500;
+  color: #374151 !important;
   vertical-align: bottom;
   border-bottom: 2px solid #dee2e6;
 }
