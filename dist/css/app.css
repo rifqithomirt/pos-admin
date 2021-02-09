@@ -245,31 +245,48 @@ svg.fh {
   display: none;
 }
 
-.dashboard > .navbar-mobile ul.menu {
+.dashboard > .navbar-mobile .wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dashboard > .navbar-mobile .wrapper ul.menu {
   display: flex;
   flex-direction: row;
   padding: 0;
   margin: 0;
 }
 
-.dashboard > .navbar-mobile ul.menu li.item {
+.dashboard > .navbar-mobile .wrapper ul.menu li.item {
   border-left: 2px solid #d1d5db;
   padding: 1rem;
 }
 
-.dashboard > .navbar-mobile ul.menu li.item:nth-child(1) {
+.dashboard > .navbar-mobile .wrapper ul.menu li.item:nth-child(1) {
   border: none;
 }
 
-.dashboard > .navbar-mobile ul.menu li.item a {
+.dashboard > .navbar-mobile .wrapper ul.menu li.item a {
   color: #374151;
   text-decoration: none;
   font-size: 1.125rem;
   font-weight: 550;
 }
 
-.dashboard > .navbar-mobile ul.menu li.item a svg {
+.dashboard > .navbar-mobile .wrapper ul.menu li.item a svg {
   margin-top: -3px;
+}
+
+.dashboard > .navbar-mobile .wrapper .actions {
+  margin: 0;
+  padding: 0;
+  align-self: center;
+  height: 100%;
+  padding-right: 1rem;
+}
+
+.dashboard > .navbar-mobile .wrapper .actions .item {
+  height: 100%;
 }
 
 .dashboard > .sidebar-menu {
@@ -278,7 +295,6 @@ svg.fh {
   top: 0;
   left: 0;
   width: 100vw;
-  max-height: calc(100% - (2rem));
   flex-direction: column;
   z-index: 31;
   background: #fff;
@@ -293,6 +309,7 @@ svg.fh {
 @media (min-width: 768px) {
   .dashboard > .sidebar-menu {
     width: calc(250px + (250px / 2));
+    max-height: calc(100% - (2rem));
   }
 }
 
@@ -588,6 +605,7 @@ svg.fh {
   flex: 1 1 0%;
   min-height: 100vh;
   background: #fff;
+  flex-direction: row;
 }
 
 .dashboard > .main > .container {

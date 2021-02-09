@@ -274,12 +274,30 @@ var app = function app(root) {
     var onrezise = function onrezise(e) {
       var width = window.innerWidth;
       var dashboard = document.querySelector("".concat(root));
+      var navbarTitle = document.querySelector("".concat(root, " .navbar-mobile .menu .item:nth-child(2)"));
+      var navbarMenuSpan = document.querySelector("".concat(root, " .navbar-mobile .menu .item:nth-child(1) .toggle-sidebar span"));
+      var navbarAction = document.querySelector("".concat(root, " .navbar-mobile .actions .item:nth-child(1)"));
+      var headerAction = document.querySelector("".concat(root, " .container .content-header .actions"));
 
       if (dashboard != null) {
         if (width < 1024) {
           dashboard.classList.add('navbar-mobile-show');
         } else {
           dashboard.classList.remove('navbar-mobile-show');
+        }
+
+        if (navbarTitle != null && headerAction != null && navbarMenuSpan != null) {
+          if (width <= 524) {
+            navbarTitle.style.display = 'none';
+            headerAction.style.display = 'none';
+            navbarMenuSpan.style.display = 'none';
+            navbarAction.innerHTML = headerAction.innerHTML;
+          } else {
+            headerAction.style.display = 'block';
+            navbarTitle.style.display = 'block';
+            navbarMenuSpan.style.display = 'inline';
+            navbarAction.innerHTML = '';
+          }
         }
       }
     };

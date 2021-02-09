@@ -193,11 +193,29 @@ const app = function (root) {
     const onrezise = function(e) {
       const width = window.innerWidth
       const dashboard = document.querySelector(`${root}`)
+      const navbarTitle = document.querySelector(`${root} .navbar-mobile .menu .item:nth-child(2)`)
+      const navbarMenuSpan = document.querySelector(`${root} .navbar-mobile .menu .item:nth-child(1) .toggle-sidebar span`)
+      const navbarAction = document.querySelector(`${root} .navbar-mobile .actions .item:nth-child(1)`)
+      const headerAction = document.querySelector(`${root} .container .content-header .actions`)
       if (dashboard != null) {
         if (width < 1024) {
           dashboard.classList.add('navbar-mobile-show')
         } else {
           dashboard.classList.remove('navbar-mobile-show')
+        }
+
+        if (navbarTitle != null && headerAction != null && navbarMenuSpan != null) {
+          if (width <= 524) {
+            navbarTitle.style.display = 'none';
+            headerAction.style.display = 'none';  
+            navbarMenuSpan.style.display = 'none';
+            navbarAction.innerHTML = headerAction.innerHTML;
+          } else {
+            headerAction.style.display = 'block'; 
+            navbarTitle.style.display = 'block';  
+            navbarMenuSpan.style.display = 'inline';
+            navbarAction.innerHTML = '';      
+          }
         }
       }
     }
