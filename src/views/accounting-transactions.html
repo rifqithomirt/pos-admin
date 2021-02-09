@@ -1,5 +1,5 @@
-{% set title = 'Sales - Customers' %}
-{% set filename = 'sales-customers' %}
+{% set title = 'Accounting - Transactions' %}
+{% set filename = 'accounting-transactions' %}
 {% extends 'layouts/dashboard.html' %}
 
 {% block content %}
@@ -8,19 +8,27 @@
         <div class="content-header">
             <div class="tw-flex tw-justify-between">
                 <div class="title">
-                    Customers
+                    Transactions
                 </div>
                 <div class="actions">
-                    <a href="sales-customers-create.html" class="btn btn-primary">
-                        Create a customer
-                    </a>
+                    <div class="btn-group">
+                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Create
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <li><a class="dropdown-item" href="accounting-transactions.html">Add income</a></li>
+                            <li><a class="dropdown-item" href="accounting-transactions.html">Add expense</a></li>
+                            <li><a class="dropdown-item" href="accounting-transactions.html">Add journal transaction</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                    <li class="breadcrumb-item">Sales</li>
-                    <li class="breadcrumb-item active" aria-current="page">Customers</li>
+                    <li class="breadcrumb-item">Accounting</li>
+                    <li class="breadcrumb-item active" aria-current="page">Transactions</li>
                 </ol>
             </nav>
         </div>
@@ -68,21 +76,19 @@
                 autoWidth: false,
                 order: [[0, 'asc']],
                 columnDefs: [
-                    { orderable: false, targets: [6] }
+                    { orderable: false, targets: [4] }
                 ],
                 columns: [
                     { title: '#', data: 'id', render: (data, type, row, meta) => meta.row + meta.settings._iDisplayStart + 1 },
                     { title: 'Name', data: 'name' },
                     { title: 'Email', data: 'email' },
                     { title: 'Phone', data: 'phone' },
-                    { title: 'Balance', data: 'balance' },
-                    { title: 'Overdue', data: 'overdue' },
                     {
                         title: 'Actions',
                         data: null,
                         render: (data, type, row) => `
                         <div>
-                            <a href="sales-customers-edit.html" class="btn btn-sm btn-outline-warning">
+                            <a href="purchases-vendors-edit.html" class="btn btn-sm btn-outline-warning">
                                 <i class="bi bi-pencil"></i>
                             </a>
                             <a class="btn btn-sm btn-outline-danger">
@@ -95,11 +101,15 @@
                 data: [
                     {
                         id: 1,
-                        name: 'Adian',
+                        name: 'Vendor 1',
                         phone: '0895337617550',
-                        email: 'adian@mail.com',
-                        balance: 5000,
-                        overdue: 5000
+                        email: 'adian@mail.com'
+                    },
+                    {
+                        id: 2,
+                        name: 'Vendor 2',
+                        phone: '123124981278',
+                        email: 'alfian@mail.com'
                     }
                 ]
             });

@@ -4,7 +4,7 @@
     <!-- meta -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Purchases - Vendors - E-POS Admin</title>
+    <title>Accounting - Transactions - E-POS Admin</title>
     <!-- styles -->
     
     <link rel="stylesheet" href="../dist/css/tailwind.css">
@@ -97,7 +97,7 @@
                                                         <a href="purchases-bills.html">Bills</a>
                                                     </li>
                                                 
-                                                    <li class="dropdown item active">
+                                                    <li class="dropdown item ">
                                                         <a href="purchases-vendors.html">Vendors</a>
                                                     </li>
                                                 
@@ -121,7 +121,7 @@
                                         <div class="dropdown menu">
                                             <ul class="menu">
                                                 
-                                                    <li class="dropdown item ">
+                                                    <li class="dropdown item active">
                                                         <a href="accounting-transactions.html">Transactions</a>
                                                     </li>
                                                 
@@ -258,19 +258,27 @@
         <div class="content-header">
             <div class="tw-flex tw-justify-between">
                 <div class="title">
-                    Vendors
+                    Transactions
                 </div>
                 <div class="actions">
-                    <a href="purchases-vendors-create.html" class="btn btn-primary">
-                        Create a vendor
-                    </a>
+                    <div class="btn-group">
+                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Create
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <li><a class="dropdown-item" href="accounting-transactions.html">Add income</a></li>
+                            <li><a class="dropdown-item" href="accounting-transactions.html">Add expense</a></li>
+                            <li><a class="dropdown-item" href="accounting-transactions.html">Add journal transaction</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                    <li class="breadcrumb-item">Purchases</li>
-                    <li class="breadcrumb-item active" aria-current="page">Vendors</li>
+                    <li class="breadcrumb-item">Accounting</li>
+                    <li class="breadcrumb-item active" aria-current="page">Transactions</li>
                 </ol>
             </nav>
         </div>
