@@ -4,7 +4,7 @@
     <!-- meta -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reports - Profit &amp; Loss - E-POS Admin</title>
+    <title>Reports - Cash Flow - E-POS Admin</title>
     <!-- styles -->
     
     <link rel="stylesheet" href="../dist/css/tailwind.css">
@@ -141,7 +141,7 @@
                                         <div class="dropdown menu">
                                             <ul class="menu">
                                                 
-                                                    <li class="dropdown item active">
+                                                    <li class="dropdown item ">
                                                         <a href="reports-profit-loss.html">Profit &amp; Loss</a>
                                                     </li>
                                                 
@@ -149,7 +149,7 @@
                                                         <a href="reports-balance-sheet.html">Balance Sheet</a>
                                                     </li>
                                                 
-                                                    <li class="dropdown item ">
+                                                    <li class="dropdown item active">
                                                         <a href="reports-cash-flow.html">Cash Flow</a>
                                                     </li>
                                                 
@@ -254,10 +254,10 @@
         <div class="content-header">
             <div class="tw-flex tw-justify-between">
                 <div class="title">
-                    Profit & Loss
+                    Cash Flow
                 </div>
                 <div class="actions">
-                    <a href="purchases-vendors-create.html" class="btn btn-secondary">
+                    <a href="#" class="btn btn-secondary">
                         Export
                     </a>
                 </div>
@@ -303,25 +303,21 @@
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th class="text-center">Income</th>
+                                            <th class="text-center">Gross Cash Inflow</th>
                                             <th class="text-center" width="5%"></th>
-                                            <th class="text-center">Cost of Goods Sold</th>
+                                            <th class="text-center">Gross Cash Outflow</th>
                                             <th class="text-center" width="5%"></th>
-                                            <th class="text-center">Operating Expenses</th>
-                                            <th class="text-center" width="5%"></th>
-                                            <th class="text-center">Net Profit</th>
+                                            <th class="text-center">Net Cash Change</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <td class="text-center fs-6">Rp10.000</td>
                                             <td class="text-center fs-6">-</td>
-                                            <td class="text-center fs-6">Rp0</td>
-                                            <td class="text-center fs-6">-</td>
-                                            <td class="text-center fs-6">Rp20.000</td>
+                                            <td class="text-center fs-6">Rp10.000</td>
                                             <td class="text-center fs-6">=</td>
                                             <td class="text-center fs-6">
-                                                <span class="text-danger">-Rp10.000</span>
+                                                <span class="text-success">Rp10.000</span>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -339,39 +335,7 @@
                             </ul>
                             <div class="tab-content" id="myTabContent">
                                 <div class="tab-pane fade show active" id="sumarry" role="tabpanel" aria-labelledby="sumarry-tab">
-                                    <table class="table table-hover mt-3">
-                                        <thead>
-                                            <tr>
-                                                <td>ACCOUNTS</td>
-                                                <th class="text-end">...</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>Income</td>
-                                                <td class="text-end">Rp10.000</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Cost of Goods Sold</td>
-                                                <td class="text-end">Rp10.000</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Gross Profit</td>
-                                                <td class="text-end">Rp10.000</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Operating Expenses</td>
-                                                <td class="text-end">Rp10.000</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Net Profit</td>
-                                                <td class="text-end">Rp10.000</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="tab-pane fade" id="details" role="tabpanel" aria-labelledby="details-tab">
-                                    <table class="table mt-3 mb-0">
+                                    <table class="table table-hover mt-3 mb-0">
                                         <thead>
                                             <tr>
                                                 <td>ACCOUNTS</td>
@@ -380,46 +344,102 @@
                                         </thead>
                                         <tbody></tbody>
                                     </table>
-                                    <!-- income -->
                                     <table class="table table-hover">
-                                        <tbody>
-                                            <tr class="tw-bg-gray-50"><th colspan="2">Income</th></tr>
-                                            <tr>
-                                                <td>Sales</td>
-                                                <td class="text-end">Rp10.000</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Total Income</td>
-                                                <td class="text-end">Rp10.000</td>
-                                            </tr>
-                                        </tbody>
+                                        <tr class="tw-bg-gray-50"><th colspan="2">Operating Activities</th></tr>
+                                        <tr>
+                                            <td>Net Cash from Operating Activities</td>
+                                            <td class="text-end">Rp0</td>
+                                        </tr>
                                     </table>
-                                    <!-- total cost -->
                                     <table class="table table-hover">
-                                        <tbody>
-                                            <tr class="tw-bg-gray-50">
-                                                <th>Total Cost of Goods Sold</th>
-                                                <td class="text-end">Rp0</td>
-                                            </tr>
-                                        </tbody>
+                                        <tr class="tw-bg-gray-50"><th colspan="2">Investing Activities</th></tr>
+                                        <tr>
+                                            <td>Net Cash from Investing Activities</td>
+                                            <td class="text-end">Rp0</td>
+                                        </tr>
                                     </table>
-                                    <!-- operating expense -->
                                     <table class="table table-hover">
-                                        <tbody>
-                                            <tr class="mt-4">
-                                                <th>Operating Expenses</th>
-                                                <td class="text-end">Rp10.000</td>
-                                            </tr>
-                                        </tbody>
+                                        <tr class="tw-bg-gray-50"><th colspan="2">Financing Activities</th></tr>
+                                        <tr>
+                                            <td>Net Cash from Financing Activities</td>
+                                            <td class="text-end">Rp0</td>
+                                        </tr>
                                     </table>
-                                    <!-- net profit -->
                                     <table class="table table-hover">
-                                        <tbody>
+                                        <tr class="tw-bg-gray-50">
+                                            <th>Starting Balance</th>
+                                            <td class="text-end">Rp0</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Gross Cash Inflow</td>
+                                            <td class="text-end">Rp0</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Gross Cash Outflow</td>
+                                            <td class="text-end">Rp0</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Net Cash Change</td>
+                                            <td class="text-end">Rp0</td>
+                                        </tr>
+                                        <tr class="tw-bg-gray-50">
+                                            <th>Ending Balance</th>
+                                            <td class="text-end">Rp0</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="tab-pane fade" id="details" role="tabpanel" aria-labelledby="details-tab">
+                                    <table class="table table-hover mt-3 mb-0">
+                                        <thead>
                                             <tr>
-                                                <th>Net Profit</th>
-                                                <td class="text-end">-Rp10.000</td>
+                                                <td>ACCOUNTS</td>
+                                                <th class="text-end">...</th>
                                             </tr>
-                                        </tbody>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                    <table class="table table-hover">
+                                        <tr class="tw-bg-gray-50"><th colspan="2">Operating Activities</th></tr>
+                                        <tr>
+                                            <td>Net Cash from Operating Activities</td>
+                                            <td class="text-end">Rp0</td>
+                                        </tr>
+                                    </table>
+                                    <table class="table table-hover">
+                                        <tr class="tw-bg-gray-50"><th colspan="2">Investing Activities</th></tr>
+                                        <tr>
+                                            <td>Net Cash from Investing Activities</td>
+                                            <td class="text-end">Rp0</td>
+                                        </tr>
+                                    </table>
+                                    <table class="table table-hover">
+                                        <tr class="tw-bg-gray-50"><th colspan="2">Financing Activities</th></tr>
+                                        <tr>
+                                            <td>Net Cash from Financing Activities</td>
+                                            <td class="text-end">Rp0</td>
+                                        </tr>
+                                    </table>
+                                    <table class="table table-hover">
+                                        <tr class="tw-bg-gray-50">
+                                            <th>Starting Balance</th>
+                                            <td class="text-end">Rp0</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Gross Cash Inflow</td>
+                                            <td class="text-end">Rp0</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Gross Cash Outflow</td>
+                                            <td class="text-end">Rp0</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Net Cash Change</td>
+                                            <td class="text-end">Rp0</td>
+                                        </tr>
+                                        <tr class="tw-bg-gray-50">
+                                            <th>Ending Balance</th>
+                                            <td class="text-end">Rp0</td>
+                                        </tr>
                                     </table>
                                 </div>
                             </div>

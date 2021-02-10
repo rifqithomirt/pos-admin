@@ -6,9 +6,14 @@
     <div class="container">
         <!-- content-header -->
         <div class="content-header">
-            <div class="tw-flex tw-flex-col lg:tw-flex-row lg:tw-justify-between">
+            <div class="tw-flex tw-justify-between">
                 <div class="title">
-                    Account Transactions
+                    Account Balance
+                </div>
+                <div class="actions">
+                    <a href="#" class="btn btn-secondary">
+                        Export
+                    </a>
                 </div>
             </div>
             <nav aria-label="breadcrumb">
@@ -22,12 +27,375 @@
         <!-- content-header:end -->
         <!-- content -->
         <div class="content">
+            <div class="row">
+                <div class="col-12">
+                    <div class="mt-2">
+                        <!-- filter -->
+                        <div class="row gx-2">
+                            <div class="col-md-6 col-lg-3 form-group my-1">
+                                <label for="">From</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fh-16" data-feather="calendar"></i></span>
+                                    <input id="input-filter-datepicker-from" type="text" class="form-control datepicker" placeholder="From...">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-3 form-group my-1">
+                                <label for="">To</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fh-16" data-feather="calendar"></i></span>
+                                    <input id="input-filter-datepicker-to" type="text" class="form-control datepicker" placeholder="To...">
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-lg-6 form-group my-1">
+                                <a href="purchases-vendors-create.html" class="btn btn-outline-primary mt-4">
+                                    Update
+                                </a>
+                            </div>
+                        </div>
+                        <div class="tw-mt-8">
+                            <div class="table-responsive">
+                                <table class="table mt-3 mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th width="20%">DATE</th>
+                                            <th width="20%">DESCRIPTION</th>
+                                            <th width="20%" class="text-end">DEBIT</th>
+                                            <th width="20%" class="text-end">CREDIT</th>
+                                            <th width="20%" class="text-end">BALANCE</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                                <table class="table table-hover">
+                                    <tr class="tw-bg-gray-50">
+                                        <th colspan="5">
+                                            <div>Cash on Hand</div>
+                                            <div class="text-muted tw-text-xs">Under: Asset > Cash and Bank</div>
+                                        </th>
+                                    </tr>
+                                    <tr class="tw-bg-gray-50">
+                                        <th colspan="4"><span class="tw-ml-4">Starting Balance</span></th>
+                                        <td class="text-end">Rp0</td>
+                                    </tr>
+                                    <tr>
+                                        <td width="20%">
+                                            <span class="tw-ml-4">Jan 18, 2021</span>
+                                        </td>
+                                        <td width="20%">
+                                            <a href="" class="report-link">Write a description</a>
+                                        </td>
+                                        <td width="20%" class="text-end">Rp0</td>
+                                        <td width="20%" class="text-end"></td>
+                                        <td width="20%" class="text-end">Rp0</td>
+                                    </tr>
+                                    <tr>
+                                        <td width="20%">
+                                            <span class="tw-ml-4">Jan 18, 2021</span>
+                                        </td>
+                                        <td width="20%">
+                                            <a href="" class="report-link">Write a description</a>
+                                        </td>
+                                        <td width="20%" class="text-end"></td>
+                                        <td width="20%" class="text-end">Rp0</td>
+                                        <td width="20%" class="text-end">Rp0</td>
+                                    </tr>
+                                    <tr class="tw-bg-gray-50">
+                                        <th colspan="2"><span class="tw-ml-4">Ending Balance</span></th>
+                                        <td class="text-end">Rp0</td>
+                                        <td class="text-end">Rp0</td>
+                                        <td class="text-end">Rp0</td>
+                                    </tr>
+                                </table>
+                                <table class="table table-hover">
+                                    <tr class="tw-bg-gray-50">
+                                        <th colspan="5">
+                                            <div>Accounts Receivable</div>
+                                            <div class="text-muted tw-text-xs">Under: Asset</div>
+                                        </th>
+                                    </tr>
+                                    <tr class="tw-bg-gray-50">
+                                        <th colspan="4"><span class="tw-ml-4">Starting Balance</span></th>
+                                        <td class="text-end">Rp0</td>
+                                    </tr>
+                                    <tr>
+                                        <td width="20%">
+                                            <span class="tw-ml-4">Jan 18, 2021</span>
+                                        </td>
+                                        <td width="20%">
+                                            <a href="" class="report-link">customer - adian</a>
+                                        </td>
+                                        <td width="20%" class="text-end">Rp10.000</td>
+                                        <td width="20%" class="text-end"></td>
+                                        <td width="20%" class="text-end">Rp10.000</td>
+                                    </tr>
+                                    <tr>
+                                        <td width="20%">
+                                            <span class="tw-ml-4">Jan 18, 2021</span>
+                                        </td>
+                                        <td width="20%">
+                                            <a href="" class="report-link">customer - adian</a>
+                                        </td>
+                                        <td width="20%" class="text-end">Rp10.000</td>
+                                        <td width="20%" class="text-end">Rp0</td>
+                                        <td width="20%" class="text-end">Rp10.000</td>
+                                    </tr>
+                                    <tr class="tw-bg-gray-50">
+                                        <th colspan="2"><span class="tw-ml-4">Ending Balance</span></th>
+                                        <td class="text-end">Rp10.000</td>
+                                        <td class="text-end">Rp0</td>
+                                        <td class="text-end">Rp10.000</td>
+                                    </tr>
+                                </table>
+                                <table class="table table-hover">
+                                    <tr class="tw-bg-gray-50">
+                                        <th colspan="5">
+                                            <div>Accounts Payable</div>
+                                            <div class="text-muted tw-text-xs">Under: Liability</div>
+                                        </th>
+                                    </tr>
+                                    <tr class="tw-bg-gray-50">
+                                        <th colspan="4"><span class="tw-ml-4">Starting Balance</span></th>
+                                        <td class="text-end">Rp0</td>
+                                    </tr>
+                                    <tr>
+                                        <td width="20%">
+                                            <span class="tw-ml-4">Jan 18, 2021</span>
+                                        </td>
+                                        <td width="20%">
+                                            <a href="purchases-bills.html" class="report-link">Bill - Test Bill 1</a>
+                                        </td>
+                                        <td width="20%" class="text-end"></td>
+                                        <td width="20%" class="text-end">Rp10.000</td>
+                                        <td width="20%" class="text-end">Rp10.000</td>
+                                    </tr>
+                                    <tr>
+                                        <td width="20%">
+                                            <span class="tw-ml-4">Jan 18, 2021</span>
+                                        </td>
+                                        <td width="20%">
+                                            <a href="" class="report-link">Bill Payment - Test Bill 1</a>
+                                        </td>
+                                        <td width="20%" class="text-end">Rp10.000</td>
+                                        <td width="20%" class="text-end"></td>
+                                        <td width="20%" class="text-end">Rp10.000</td>
+                                    </tr>
+                                    <tr class="tw-bg-gray-50">
+                                        <th colspan="2"><span class="tw-ml-4">Ending Balance</span></th>
+                                        <td class="text-end">Rp10.000</td>
+                                        <td class="text-end">Rp10.000</td>
+                                        <td class="text-end">Rp0</td>
+                                    </tr>
+                                </table>
+                                <table class="table table-hover">
+                                    <tr class="tw-bg-gray-50">
+                                        <th colspan="5">
+                                            <div>Sales</div>
+                                            <div class="text-muted tw-text-xs">Under: Income - Income</div>
+                                        </th>
+                                    </tr>
+                                    <tr class="tw-bg-gray-50">
+                                        <th colspan="4"><span class="tw-ml-4">Starting Balance</span></th>
+                                        <td class="text-end">Rp0</td>
+                                    </tr>
+                                    <tr>
+                                        <td width="20%">
+                                            <span class="tw-ml-4">Jan 18, 2021</span>
+                                        </td>
+                                        <td width="20%">
+                                            <a href="sales-invoices.html" class="report-link">Customer - Adian - 1 - Buku</a>
+                                        </td>
+                                        <td width="20%" class="text-end"></td>
+                                        <td width="20%" class="text-end">Rp10.000</td>
+                                        <td width="20%" class="text-end">Rp10.000</td>
+                                    </tr>
+                                    <tr>
+                                        <td width="20%">
+                                            <span class="tw-ml-4">Jan 18, 2021</span>
+                                        </td>
+                                        <td width="20%">
+                                            <a href="sales-invoices.html" class="report-link">Customer - Adian - 2 - Buku</a>
+                                        </td>
+                                        <td width="20%" class="text-end"></td>
+                                        <td width="20%" class="text-end">Rp10.000</td>
+                                        <td width="20%" class="text-end">Rp10.000</td>
+                                    </tr>
+                                    <tr class="tw-bg-gray-50">
+                                        <th colspan="2"><span class="tw-ml-4">Ending Balance</span></th>
+                                        <td class="text-end">Rp0</td>
+                                        <td class="text-end">Rp10.000</td>
+                                        <td class="text-end">Rp10.000</td>
+                                    </tr>
+                                </table>
+                                <table class="table table-hover">
+                                    <tr class="tw-bg-gray-50">
+                                        <th colspan="5">
+                                            <div>Uncategorized Income</div>
+                                            <div class="text-muted tw-text-xs">Under: Income > Uncategorized Income</div>
+                                        </th>
+                                    </tr>
+                                    <tr class="tw-bg-gray-50">
+                                        <th colspan="4"><span class="tw-ml-4">Starting Balance</span></th>
+                                        <td class="text-end">Rp0</td>
+                                    </tr>
+                                    <tr>
+                                        <td width="20%">
+                                            <span class="tw-ml-4">Jan 18, 2021</span>
+                                        </td>
+                                        <td width="20%">
+                                            <a href="" class="report-link">Write a description</a>
+                                        </td>
+                                        <td width="20%" class="text-end"></td>
+                                        <td width="20%" class="text-end">Rp0</td>
+                                        <td width="20%" class="text-end">Rp10.000</td>
+                                    </tr>
+                                    <tr>
+                                        <td width="20%">
+                                            <span class="tw-ml-4">Jan 18, 2021</span>
+                                        </td>
+                                        <td width="20%">
+                                            <a href="" class="report-link">Write a description</a>
+                                        </td>
+                                        <td width="20%" class="text-end"></td>
+                                        <td width="20%" class="text-end">Rp0</td>
+                                        <td width="20%" class="text-end">Rp10.000</td>
+                                    </tr>
+                                    <tr class="tw-bg-gray-50">
+                                        <th colspan="2"><span class="tw-ml-4">Ending Balance</span></th>
+                                        <td class="text-end">Rp0</td>
+                                        <td class="text-end">Rp0</td>
+                                        <td class="text-end">Rp0</td>
+                                    </tr>
+                                </table>
+                                <table class="table table-hover">
+                                    <tr class="tw-bg-gray-50">
+                                        <th colspan="5">
+                                            <div>Accounting Fees</div>
+                                            <div class="text-muted tw-text-xs">Under: Expense > Operating Expense</div>
+                                        </th>
+                                    </tr>
+                                    <tr class="tw-bg-gray-50">
+                                        <th colspan="4"><span class="tw-ml-4">Starting Balance</span></th>
+                                        <td class="text-end">Rp0</td>
+                                    </tr>
+                                    <tr>
+                                        <td width="20%">
+                                            <span class="tw-ml-4">Jan 18, 2021</span>
+                                        </td>
+                                        <td width="20%">
+                                            <a href="" class="report-link">Vendor - Test 1 - Bill - Test Bill 1</a>
+                                        </td>
+                                        <td width="20%" class="text-end">Rp10.000</td>
+                                        <td width="20%" class="text-end"></td>
+                                        <td width="20%" class="text-end">Rp10.000</td>
+                                    </tr>
+                                    <tr class="tw-bg-gray-50">
+                                        <th colspan="2"><span class="tw-ml-4">Ending Balance</span></th>
+                                        <td width="20%" class="text-end">Rp10.000</td>
+                                        <td width="20%" class="text-end">Rp0</td>
+                                        <td width="20%" class="text-end">Rp10.000</td>
+                                    </tr>
+                                </table>
+                                <table class="table table-hover">
+                                    <tr class="tw-bg-gray-50">
+                                        <th colspan="5">
+                                            <div>Uncategorized Expense</div>
+                                            <div class="text-muted tw-text-xs">Under: Expense > Uncategorized Expense</div>
+                                        </th>
+                                    </tr>
+                                    <tr class="tw-bg-gray-50">
+                                        <th colspan="4"><span class="tw-ml-4">Starting Balance</span></th>
+                                        <td class="text-end">Rp0</td>
+                                    </tr>
+                                    <tr>
+                                        <td width="20%">
+                                            <span class="tw-ml-4">Jan 18, 2021</span>
+                                        </td>
+                                        <td width="20%">
+                                            <a href="" class="report-link">Write a description</a>
+                                        </td>
+                                        <td width="20%" class="text-end">Rp0</td>
+                                        <td width="20%" class="text-end"></td>
+                                        <td width="20%" class="text-end">Rp0</td>
+                                    </tr>
+                                    <tr class="tw-bg-gray-50">
+                                        <th colspan="2"><span class="tw-ml-4">Ending Balance</span></th>
+                                        <td width="20%" class="text-end">Rp0</td>
+                                        <td width="20%" class="text-end">Rp0</td>
+                                        <td width="20%" class="text-end">Rp0</td>
+                                    </tr>
+                                </table>
+                                <table class="table table-hover">
+                                    <tr class="tw-bg-gray-50">
+                                        <th colspan="5">
+                                            <div>Owner Investment / Drawings</div>
+                                            <div class="text-muted tw-text-xs">Under: Equity > Business Owner Contribution and Drawing</div>
+                                        </th>
+                                    </tr>
+                                    <tr class="tw-bg-gray-50">
+                                        <th colspan="4"><span class="tw-ml-4">Starting Balance</span></th>
+                                        <td class="text-end">Rp0</td>
+                                    </tr>
+                                    <tr>
+                                        <td width="20%">
+                                            <span class="tw-ml-4">Jan 18, 2021</span>
+                                        </td>
+                                        <td width="20%">
+                                            <a href="" class="report-link">Bill Payment - Test Bill 1</a>
+                                        </td>
+                                        <td width="20%" class="text-end"></td>
+                                        <td width="20%" class="text-end">Rp10.000</td>
+                                        <td width="20%" class="text-end">Rp10.000</td>
+                                    </tr>
+                                    <tr class="tw-bg-gray-50">
+                                        <th colspan="2"><span class="tw-ml-4">Ending Balance</span></th>
+                                        <td width="20%" class="text-end">Rp0</td>
+                                        <td width="20%" class="text-end">Rp10.000</td>
+                                        <td width="20%" class="text-end">Rp10.000</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <!-- content:end -->
     </div>
 {% endblock %}
 
+{% block stylesPlugin %}
+    <!-- style:plugin -->
+    <link rel="stylesheet" href="../vendor/pikaday/css/pikaday.css">    
+{% endblock %}
+
+{% block scriptsPlugin %}
+    <!-- script:plugin -->
+    <script src="../vendor/pikaday/pikaday.js"></script>
+    <script src="../vendor/moment/moment.js"></script>
+{% endblock %}
 
 {% block scripts %}
-    <!-- page:script - you can remove this -->
+    <!-- script:page - you can remove this -->
+    <script>
+        // datepicker
+        const initDatepicker = () => {
+            const els = document.querySelectorAll('.datepicker')
+            els.forEach((el) => new Pikaday({
+                field: el,
+                format: 'DD-MM-YYYY',
+                toString(date, format) {
+                    // you should do formatting based on the passed format,
+                    // but we will just return 'D/M/YYYY' for simplicity
+                    const day = ('0' + date.getDate()).slice(-2);
+                    const month = ('0' + (date.getMonth() + 1)).slice(-2);
+                    const year = date.getFullYear();
+                    return `${day}-${month}-${year}`;
+                },
+            }))
+        }
+        // init
+        document.addEventListener('DOMContentLoaded', function () {
+            initDatepicker()
+        })
+    </script>
 {% endblock %}
