@@ -593,3 +593,31 @@ hr {
 .btn-sm i {
     font-size: .8rem;
 }
+.nav-report {
+    position: relative;
+    &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        border-bottom: 1px solid theme('colors.gray.300');
+        width: calc(50% - 120px);
+    }
+    &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: calc(50% + 120px);
+        border-bottom: 1px solid theme('colors.gray.300');
+        width: calc(50% - 120px);
+    }
+}
+
+.report-link {
+    background-image: url(./../img/icon--external-link.svg);
+    background-repeat: no-repeat;
+    background-position: center right;
+    background-size: 11px 11px;
+    padding-right: 15px;
+    display: inline-block;
+}

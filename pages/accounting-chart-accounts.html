@@ -4,7 +4,7 @@
     <!-- meta -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accounting - Transactions - E-POS Admin</title>
+    <title>Accounting - Chart of Accounts - E-POS Admin</title>
     <!-- styles -->
     
     <link rel="stylesheet" href="../dist/css/tailwind.css">
@@ -121,11 +121,11 @@
                                         <div class="dropdown menu">
                                             <ul class="menu">
                                                 
-                                                    <li class="dropdown item active">
+                                                    <li class="dropdown item ">
                                                         <a href="accounting-transactions.html">Transactions</a>
                                                     </li>
                                                 
-                                                    <li class="dropdown item ">
+                                                    <li class="dropdown item active">
                                                         <a href="accounting-chart-accounts.html">Chart of Accounts</a>
                                                     </li>
                                                 
@@ -258,27 +258,19 @@
         <div class="content-header">
             <div class="tw-flex tw-justify-between">
                 <div class="title">
-                    Transactions
+                    Chart of Accounts
                 </div>
                 <div class="actions">
-                    <div class="btn-group">
-                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Create
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <li><a class="dropdown-item" href="accounting-transactions-income-create.html">Add income</a></li>
-                            <li><a class="dropdown-item" href="accounting-transactions-expense-create.html">Add expense</a></li>
-                            <li><a class="dropdown-item" href="accounting-transactions-journal-create.html">Add journal transaction</a></li>
-                        </ul>
-                    </div>
+                    <a href="accounting-chart-accounts-create.html" class="btn btn-primary">
+                        Create a account
+                    </a>
                 </div>
             </div>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
                     <li class="breadcrumb-item">Accounting</li>
-                    <li class="breadcrumb-item active" aria-current="page">Transactions</li>
+                    <li class="breadcrumb-item active" aria-current="page">Accounts</li>
                 </ol>
             </nav>
         </div>
@@ -337,42 +329,19 @@
             $('#table-invoices').DataTable({
                 responsive: true,
                 autoWidth: false,
-                order: [[0, 'asc']],
                 columnDefs: [
-                    { orderable: false, targets: [5] }
+                    { orderable: false, targets: [3] }
                 ],
                 columns: [
-                    { title: '#', data: 'id', render: (data, type, row, meta) => meta.row + meta.settings._iDisplayStart + 1 },
-                    {
-                        title: 'Type',
-                        data: 'type',
-                        render: (data, type, row) => {
-                            let classSpan
-                            if (row.type == 'Expense') { classSpan = 'primary' }
-                            else if (row.type == 'Income') { classSpan = 'success' }
-                            else if (row.type == 'Journal') { classSpan = 'secondary' }
-                            return `<span class="badge bg-${classSpan}">${data}</class>`
-                        }
-                    },
-                    { title: 'Description', data: 'description', render: (data) => `<b>${data}</b>` },
-                    { title: 'Account', data: 'account' },
-                    {
-                        title: 'Total Amount',
-                        data: 'total_amount',
-                        render: (data, type, row) => {
-                            let classSpan
-                            if (row.type == 'Expense') { classSpan = 'primary' }
-                            else if (row.type == 'Income') { classSpan = 'success' }
-                            else if (row.type == 'Journal') { classSpan = 'secondary' }
-                            return `<span class="text-${classSpan}"><b>Rp${data}</b></class>`
-                        }
-                    },
+                    { title: 'Type', data: 'type' },
+                    { title: 'Name', data: 'name' },
+                    { title: 'Account ID', data: 'id' },
                     {
                         title: 'Actions',
                         data: null,
                         render: (data, type, row) => `
                         <div>
-                            <a href="purchases-vendors-edit.html" class="btn btn-sm btn-outline-warning">
+                            <a href="accounting-chart-accounts-edit.html" class="btn btn-sm btn-outline-warning">
                                 <i class="bi bi-pencil"></i>
                             </a>
                             <a class="btn btn-sm btn-outline-danger">
@@ -384,25 +353,9 @@
                 ],
                 data: [
                     {
-                        id: 1,
-                        type: 'Expense',
-                        description: 'Test',
-                        account: 'Account 1',
-                        total_amount: 150000
-                    },
-                    {
-                        id: 2,
-                        type: 'Income',
-                        description: 'Test 1',
-                        account: 'Account 1',
-                        total_amount: 50000
-                    },
-                    {
-                        id: 3,
-                        type: 'Journal',
-                        description: 'Test 2',
-                        account: 'Account 1',
-                        total_amount: 20000
+                        name: 'Vendor 1',
+                        type: 'Cash and Bank',
+                        id: 321,
                     }
                 ]
             });

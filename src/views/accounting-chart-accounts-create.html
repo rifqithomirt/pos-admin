@@ -1,0 +1,158 @@
+{% set title = 'Accounting - Chart of Accounts - Create' %}
+{% set filename = 'accounting-chart-accounts-create' %}
+{% extends 'layouts/dashboard.html' %}
+
+{% block content %}
+    <div class="container">
+        <!-- content-header -->
+        <div class="content-header">
+            <div class="tw-flex tw-justify-between">
+                <div class="title">
+                    Create Account
+                </div>
+                <div class="actions">
+                    <a href="accounting-chart-accounts.html" class="btn btn-primary">
+                        Save and continue
+                    </a>
+                </div>
+            </div>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                    <li class="breadcrumb-item">Accounting</li>
+                    <li class="breadcrumb-item"><a href="accounting-chart-accounts.html">Accounts</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Create</li>
+                </ol>
+            </nav>
+        </div>
+        <!-- content-header:end -->
+        <!-- content -->
+        <div class="content">
+            <div class="row">
+                <div class="col-12">
+                    <div class="mt-2">
+                        <div class="form-group row my-2">
+                            <label class="col-sm-4 col-form-label text-md-end">Account Name :</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group row my-2">
+                            <label class="col-sm-4 col-form-label text-md-end">Account Type :</label>
+                            <div class="col-md-4">
+                                <select id="input-account-type" class="choices form-select"></select>
+                            </div>
+                        </div>
+                        <div class="form-group row my-2">
+                            <label class="col-sm-4 col-form-label text-md-end">Account ID :</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group row my-2">
+                            <label class="col-sm-4 col-form-label text-md-end">Description :</label>
+                            <div class="col-md-4">
+                                <textarea cols="30" rows="10" class="form-control"></textarea>
+                                <div class="my-4">
+                                    <a href="accounting-chart-accounts.html" class="btn btn-primary">
+                                        Save and continue
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <!-- content:end -->
+    </div>
+{% endblock %}
+
+{% block stylesPlugin %}
+    <!-- style:plugin -->
+    <link rel="stylesheet" href="../vendor/choices.js/styles/choices.min.css">
+{% endblock %}
+
+{% block scriptsPlugin %}
+    <!-- script:plugin -->
+    <script src="../vendor/choices.js/scripts/choices.min.js"></script>
+{% endblock %}
+
+{% block scripts %}
+    <!-- script:page - you can remove this -->
+    <script>
+        // choice
+        const initChoice = () => {
+            const el = document.querySelector('#input-account-type')
+            const eltype = new Choices(el, {
+                itemSelectText: '',
+            })
+            eltype.setChoices(
+                [
+                    {
+                        label: 'Assets',
+                        disabled: false,
+                        choices: [
+                            { value: 'Cash and Bank', label: 'Cash and Bank' },
+                            { value: 'Money in Transit', label: 'Money in Transit' },
+                            { value: 'Expected Payments from Customers', label: 'Expected Payments from Customers' },
+                            { value: 'Inventory', label: 'Inventory' },
+                            { value: 'Property, Plant, Equipment', label: 'Property, Plant, Equipment' },
+                            { value: 'Depreciation and Amortization', label: 'Depreciation and Amortization' },
+                            { value: 'Vendor Prepayments and Vendor Credits', label: 'Vendor Prepayments and Vendor Credits' },
+                            { value: 'Other Short-Term Asset', label: 'Other Short-Term Asset' },
+                            { value: 'Other Long-Term Asset', label: 'Other Long-Term Asset' },
+                        ],
+                    },
+                    {
+                        label: 'liabilities & Credit Cards',
+                        disabled: false,
+                        choices: [
+                            { value: 'Credit Card', label: 'Credit Card' },
+                            { value: 'Loan and Line of Credit', label: 'Loan and Line of Credit' },
+                            { value: 'Expected Payments from Customers', label: 'Expected Payments from Customers' },
+                            { value: 'Due for Payroll', label: 'Due for Payroll' },
+                            { value: 'Due to You and Other Business owners', label: 'Due to You and Other Business owners' },
+                            { value: 'Customer Prepayments and Customer Credits', label: 'Customer Prepayments and Customer Credits' },
+                            { value: 'Other Short-Term Liability', label: 'Other Short-Term Liability' },
+                            { value: 'Other Long-Term Liability', label: 'Other Long-Term Liability' },
+                        ],
+                    },
+                    {
+                        label: 'Income',
+                        disabled: false,
+                        choices: [
+                            { value: 'Income', label: 'Income' },
+                            { value: 'Discount', label: 'Discount' },
+                            { value: 'Other Income', label: 'Other Income' },
+                        ],
+                    },
+                    {
+                        label: 'Expenses',
+                        disabled: false,
+                        choices: [
+                            { value: 'Operating Expense', label: 'Operating Expense' },
+                            { value: 'Cost of Goods Sold', label: 'Cost of Goods Sold' },
+                            { value: 'Payment Processing Fee', label: 'Payment Processing Fee' },
+                            { value: 'Payroll Expense', label: 'Payroll Expense' },
+                        ],
+                    },
+                    {
+                        label: 'Equity',
+                        disabled: false,
+                        choices: [
+                            { value: 'Business owner Contribution and Drawing', label: 'Business owner Contribution and Drawing' },
+                            { value: 'Retained Earnings: Profit', label: 'Retained Earnings: Profit' },
+                        ],
+                    },
+                ]
+            )
+        }
+        // init
+        document.addEventListener('DOMContentLoaded', function () {
+            initChoice()
+            initDatepicker()
+        })
+    </script>
+{% endblock %}

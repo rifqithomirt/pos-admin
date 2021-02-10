@@ -37,6 +37,10 @@
     @apply tw-text-sm;
     color: theme('colors.gray.600') #{!important}
   }
+  .table th {
+    @apply tw-text-sm;
+    color: theme('colors.gray.700') #{!important}
+  }
   
   .table thead th {
     @apply tw-text-sm;
@@ -77,9 +81,9 @@
     border: 0;
   }
   
-  .table-striped tbody tr:nth-of-type(odd) {
-    background-color: rgba(0, 0, 0, 0.05);
-  }
+  // .table-striped tbody tr:nth-of-type(odd) {
+  //   background-color: rgba(0, 0, 0, 0.05);
+  // }
   
   .table-hover tbody tr:hover {
     color: #212529;
@@ -304,9 +308,9 @@
     border: 0;
   }
   
-  .table-dark.table-striped tbody tr:nth-of-type(odd) {
-    background-color: rgba(255, 255, 255, 0.05);
-  }
+  // .table-dark.table-striped tbody tr:nth-of-type(odd) {
+  //   background-color: rgba(255, 255, 255, 0.05);
+  // }
   
   .table-dark.table-hover tbody tr:hover {
     color: #ffffff;

@@ -1251,6 +1251,12 @@ i {
   color: #4b5563 !important;
 }
 
+.table th {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: #374151 !important;
+}
+
 .table thead th {
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -1288,10 +1294,6 @@ i {
 .table-borderless thead th,
 .table-borderless tbody + tbody {
   border: 0;
-}
-
-.table-striped tbody tr:nth-of-type(odd) {
-  background-color: rgba(0, 0, 0, 0.05);
 }
 
 .table-hover tbody tr:hover {
@@ -1517,10 +1519,6 @@ i {
   border: 0;
 }
 
-.table-dark.table-striped tbody tr:nth-of-type(odd) {
-  background-color: rgba(255, 255, 255, 0.05);
-}
-
 .table-dark.table-hover tbody tr:hover {
   color: #ffffff;
   background-color: rgba(255, 255, 255, 0.075);
@@ -1637,4 +1635,35 @@ hr {
 
 .btn-sm i {
   font-size: 0.8rem;
+}
+
+.nav-report {
+  position: relative;
+}
+
+.nav-report::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  border-bottom: 1px solid #d1d5db;
+  width: calc(50% - 120px);
+}
+
+.nav-report::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: calc(50% + 120px);
+  border-bottom: 1px solid #d1d5db;
+  width: calc(50% - 120px);
+}
+
+.report-link {
+  background-image: url(./../img/icon--external-link.svg);
+  background-repeat: no-repeat;
+  background-position: center right;
+  background-size: 11px 11px;
+  padding-right: 15px;
+  display: inline-block;
 }

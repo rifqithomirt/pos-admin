@@ -146,6 +146,7 @@ const app = function (root) {
     })
     toggleSidebarMenu.forEach(function (el) {
       el.addEventListener('click', function (e) {
+        e.preventDefault()
         $this.mobileSidebarMenuState = !$this.mobileSidebarMenuState
         if ($this.mobileSidebarMenuState) {
           sidebarMenu.animate([
@@ -233,12 +234,14 @@ const app = function (root) {
     setTimeout(() => this.loading.hide(), 1000)
     const menuLink = document.querySelectorAll('a')
     menuLink.forEach((e) => e.addEventListener('click', async (item) => {
-      item.preventDefault()
       const href = e.getAttribute('href')
-      if (href != null && href != '#') {
-        this.loading.show()
-        await sleep(500)
-        window.location.href = href
+      if (href != null) {
+        if (href != '#' && !href.startsWith('#')) {
+          item.preventDefault()
+          this.loading.show()
+          await sleep(500)
+          window.location.href = href
+        }
       }
     }))
   }

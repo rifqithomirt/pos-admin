@@ -1,0 +1,107 @@
+{% set title = 'Accounting - Chart of Accounts' %}
+{% set filename = 'accounting-chart-accounts' %}
+{% extends 'layouts/dashboard.html' %}
+
+{% block content %}
+    <div class="container">
+        <!-- content-header -->
+        <div class="content-header">
+            <div class="tw-flex tw-justify-between">
+                <div class="title">
+                    Chart of Accounts
+                </div>
+                <div class="actions">
+                    <a href="accounting-chart-accounts-create.html" class="btn btn-primary">
+                        Create a account
+                    </a>
+                </div>
+            </div>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                    <li class="breadcrumb-item">Accounting</li>
+                    <li class="breadcrumb-item active" aria-current="page">Accounts</li>
+                </ol>
+            </nav>
+        </div>
+        <!-- content-header:end -->
+        <!-- content -->
+        <div class="content">
+            <div class="row">
+                <div class="col-12">
+                    <!-- table -->
+                    <div class="mt-2">
+                        <table id="table-invoices" class="table table-hover table-stripped"></table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- content:end -->
+    </div>
+{% endblock %}
+
+
+{% block stylesPlugin %}
+    <!-- style:plugin -->
+    <!-- <link rel="stylesheet" href="../vendor/datatables/css/jquery.dataTables.min.css"> -->
+    <link rel="stylesheet" href="../vendor/datatables/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="../vendor/datatables/css/responsive.css">
+    <link rel="stylesheet" href="../vendor/choices.js/styles/choices.min.css">
+    <link rel="stylesheet" href="../vendor/pikaday/css/pikaday.css">    
+{% endblock %}
+
+{% block scriptsPlugin %}
+    <!-- script:plugin -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="../vendor/datatables/js/dataTables.bootstrap5.min.js"></script>
+    <script src="../vendor/datatables/js/responsive.js"></script>
+{% endblock %}
+
+{% block scripts %}
+    <!-- script:page - you can remove this -->
+    <script>
+        // datatables
+        const initTable = () => {
+            $('#table-invoices').DataTable({
+                responsive: true,
+                autoWidth: false,
+                columnDefs: [
+                    { orderable: false, targets: [3] }
+                ],
+                columns: [
+                    { title: 'Type', data: 'type' },
+                    { title: 'Name', data: 'name' },
+                    { title: 'Account ID', data: 'id' },
+                    {
+                        title: 'Actions',
+                        data: null,
+                        render: (data, type, row) => `
+                        <div>
+                            <a href="accounting-chart-accounts-edit.html" class="btn btn-sm btn-outline-warning">
+                                <i class="bi bi-pencil"></i>
+                            </a>
+                            <a class="btn btn-sm btn-outline-danger">
+                                <i class="bi bi-trash"></i>
+                            </a>
+                        </div>
+                        `
+                    },
+                ],
+                data: [
+                    {
+                        name: 'Vendor 1',
+                        type: 'Cash and Bank',
+                        id: 321,
+                    }
+                ]
+            });
+        }
+
+
+        // init
+        document.addEventListener('DOMContentLoaded', function () {
+            initTable()
+        })
+    </script>
+{% endblock %}

@@ -4,7 +4,7 @@
     <!-- meta -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accounting - Transactions - E-POS Admin</title>
+    <title>Accounting - Chart of Accounts - Edit - E-POS Admin</title>
     <!-- styles -->
     
     <link rel="stylesheet" href="../dist/css/tailwind.css">
@@ -12,11 +12,7 @@
     <link rel="stylesheet" href="../vendor/bootstrap-icons/font/bootstrap-icons.css">
     
     <!-- style:plugin -->
-    <!-- <link rel="stylesheet" href="../vendor/datatables/css/jquery.dataTables.min.css"> -->
-    <link rel="stylesheet" href="../vendor/datatables/css/dataTables.bootstrap5.min.css">
-    <link rel="stylesheet" href="../vendor/datatables/css/responsive.css">
     <link rel="stylesheet" href="../vendor/choices.js/styles/choices.min.css">
-    <link rel="stylesheet" href="../vendor/pikaday/css/pikaday.css">    
 
     <link rel="stylesheet" href="../dist/css/app.css">
     
@@ -121,11 +117,11 @@
                                         <div class="dropdown menu">
                                             <ul class="menu">
                                                 
-                                                    <li class="dropdown item active">
+                                                    <li class="dropdown item ">
                                                         <a href="accounting-transactions.html">Transactions</a>
                                                     </li>
                                                 
-                                                    <li class="dropdown item ">
+                                                    <li class="dropdown item active">
                                                         <a href="accounting-chart-accounts.html">Chart of Accounts</a>
                                                     </li>
                                                 
@@ -258,27 +254,20 @@
         <div class="content-header">
             <div class="tw-flex tw-justify-between">
                 <div class="title">
-                    Transactions
+                    Edit Account
                 </div>
                 <div class="actions">
-                    <div class="btn-group">
-                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Create
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <li><a class="dropdown-item" href="accounting-transactions-income-create.html">Add income</a></li>
-                            <li><a class="dropdown-item" href="accounting-transactions-expense-create.html">Add expense</a></li>
-                            <li><a class="dropdown-item" href="accounting-transactions-journal-create.html">Add journal transaction</a></li>
-                        </ul>
-                    </div>
+                    <a href="accounting-chart-accounts.html" class="btn btn-primary">
+                        Save and continue
+                    </a>
                 </div>
             </div>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
                     <li class="breadcrumb-item">Accounting</li>
-                    <li class="breadcrumb-item active" aria-current="page">Transactions</li>
+                    <li class="breadcrumb-item"><a href="accounting-chart-accounts.html">Accounts</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Edit</li>
                 </ol>
             </nav>
         </div>
@@ -287,11 +276,39 @@
         <div class="content">
             <div class="row">
                 <div class="col-12">
-                    <!-- table -->
                     <div class="mt-2">
-                        <table id="table-invoices" class="table table-hover table-stripped"></table>
+                        <div class="form-group row my-2">
+                            <label class="col-sm-4 col-form-label text-md-end">Account Name :</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" value="Account 1">
+                            </div>
+                        </div>
+                        <div class="form-group row my-2">
+                            <label class="col-sm-4 col-form-label text-md-end">Account Type :</label>
+                            <div class="col-md-4">
+                                <select id="input-account-type" class="choices form-select"></select>
+                            </div>
+                        </div>
+                        <div class="form-group row my-2">
+                            <label class="col-sm-4 col-form-label text-md-end">Account ID :</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" value="321">
+                            </div>
+                        </div>
+                        <div class="form-group row my-2">
+                            <label class="col-sm-4 col-form-label text-md-end">Description :</label>
+                            <div class="col-md-4">
+                                <textarea cols="30" rows="10" class="form-control"></textarea>
+                                <div class="my-4">
+                                    <a href="accounting-chart-accounts.html" class="btn btn-primary">
+                                        Save and continue
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                
             </div>
         </div>
         <!-- content:end -->
@@ -323,95 +340,83 @@
     <script src="../vendor/feather-icons/feather.min.js"></script>
     
     <!-- script:plugin -->
-    <script src="../vendor/jquery/jquery.min.js"></script>
-    <script src="../vendor/datatables/js/jquery.dataTables.min.js"></script>
-    <script src="../vendor/datatables/js/dataTables.bootstrap5.min.js"></script>
-    <script src="../vendor/datatables/js/responsive.js"></script>
+    <script src="../vendor/choices.js/scripts/choices.min.js"></script>
 
     <script src="../dist/js/app.js"></script>
     
     <!-- script:page - you can remove this -->
     <script>
-        // datatables
-        const initTable = () => {
-            $('#table-invoices').DataTable({
-                responsive: true,
-                autoWidth: false,
-                order: [[0, 'asc']],
-                columnDefs: [
-                    { orderable: false, targets: [5] }
-                ],
-                columns: [
-                    { title: '#', data: 'id', render: (data, type, row, meta) => meta.row + meta.settings._iDisplayStart + 1 },
-                    {
-                        title: 'Type',
-                        data: 'type',
-                        render: (data, type, row) => {
-                            let classSpan
-                            if (row.type == 'Expense') { classSpan = 'primary' }
-                            else if (row.type == 'Income') { classSpan = 'success' }
-                            else if (row.type == 'Journal') { classSpan = 'secondary' }
-                            return `<span class="badge bg-${classSpan}">${data}</class>`
-                        }
-                    },
-                    { title: 'Description', data: 'description', render: (data) => `<b>${data}</b>` },
-                    { title: 'Account', data: 'account' },
-                    {
-                        title: 'Total Amount',
-                        data: 'total_amount',
-                        render: (data, type, row) => {
-                            let classSpan
-                            if (row.type == 'Expense') { classSpan = 'primary' }
-                            else if (row.type == 'Income') { classSpan = 'success' }
-                            else if (row.type == 'Journal') { classSpan = 'secondary' }
-                            return `<span class="text-${classSpan}"><b>Rp${data}</b></class>`
-                        }
-                    },
-                    {
-                        title: 'Actions',
-                        data: null,
-                        render: (data, type, row) => `
-                        <div>
-                            <a href="purchases-vendors-edit.html" class="btn btn-sm btn-outline-warning">
-                                <i class="bi bi-pencil"></i>
-                            </a>
-                            <a class="btn btn-sm btn-outline-danger">
-                                <i class="bi bi-trash"></i>
-                            </a>
-                        </div>
-                        `
-                    },
-                ],
-                data: [
-                    {
-                        id: 1,
-                        type: 'Expense',
-                        description: 'Test',
-                        account: 'Account 1',
-                        total_amount: 150000
-                    },
-                    {
-                        id: 2,
-                        type: 'Income',
-                        description: 'Test 1',
-                        account: 'Account 1',
-                        total_amount: 50000
-                    },
-                    {
-                        id: 3,
-                        type: 'Journal',
-                        description: 'Test 2',
-                        account: 'Account 1',
-                        total_amount: 20000
-                    }
-                ]
-            });
+        // choice
+        const initChoice = () => {
+            const el = document.querySelector('#input-account-type')
+            const eltype = new Choices(el, {
+                itemSelectText: '',
+            })
+            eltype.setChoices([
+                {
+                    label: 'Assets',
+                    disabled: false,
+                    choices: [
+                        { value: 'Cash and Bank', label: 'Cash and Bank' },
+                        { value: 'Money in Transit', label: 'Money in Transit' },
+                        { value: 'Expected Payments from Customers', label: 'Expected Payments from Customers' },
+                        { value: 'Inventory', label: 'Inventory' },
+                        { value: 'Property, Plant, Equipment', label: 'Property, Plant, Equipment' },
+                        { value: 'Depreciation and Amortization', label: 'Depreciation and Amortization' },
+                        { value: 'Vendor Prepayments and Vendor Credits', label: 'Vendor Prepayments and Vendor Credits' },
+                        { value: 'Other Short-Term Asset', label: 'Other Short-Term Asset' },
+                        { value: 'Other Long-Term Asset', label: 'Other Long-Term Asset' },
+                    ],
+                },
+                {
+                    label: 'liabilities & Credit Cards',
+                    disabled: false,
+                    choices: [
+                        { value: 'Credit Card', label: 'Credit Card' },
+                        { value: 'Loan and Line of Credit', label: 'Loan and Line of Credit' },
+                        { value: 'Expected Payments from Customers', label: 'Expected Payments from Customers' },
+                        { value: 'Due for Payroll', label: 'Due for Payroll' },
+                        { value: 'Due to You and Other Business owners', label: 'Due to You and Other Business owners' },
+                        { value: 'Customer Prepayments and Customer Credits', label: 'Customer Prepayments and Customer Credits' },
+                        { value: 'Other Short-Term Liability', label: 'Other Short-Term Liability' },
+                        { value: 'Other Long-Term Liability', label: 'Other Long-Term Liability' },
+                    ],
+                },
+                {
+                    label: 'Income',
+                    disabled: false,
+                    choices: [
+                        { value: 'Income', label: 'Income' },
+                        { value: 'Discount', label: 'Discount' },
+                        { value: 'Other Income', label: 'Other Income' },
+                    ],
+                },
+                {
+                    label: 'Expenses',
+                    disabled: false,
+                    choices: [
+                        { value: 'Operating Expense', label: 'Operating Expense' },
+                        { value: 'Cost of Goods Sold', label: 'Cost of Goods Sold' },
+                        { value: 'Payment Processing Fee', label: 'Payment Processing Fee' },
+                        { value: 'Payroll Expense', label: 'Payroll Expense' },
+                    ],
+                },
+                {
+                    label: 'Equity',
+                    disabled: false,
+                    choices: [
+                        { value: 'Business owner Contribution and Drawing', label: 'Business owner Contribution and Drawing' },
+                        { value: 'Retained Earnings: Profit', label: 'Retained Earnings: Profit' },
+                    ],
+                },
+            ])
+            eltype.setValue(['Cash and Bank'])
         }
-
 
         // init
         document.addEventListener('DOMContentLoaded', function () {
-            initTable()
+            initChoice()
+            initDatepicker()
         })
     </script>
 

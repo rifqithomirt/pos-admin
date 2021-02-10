@@ -1,0 +1,301 @@
+{% set title = 'Reports - Balance Sheet' %}
+{% set filename = 'reports-balance-sheet' %}
+{% extends 'layouts/dashboard.html' %}
+
+{% block content %}
+    <div class="container">
+        <!-- content-header -->
+        <div class="content-header">
+            <div class="tw-flex tw-justify-between">
+                <div class="title">
+                    Balance Sheet
+                </div>
+                <div class="actions">
+                    <a href="#" class="btn btn-secondary">
+                        Export
+                    </a>
+                </div>
+            </div>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                    <li class="breadcrumb-item">Reports</li>
+                    <li class="breadcrumb-item active" aria-current="page">Profit & Loss</li>
+                </ol>
+            </nav>
+        </div>
+        <!-- content-header:end -->
+        <!-- content -->
+        <div class="content">
+            <div class="row">
+                <div class="col-12">
+                    <div class="mt-2">
+                        <!-- filter -->
+                        <div class="row gx-2">
+                            <div class="col-md-6 col-lg-3 form-group my-1">
+                                <label for="">As of</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fh-16" data-feather="calendar"></i></span>
+                                    <input id="input-filter-datepicker-from" type="text" class="form-control datepicker" placeholder="Select date...">
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-lg-6 form-group my-1">
+                                <a href="#" class="btn btn-outline-primary mt-4">
+                                    Update
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mt-4 mb-4 tw-px-12">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">Cash and Bank</th>
+                                        <th class="text-center" width="5%"></th>
+                                        <th class="text-center">To be received</th>
+                                        <th class="text-center" width="5%"></th>
+                                        <th class="text-center">To be paid out</th>
+                                        <th class="text-center" width="5%"></th>
+                                        <th class="text-center"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="text-center fs-6">Rp0</td>
+                                        <td class="text-center fs-6">+</td>
+                                        <td class="text-center fs-6">Rp10.000</td>
+                                        <td class="text-center fs-6">-</td>
+                                        <td class="text-center fs-6">Rp0</td>
+                                        <td class="text-center fs-6">=</td>
+                                        <td class="text-center fs-6">
+                                            <span class="text-success">Rp10.000</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="tw-mt-8">
+                            <ul class="nav nav-pills nav-report tw-justify-center" id="myTab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link active" id="sumarry-tab" data-bs-toggle="tab" href="#sumarry" role="tab" aria-controls="sumarry" aria-selected="true">Sumarry</a>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link" id="details-tab" data-bs-toggle="tab" href="#details" role="tab" aria-controls="details" aria-selected="false">Details</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active" id="sumarry" role="tabpanel" aria-labelledby="sumarry-tab">
+                                    <table class="table mt-3 mb-0">
+                                        <thead>
+                                            <tr>
+                                                <td>ACCOUNTS</td>
+                                                <th class="text-end">...</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                    <!-- Assets -->
+                                    <table class="table table-hover">
+                                        <tbody>
+                                            <tr class="tw-bg-gray-50"><th colspan="2">Assets</th></tr>
+                                            <tr>
+                                                <td>Total Cash and Bank</td>
+                                                <td class="text-end">Rp0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Total Other Current Assets</td>
+                                                <td class="text-end">Rp10.000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Total Long-term Assets</td>
+                                                <td class="text-end">Rp0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Total Assets</td>
+                                                <td class="text-end">Rp10.000</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <!-- Liabilities -->
+                                    <table class="table table-hover">
+                                        <tbody>
+                                            <tr class="tw-bg-gray-50"><th colspan="2">Liabilities</th></tr>
+                                            <tr>
+                                                <td>Total Current Liabilities</td>
+                                                <td class="text-end">Rp0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Total Long-term Liabilities</td>
+                                                <td class="text-end">Rp0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Total Liabilities</td>
+                                                <td class="text-end">Rp10.000</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <!-- Equity -->
+                                    <table class="table table-hover">
+                                        <tbody>
+                                            <tr class="tw-bg-gray-50"><th colspan="2">Equity</th></tr>
+                                            <tr>
+                                                <td>Total Other Equity</td>
+                                                <td class="text-end">Rp20.000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>TTotal Retained Earnings</td>
+                                                <td class="text-end">-Rp10.000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Total Equity</td>
+                                                <td class="text-end">Rp10.000</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="tab-pane fade" id="details" role="tabpanel" aria-labelledby="details-tab">
+                                    <table class="table mt-3 mb-0">
+                                        <thead>
+                                            <tr>
+                                                <td>ACCOUNTS</td>
+                                                <th class="text-end">...</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                    <!-- Assets -->
+                                    <table class="table table-hover">
+                                        <tbody>
+                                            <tr class="tw-bg-gray-50"><th colspan="2">Assets</th></tr>
+                                                <tr>
+                                                    <th colspan="2"><span class="tw-ml-4">Cash and Bank</span></th>
+                                                </tr>
+                                                <tr>
+                                                    <td><span class="tw-ml-4">Total Cash and Bank</span></td>
+                                                    <td class="text-end">Rp0</td>
+                                                </tr>
+                                                <tr>
+                                                    <th colspan="2"><span class="tw-ml-4">Other Current Assets</span></th>
+                                                </tr>
+                                                <tr>
+                                                    <td><span class="tw-ml-4">Total Other Current Assets</span></td>
+                                                    <td class="text-end">Rp10.000</td>
+                                                </tr>
+                                                <tr>
+                                                    <th colspan="2"><span class="tw-ml-4">Total Long-term Assets</span></th>
+                                                </tr>
+                                                <tr>
+                                                    <td><span class="tw-ml-4">Total Assets</span></td>
+                                                    <td class="text-end">Rp10.000</td>
+                                                </tr>
+                                            <tr>
+                                                <td>Total Assets</td>
+                                                <td class="text-end">Rp10.000</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <!-- Liabilities -->
+                                    <table class="table table-hover">
+                                        <tbody>
+                                            <tr>
+                                                <th colspan="2">Liabilities</th>
+                                            </tr>
+                                                <tr>
+                                                    <th colspan="2"><span class="tw-ml-4">Current Liabilities</span></th>
+                                                </tr>
+                                                <tr>
+                                                    <td><span class="tw-ml-4">Total Current Liabilities</span></td>
+                                                    <td class="text-end">Rp0</td>
+                                                </tr>
+                                                <tr>
+                                                    <th colspan="2"><span class="tw-ml-4">Long-term Liabilities</span></th>
+                                                </tr>
+                                                <tr>
+                                                    <td><span class="tw-ml-4">Total Long-term Liabilities</span></td>
+                                                    <td class="text-end">Rp0</td>
+                                                </tr>
+                                            <tr>
+                                                <td>Total Current Liabilities</td>
+                                                <td class="text-end">Rp0</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <!-- Equity -->
+                                    <table class="table table-hover">
+                                        <tbody>
+                                            <tr class="tw-bg-gray-50"><th colspan="2">Equity</th></tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="tw-ml-4">
+                                                            <a href="reports-account-transactions.html" class="report-link">Owner Investment / Drawings</a>
+                                                        </span>
+                                                    </td>
+                                                    <td class="text-end">Rp20.000</td>
+                                                </tr>
+                                                <tr>
+                                                    <th colspan="2"><span class="tw-ml-4">Retained Earnings</span></th>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="tw-ml-4">
+                                                            <a href="reports-profit-loss.html" class="report-link">Profit between Jan 1, 2021 and Feb 9, 2021</a>
+                                                        </span>
+                                                    </td>
+                                                    <td class="text-end">Rp20.000</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><span class="tw-ml-4">Total Retained Earnings</span></td>
+                                                    <td class="text-end">-Rp10.000</td>
+                                                </tr>
+                                            <tr>
+                                                <td>Total Equity</td>
+                                                <td class="text-end">Rp10.000</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- content:end -->
+    </div>
+{% endblock %}
+
+{% block stylesPlugin %}
+    <!-- style:plugin -->
+    <link rel="stylesheet" href="../vendor/pikaday/css/pikaday.css">    
+{% endblock %}
+
+{% block scriptsPlugin %}
+    <!-- script:plugin -->
+    <script src="../vendor/pikaday/pikaday.js"></script>
+    <script src="../vendor/moment/moment.js"></script>
+{% endblock %}
+
+{% block scripts %}
+    <!-- script:page - you can remove this -->
+    <script>
+        // datepicker
+        const initDatepicker = () => {
+            const els = document.querySelectorAll('.datepicker')
+            els.forEach((el) => new Pikaday({
+                field: el,
+                format: 'DD-MM-YYYY',
+                toString(date, format) {
+                    // you should do formatting based on the passed format,
+                    // but we will just return 'D/M/YYYY' for simplicity
+                    const day = ('0' + date.getDate()).slice(-2);
+                    const month = ('0' + (date.getMonth() + 1)).slice(-2);
+                    const year = date.getFullYear();
+                    return `${day}-${month}-${year}`;
+                },
+            }))
+        }
+        // init
+        document.addEventListener('DOMContentLoaded', function () {
+            initDatepicker()
+        })
+    </script>
+{% endblock %}

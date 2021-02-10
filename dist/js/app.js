@@ -215,6 +215,7 @@ var app = function app(root) {
     });
     toggleSidebarMenu.forEach(function (el) {
       el.addEventListener('click', function (e) {
+        e.preventDefault();
         $this.mobileSidebarMenuState = !$this.mobileSidebarMenuState;
 
         if ($this.mobileSidebarMenuState) {
@@ -329,23 +330,29 @@ var app = function app(root) {
             while (1) {
               switch (_context.prev = _context.next) {
                 case 0:
-                  item.preventDefault();
                   href = e.getAttribute('href');
 
-                  if (!(href != null && href != '#')) {
-                    _context.next = 7;
+                  if (!(href != null)) {
+                    _context.next = 8;
                     break;
                   }
 
+                  if (!(href != '#' && !href.startsWith('#'))) {
+                    _context.next = 8;
+                    break;
+                  }
+
+                  item.preventDefault();
+
                   _this2.loading.show();
 
-                  _context.next = 6;
+                  _context.next = 7;
                   return sleep(500);
 
-                case 6:
+                case 7:
                   window.location.href = href;
 
-                case 7:
+                case 8:
                 case "end":
                   return _context.stop();
               }

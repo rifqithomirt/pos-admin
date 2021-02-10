@@ -4,7 +4,7 @@
     <!-- meta -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accounting - Transactions - E-POS Admin</title>
+    <title>Reports - Profit &amp; Loss - E-POS Admin</title>
     <!-- styles -->
     
     <link rel="stylesheet" href="../dist/css/tailwind.css">
@@ -12,10 +12,6 @@
     <link rel="stylesheet" href="../vendor/bootstrap-icons/font/bootstrap-icons.css">
     
     <!-- style:plugin -->
-    <!-- <link rel="stylesheet" href="../vendor/datatables/css/jquery.dataTables.min.css"> -->
-    <link rel="stylesheet" href="../vendor/datatables/css/dataTables.bootstrap5.min.css">
-    <link rel="stylesheet" href="../vendor/datatables/css/responsive.css">
-    <link rel="stylesheet" href="../vendor/choices.js/styles/choices.min.css">
     <link rel="stylesheet" href="../vendor/pikaday/css/pikaday.css">    
 
     <link rel="stylesheet" href="../dist/css/app.css">
@@ -121,7 +117,7 @@
                                         <div class="dropdown menu">
                                             <ul class="menu">
                                                 
-                                                    <li class="dropdown item active">
+                                                    <li class="dropdown item ">
                                                         <a href="accounting-transactions.html">Transactions</a>
                                                     </li>
                                                 
@@ -145,7 +141,7 @@
                                         <div class="dropdown menu">
                                             <ul class="menu">
                                                 
-                                                    <li class="dropdown item ">
+                                                    <li class="dropdown item active">
                                                         <a href="reports-profit-loss.html">Profit &amp; Loss</a>
                                                     </li>
                                                 
@@ -258,27 +254,19 @@
         <div class="content-header">
             <div class="tw-flex tw-justify-between">
                 <div class="title">
-                    Transactions
+                    Profit & Loss
                 </div>
                 <div class="actions">
-                    <div class="btn-group">
-                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Create
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <li><a class="dropdown-item" href="accounting-transactions-income-create.html">Add income</a></li>
-                            <li><a class="dropdown-item" href="accounting-transactions-expense-create.html">Add expense</a></li>
-                            <li><a class="dropdown-item" href="accounting-transactions-journal-create.html">Add journal transaction</a></li>
-                        </ul>
-                    </div>
+                    <a href="purchases-vendors-create.html" class="btn btn-secondary">
+                        Export
+                    </a>
                 </div>
             </div>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                    <li class="breadcrumb-item">Accounting</li>
-                    <li class="breadcrumb-item active" aria-current="page">Transactions</li>
+                    <li class="breadcrumb-item">Reports</li>
+                    <li class="breadcrumb-item active" aria-current="page">Profit & Loss</li>
                 </ol>
             </nav>
         </div>
@@ -287,9 +275,153 @@
         <div class="content">
             <div class="row">
                 <div class="col-12">
-                    <!-- table -->
                     <div class="mt-2">
-                        <table id="table-invoices" class="table table-hover table-stripped"></table>
+                        <!-- filter -->
+                        <div class="row gx-2">
+                            <div class="col-md-6 col-lg-3 form-group my-1">
+                                <label for="">From</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fh-16" data-feather="calendar"></i></span>
+                                    <input id="input-filter-datepicker-from" type="text" class="form-control datepicker" placeholder="From...">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-3 form-group my-1">
+                                <label for="">To</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fh-16" data-feather="calendar"></i></span>
+                                    <input id="input-filter-datepicker-to" type="text" class="form-control datepicker" placeholder="To...">
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-lg-6 form-group my-1">
+                                <a href="purchases-vendors-create.html" class="btn btn-outline-primary mt-4">
+                                    Update
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mt-4 mb-4 tw-px-12">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">Income</th>
+                                        <th class="text-center" width="5%"></th>
+                                        <th class="text-center">Cost of Goods Sold</th>
+                                        <th class="text-center" width="5%"></th>
+                                        <th class="text-center">Operating Expenses</th>
+                                        <th class="text-center" width="5%"></th>
+                                        <th class="text-center">Net Profit</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="text-center fs-6">Rp10.000</td>
+                                        <td class="text-center fs-6">-</td>
+                                        <td class="text-center fs-6">Rp0</td>
+                                        <td class="text-center fs-6">-</td>
+                                        <td class="text-center fs-6">Rp20.000</td>
+                                        <td class="text-center fs-6">=</td>
+                                        <td class="text-center fs-6">
+                                            <span class="text-danger">-Rp10.000</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="tw-mt-8">
+                            <ul class="nav nav-pills nav-report tw-justify-center" id="myTab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link active" id="sumarry-tab" data-bs-toggle="tab" href="#sumarry" role="tab" aria-controls="sumarry" aria-selected="true">Sumarry</a>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link" id="details-tab" data-bs-toggle="tab" href="#details" role="tab" aria-controls="details" aria-selected="false">Details</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active" id="sumarry" role="tabpanel" aria-labelledby="sumarry-tab">
+                                    <table class="table table-hover mt-3">
+                                        <thead>
+                                            <tr>
+                                                <td>ACCOUNTS</td>
+                                                <th class="text-end">...</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Income</td>
+                                                <td class="text-end">Rp10.000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Cost of Goods Sold</td>
+                                                <td class="text-end">Rp10.000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Gross Profit</td>
+                                                <td class="text-end">Rp10.000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Operating Expenses</td>
+                                                <td class="text-end">Rp10.000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Net Profit</td>
+                                                <td class="text-end">Rp10.000</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="tab-pane fade" id="details" role="tabpanel" aria-labelledby="details-tab">
+                                    <table class="table mt-3 mb-0">
+                                        <thead>
+                                            <tr>
+                                                <td>ACCOUNTS</td>
+                                                <th class="text-end">...</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                    <!-- income -->
+                                    <table class="table table-hover">
+                                        <tbody>
+                                            <tr class="tw-bg-gray-50"><th colspan="2">Income</th></tr>
+                                            <tr>
+                                                <td>Sales</td>
+                                                <td class="text-end">Rp10.000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Total Income</td>
+                                                <td class="text-end">Rp10.000</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <!-- total cost -->
+                                    <table class="table table-hover">
+                                        <tbody>
+                                            <tr class="tw-bg-gray-50">
+                                                <th>Total Cost of Goods Sold</th>
+                                                <td class="text-end">Rp0</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <!-- operating expense -->
+                                    <table class="table table-hover">
+                                        <tbody>
+                                            <tr class="mt-4">
+                                                <th>Operating Expenses</th>
+                                                <td class="text-end">Rp10.000</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <!-- net profit -->
+                                    <table class="table table-hover">
+                                        <tbody>
+                                            <tr>
+                                                <th>Net Profit</th>
+                                                <td class="text-end">-Rp10.000</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -323,95 +455,32 @@
     <script src="../vendor/feather-icons/feather.min.js"></script>
     
     <!-- script:plugin -->
-    <script src="../vendor/jquery/jquery.min.js"></script>
-    <script src="../vendor/datatables/js/jquery.dataTables.min.js"></script>
-    <script src="../vendor/datatables/js/dataTables.bootstrap5.min.js"></script>
-    <script src="../vendor/datatables/js/responsive.js"></script>
+    <script src="../vendor/pikaday/pikaday.js"></script>
+    <script src="../vendor/moment/moment.js"></script>
 
     <script src="../dist/js/app.js"></script>
     
     <!-- script:page - you can remove this -->
     <script>
-        // datatables
-        const initTable = () => {
-            $('#table-invoices').DataTable({
-                responsive: true,
-                autoWidth: false,
-                order: [[0, 'asc']],
-                columnDefs: [
-                    { orderable: false, targets: [5] }
-                ],
-                columns: [
-                    { title: '#', data: 'id', render: (data, type, row, meta) => meta.row + meta.settings._iDisplayStart + 1 },
-                    {
-                        title: 'Type',
-                        data: 'type',
-                        render: (data, type, row) => {
-                            let classSpan
-                            if (row.type == 'Expense') { classSpan = 'primary' }
-                            else if (row.type == 'Income') { classSpan = 'success' }
-                            else if (row.type == 'Journal') { classSpan = 'secondary' }
-                            return `<span class="badge bg-${classSpan}">${data}</class>`
-                        }
-                    },
-                    { title: 'Description', data: 'description', render: (data) => `<b>${data}</b>` },
-                    { title: 'Account', data: 'account' },
-                    {
-                        title: 'Total Amount',
-                        data: 'total_amount',
-                        render: (data, type, row) => {
-                            let classSpan
-                            if (row.type == 'Expense') { classSpan = 'primary' }
-                            else if (row.type == 'Income') { classSpan = 'success' }
-                            else if (row.type == 'Journal') { classSpan = 'secondary' }
-                            return `<span class="text-${classSpan}"><b>Rp${data}</b></class>`
-                        }
-                    },
-                    {
-                        title: 'Actions',
-                        data: null,
-                        render: (data, type, row) => `
-                        <div>
-                            <a href="purchases-vendors-edit.html" class="btn btn-sm btn-outline-warning">
-                                <i class="bi bi-pencil"></i>
-                            </a>
-                            <a class="btn btn-sm btn-outline-danger">
-                                <i class="bi bi-trash"></i>
-                            </a>
-                        </div>
-                        `
-                    },
-                ],
-                data: [
-                    {
-                        id: 1,
-                        type: 'Expense',
-                        description: 'Test',
-                        account: 'Account 1',
-                        total_amount: 150000
-                    },
-                    {
-                        id: 2,
-                        type: 'Income',
-                        description: 'Test 1',
-                        account: 'Account 1',
-                        total_amount: 50000
-                    },
-                    {
-                        id: 3,
-                        type: 'Journal',
-                        description: 'Test 2',
-                        account: 'Account 1',
-                        total_amount: 20000
-                    }
-                ]
-            });
+        // datepicker
+        const initDatepicker = () => {
+            const els = document.querySelectorAll('.datepicker')
+            els.forEach((el) => new Pikaday({
+                field: el,
+                format: 'DD-MM-YYYY',
+                toString(date, format) {
+                    // you should do formatting based on the passed format,
+                    // but we will just return 'D/M/YYYY' for simplicity
+                    const day = ('0' + date.getDate()).slice(-2);
+                    const month = ('0' + (date.getMonth() + 1)).slice(-2);
+                    const year = date.getFullYear();
+                    return `${day}-${month}-${year}`;
+                },
+            }))
         }
-
-
         // init
         document.addEventListener('DOMContentLoaded', function () {
-            initTable()
+            initDatepicker()
         })
     </script>
 
