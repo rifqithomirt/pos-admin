@@ -1667,3 +1667,56 @@ hr {
   padding-right: 15px;
   display: inline-block;
 }
+
+.choices {
+  margin-bottom: 10px;
+}
+
+.card-input {
+  border: 0 !important;
+  padding: 0 !important;
+  box-shadow: none;
+}
+
+.logo-box-upload {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 300px;
+  height: 200px;
+  border: 1px dashed #3b82f6;
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.logo-box-upload .description {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: #9ca3af;
+}
+
+.logo-box-upload .icon {
+  text-align: center;
+}
+
+.logo-box-upload .icon img {
+  display: inline-block;
+}
+
+.logo-box-upload .preview {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100%;
+  width: 100%;
+}
+
+.logo-box-upload .preview img {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
