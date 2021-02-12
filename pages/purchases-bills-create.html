@@ -280,76 +280,72 @@
         <div class="content">
             <div class="row">
                 <div class="col-12">
-                    <div class="card">
-                        <div class="card-header">Header</div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-12 col-lg-6">
-                                    <div class="form-group row mb-1">
-                                        <div class="col-sm-1 tw-hidden lg:tw-block"></div>
-                                        <label for="input-customer" class="col-sm-4 col-md-4 col-lg-3 col-form-label">Customer</label>
-                                        <div class="col-lg-6 col-md-8 col-sm-8">
-                                            <select id="input-customer" class="choices form-select">
-                                                <option value="" placeholder>Select vendor</option>
-                                                <option value="1">Vendor 1</option>
-                                                <option value="2">Vendor 2</option>
-                                            </select>
-                                        </div>
+                    <!-- header -->
+                    <div class="row mt-4 tw-mb-8">
+                        <div class="col-12 col-lg-6">
+                            <div class="form-group row mb-1">
+                                <label for="input-vendor" class="col-sm-4 col-md-4 col-lg-3 col-form-label">Vendor</label>
+                                <div class="col-lg-6 col-md-8 col-sm-8">
+                                    <select id="input-vendor" class="choices form-select">
+                                        <option value="" placeholder>Select vendor</option>
+                                        <option value="1">Vendor 1</option>
+                                        <option value="2">Vendor 2</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <div class="form-group row mb-1">
+                                <label for="input-invoice-number" class="col-sm-4 col-form-label text-md-right">
+                                    Bill #
+                                </label>
+                                <div class="col-sm-8 col-md-8">
+                                    <input type="text" id="input-invoice-number" class="form-control" value="1">
+                                </div>
+                            </div>
+                            <div class="form-group row mb-1">
+                                <label for="input-invoice-number" class="col-sm-4 col-form-label text-md-right">
+                                    P.O./S.O. number
+                                </label>
+                                <div class="col-sm-8 col-md-8">
+                                    <input type="text" id="input-po-so-number" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group row mb-1">
+                                <label for="input-invoice-number" class="col-sm-4 col-form-label text-md-right">
+                                    Date
+                                </label>
+                                <div class="col-sm-8 col-md-8">
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fh-16" data-feather="calendar"></i></span>
+                                        <input type="text" class="form-control datepicker" placeholder="Date...">
                                     </div>
                                 </div>
-                                <div class="col-12 col-lg-6">
-                                    <div class="form-group row mb-1">
-                                        <label for="input-invoice-number" class="col-sm-4 col-form-label text-md-right">
-                                            Bill #
-                                        </label>
-                                        <div class="col-sm-8 col-md-8">
-                                            <input type="text" id="input-invoice-number" class="form-control" value="1">
-                                        </div>
+                            </div>
+                            <div class="form-group row mb-1">
+                                <label for="input-invoice-number" class="col-sm-4 col-form-label text-md-right">
+                                    Due date
+                                </label>
+                                <div class="col-sm-8 col-md-8">
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fh-16" data-feather="calendar"></i></span>
+                                        <input type="text" class="form-control datepicker" placeholder="Due date...">
                                     </div>
-                                    <div class="form-group row mb-1">
-                                        <label for="input-invoice-number" class="col-sm-4 col-form-label text-md-right">
-                                            P.O./S.O. number
-                                        </label>
-                                        <div class="col-sm-8 col-md-8">
-                                            <input type="text" id="input-po-so-number" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row mb-1">
-                                        <label for="input-invoice-number" class="col-sm-4 col-form-label text-md-right">
-                                            Date
-                                        </label>
-                                        <div class="col-sm-8 col-md-8">
-                                            <div class="input-group">
-                                                <span class="input-group-text"><i class="fh-16" data-feather="calendar"></i></span>
-                                                <input type="text" class="form-control datepicker" placeholder="Date...">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row mb-1">
-                                        <label for="input-invoice-number" class="col-sm-4 col-form-label text-md-right">
-                                            Due date
-                                        </label>
-                                        <div class="col-sm-8 col-md-8">
-                                            <div class="input-group">
-                                                <span class="input-group-text"><i class="fh-16" data-feather="calendar"></i></span>
-                                                <input type="text" class="form-control datepicker" placeholder="Due date...">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row mb-1">
-                                        <label for="input-invoice-number" class="col-sm-4 col-form-label text-md-right">
-                                            Notes
-                                        </label>
-                                        <div class="col-sm-8 col-md-8">
-                                            <textarea class="form-control" placeholder="Notes..."></textarea>
-                                        </div>
-                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row mb-1">
+                                <label for="input-invoice-number" class="col-sm-4 col-form-label text-md-right">
+                                    Notes
+                                </label>
+                                <div class="col-sm-8 col-md-8">
+                                    <textarea class="form-control" placeholder="Notes..."></textarea>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    
+                    <!-- main -->
                     <div class="card">
-                        <div class="card-header">Items</div>
                         <div class="card-body p-0">
                             <table class="table table-stripped m-0">
                                 <thead>
@@ -389,7 +385,7 @@
                                             </a>
                                         </td>
                                     </tr>
-                                    <tr>
+                                    <tr class="tw-font-bold">
                                         <td colspan="4" class="text-end">
                                             Total
                                         </td>
@@ -398,16 +394,16 @@
                                         </td>
                                         <td></td>
                                     </tr>
+                                    <tr>
+                                        <td colspan="5" class="text-center p-0">
+                                            <a class="btn btn-link">
+                                                <i class="bi bi-plus-circle-dotted"></i>
+                                                Add an item
+                                            </a>
+                                        </td> 
+                                    </tr>
                                 </tbody>
                             </table>
-                        </div>
-                        <div class="card-footer">
-                            <div class="d-grid">
-                                <button class="btn btn-outline-primary">
-                                    <i class="bi bi-plus" style="font-size: 1rem;"></i>
-                                    Add new item
-                                </button>
-                            </div>
                         </div>
                     </div>
                     <div class="mb-4 text-end">
