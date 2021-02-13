@@ -77,3 +77,6 @@ mix.njk('src/views/', 'pages/', {
 
 // option
 // mix.disableNotifications();
+// if (mix.inProduction()) {
+//   mix.purgeCss().version()
+// }

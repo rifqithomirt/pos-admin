@@ -1,6 +1,8 @@
 module.exports = {
   prefix: 'tw-',
-  purge: [],
+  purge: [
+    './src/views/**/*.html', 
+  ],
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {},
