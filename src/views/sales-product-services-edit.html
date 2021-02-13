@@ -55,7 +55,7 @@
                         <div class="form-group row my-2">
                             <label class="col-sm-4 col-form-label text-md-end">Sales tax :</label>
                             <div class="col-md-4">
-                                <select id="input-tax" class="choices form-select">
+                                <select id="input-tax" class="choices form-select" multiple>
                                     <option value="" placeholder>Select tax</option>
                                     <option value="1" selected>Tax 1</option>
                                     <option value="2" selected>Tax 2</option>
@@ -95,8 +95,10 @@
     <script>
         // choice
         const initChoice = () => {
-            const els = document.querySelectorAll('.choices')
-            els.forEach((el) => new Choices(el))
+            const el = document.querySelector('#input-tax')
+            const a = new Choices(el, {
+                removeItemButton: true
+            })
         }
         // datepicker
         const initDatepicker = () => {

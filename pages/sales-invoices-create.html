@@ -429,9 +429,11 @@
                                             </a>
                                         </td>
                                     </tr>
-                                    <tr>
+                                </tbody>
+                                <tbody>
+                                    <tr data-id="0">
                                         <td colspan="5" class="text-center p-0">
-                                            <a class="btn btn-link">
+                                            <a id="add-item" class="btn btn-link">
                                                 <i class="bi bi-plus-circle-dotted"></i>
                                                 Add an item
                                             </a>
@@ -548,6 +550,46 @@
             }))
         }
 
+        // 
+        const AddItem = () => {
+            const table = document.querySelector('table tbody')
+            const index = 0
+
+            console.log(table.childNodes[(table.childNodes.length - 2)].dataset)
+
+            const html = `
+                <td></td>
+                <td>
+                    <select name="item[0]" class="choices choice-item">
+                        <option value="" placeholder>Select item</option>
+                        <option value="1">Aqua Mineral Water 1L</option>
+                        <option value="2">Pocari Sweet 1L</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="number" name="quantity[0]" class="form-control" value="1">
+                </td>
+                <td>
+                    <input type="number" name="price[0]" class="form-control" value="1000">
+                </td>
+                <td class="text-end">
+                    Rp1.000
+                </td>
+                <td class="text-center">
+                    <a href="btn btn-link btn-link-danger">
+                        <i class="bi bi-trash"></i>
+                    </a>
+                </td>
+            `
+            // const tr = document.createElement('tr')
+            // tr.innerHTML = html
+            // table.append(tr)
+        }
+        const initAction = () => {
+            const el = document.querySelector('#add-item')
+            el.addEventListener('click', AddItem)
+        }
+
         const initLogoUploader = () => {
             const el = document.querySelector('.logo-box-upload')
             const input = el.querySelector('input[type=file]')
@@ -586,6 +628,7 @@
             initLogoUploader()
             initChoice()
             initDatepicker()
+            initAction()
         })
     </script>
 
