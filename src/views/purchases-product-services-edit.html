@@ -53,9 +53,53 @@
                             </div>
                         </div>
                         <div class="form-group row my-2">
+                            <label class="col-sm-4 col-form-label text-md-end">Sell this</label>
+                            <div class="col-md-4">
+                                <div class="form-check mt-2">
+                                    <input class="form-check-input" type="checkbox" value="" id="input-income-account" checked>
+                                    <label class="form-check-label text-muted tw-text-xs" for="flexCheckDefault">
+                                        Allow this product or service to be added to Invoices.
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row my-2" id="form-group-income-account">
+                            <label class="col-sm-4 col-form-label text-md-end">Income account</label>
+                            <div class="col-md-4">
+                                <select class="choices choice-default form-select">
+                                    <option value="" placeholder>Select--</option>
+                                    <option value="1" selected>Product Sales</option>
+                                    <option value="2">Sales</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row my-2">
+                            <label class="col-sm-4 col-form-label text-md-end">Buy this</label>
+                            <div class="col-md-4">
+                                <div class="form-check mt-2">
+                                    <input class="form-check-input" type="checkbox" value="" id="input-expense-account" checked>
+                                    <label class="form-check-label text-muted tw-text-xs" for="flexCheckDefault">
+                                        Allow this product or service to be added to Bills.
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row my-2" id="form-group-expense-account">
+                            <label class="col-sm-4 col-form-label text-md-end">Expense account</label>
+                            <div class="col-md-4">
+                                <select class="choices choice-default form-select">
+                                    <option value="" placeholder>Select--</option>
+                                    <option value="1" selected>Accounting Fees</option>
+                                    <option value="2">Office Suplies</option>
+                                    <option value="3">Utilities</option>
+                                    <option value="4">Vehicle Fuel</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row my-2">
                             <label class="col-sm-4 col-form-label text-md-end">Sales tax</label>
                             <div class="col-md-4">
-                                <select id="input-tax" class="choices form-select">
+                                <select id="input-tax" class="choices form-select" multiple>
                                     <option value="" placeholder>Select tax</option>
                                     <option value="1" selected>Tax 1</option>
                                     <option value="2" selected>Tax 2</option>
@@ -97,8 +141,14 @@
     <script>
         // choice
         const initChoice = () => {
-            const els = document.querySelectorAll('.choices')
-            els.forEach((el) => new Choices(el))
+            const el = document.querySelector('#input-tax')
+            const a = new Choices(el, {
+                removeItemButton: true
+            })
+            const els = document.querySelectorAll('.choices.choice-default')
+            els.forEach(function (el) {
+                new Choices(el)
+            })
         }
         // datepicker
         const initDatepicker = () => {
@@ -116,11 +166,29 @@
                 },
             }))
         }
+        // action
+        const initActions = () => {
+            const elFormGroupIncome = document.querySelector('#form-group-income-account')
+            const elFormGroupExpense = document.querySelector('#form-group-expense-account')
+            const elInputIncome = document.querySelector('#input-income-account')
+            const elInputExpense = document.querySelector('#input-expense-account')
+            const eventInputCheckIncome = () => elFormGroupIncome.style.display = elInputIncome.checked ? 'flex' : 'none'
+            const eventInputCheckExpense = () => elFormGroupExpense.style.display = elInputExpense.checked ? 'flex' : 'none'
+
+            // add eventListnner
+            elInputIncome.addEventListener('click', eventInputCheckIncome)
+            elInputExpense.addEventListener('click', eventInputCheckExpense)
+
+            // on mounted
+            eventInputCheckIncome()
+            eventInputCheckExpense()
+        }
 
         // init
         document.addEventListener('DOMContentLoaded', function () {
             initChoice()
             initDatepicker()
+            initActions()
         })
     </script>
 {% endblock %}
