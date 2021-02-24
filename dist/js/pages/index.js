@@ -1,3 +1,13 @@
+function rupiahFormat(value, index, values) {
+  if(parseInt(value) >= 1000){
+    return 'Rp' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+  } else if (parseInt(value) < 0) {
+    return '-Rp' + (value*(-1))
+  } else {
+    return 'Rp' + value
+  }
+}
+
 document.addEventListener('DOMContentLoaded', function () {
   // chart - cash flow
   var ctxCashFlow = document.getElementById('chartCashFlow')
@@ -46,7 +56,8 @@ document.addEventListener('DOMContentLoaded', function () {
       scales: {
         yAxes: [{
           ticks: {
-            beginAtZero: true
+            beginAtZero: true,
+            callback: rupiahFormat
           }
         }]
       }
@@ -86,10 +97,49 @@ document.addEventListener('DOMContentLoaded', function () {
       scales: {
         yAxes: [{
           ticks: {
-            beginAtZero: true
+            beginAtZero: true,
+            callback: rupiahFormat
           }
         }]
       }
     }
+  })
+
+  // chart - Expense Breakdown
+  var ctxExpenseBreakdown = document.getElementById('chartExpenseBreakdown')
+  var chartExpenseBreakdown = new Chart(ctxExpenseBreakdown, {
+    type: 'doughnut',
+    data: {
+      datasets: [{
+        data: [
+          10000,
+          10000,
+          10000,
+          10000,
+        ],
+        backgroundColor: [
+          'rgba(255, 159, 64, .2)',
+          'rgba(54, 162, 235, .2)',
+          'rgba(255, 99, 132, .2)',
+          'rgba(120, 145, 255, .2)',
+        ]
+      }],
+      labels: [
+        'Rent Expense',
+        'Repairs & Maintenance',
+        'Transporation',
+        'Other'
+      ]
+    },
+    // options: {
+    //   scales: {
+    //     yAxes: [{
+    //       ticks: {
+    //         beginAtZero: true,
+    //         callback: rupiahFormat
+    //       }
+    //     }]
+    //   }
+    // }
   })
 })
