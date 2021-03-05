@@ -263,7 +263,7 @@ const app = function (root) {
     this.initSidebarScrollbar()
     // sidebar - expand menu
     this.initSidebarMenu()
-    await sleep(100)
+    await sleep(50)
     // navbar
     this.initNavbar()
     // feather icon

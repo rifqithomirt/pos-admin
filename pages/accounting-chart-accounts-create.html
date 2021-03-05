@@ -1,22 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- meta -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accounting - Chart of Accounts - Create - E-POS Admin</title>
     <!-- styles -->
-    
+
     <link rel="stylesheet" href="../dist/css/tailwind.css">
     <link rel="stylesheet" href="../dist/css/bootstrap.css">
     <link rel="stylesheet" href="../vendor/bootstrap-icons/font/bootstrap-icons.css">
-    
+
     <!-- style:plugin -->
     <link rel="stylesheet" href="../vendor/choices.js/styles/choices.min.css">
 
+
     <link rel="stylesheet" href="../dist/css/app.css">
-    
+
 </head>
+
 <body>
     <!-- dashboard -->
     <div class="dashboard lg:fixed-footer">
@@ -24,10 +27,15 @@
         <div class="overlay">
             <div class="sidebar toggle-sidebar"></div>
             <div class="sidebar-menu toggle-sidebar-menu"></div>
-            <div class="loading"><div class="lds-ripple"><div></div><div></div></div></div>
+            <div class="loading">
+                <div class="lds-ripple">
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
         </div>
         <!-- overlay:end -->
-                <!-- sidebar -->
+        <!-- sidebar -->
         <div class="sidebar">
             <div class="sidebar-wrapper">
                 <div class="sidebar-header">
@@ -40,141 +48,141 @@
                 <div class="sidebar-menu-wrapper">
                     <div class="sidebar-menu">
                         <ul class="menu">
-                            
-                                
-                                    <li class="item ">
-                                        <a href="index.html">
-                                            <i data-feather="home"></i>
-                                            <span>Dashboard</span>
-                                        </a>
-                                    </li>
-                                
-                            
-                                
-                                    <li class="item dropdown">
-                                        <div class="item">
-                                            <a href="#">
-                                                <i data-feather="credit-card"></i>
-                                                <span>Sales</span>
-                                            </a>
-                                        </div>
-                                        <div class="dropdown menu">
-                                            <ul class="menu">
-                                                
-                                                    <li class="dropdown item ">
-                                                        <a href="sales-invoices.html">Invoices</a>
-                                                    </li>
-                                                
-                                                    <li class="dropdown item ">
-                                                        <a href="sales-customers.html">Customers</a>
-                                                    </li>
-                                                
-                                                    <li class="dropdown item ">
-                                                        <a href="sales-product-services.html">Product Services</a>
-                                                    </li>
-                                                
-                                            </ul>
-                                        </div>
-                                    </li>
-                                
-                            
-                                
-                                    <li class="item dropdown">
-                                        <div class="item">
-                                            <a href="#">
-                                                <i data-feather="shopping-cart"></i>
-                                                <span>Purchases</span>
-                                            </a>
-                                        </div>
-                                        <div class="dropdown menu">
-                                            <ul class="menu">
-                                                
-                                                    <li class="dropdown item ">
-                                                        <a href="purchases-bills.html">Bills</a>
-                                                    </li>
-                                                
-                                                    <li class="dropdown item ">
-                                                        <a href="purchases-vendors.html">Vendors</a>
-                                                    </li>
-                                                
-                                                    <li class="dropdown item ">
-                                                        <a href="purchases-product-services.html">Product Services</a>
-                                                    </li>
-                                                
-                                            </ul>
-                                        </div>
-                                    </li>
-                                
-                            
-                                
-                                    <li class="item dropdown">
-                                        <div class="item">
-                                            <a href="#">
-                                                <i data-feather="dollar-sign"></i>
-                                                <span>Accounting</span>
-                                            </a>
-                                        </div>
-                                        <div class="dropdown menu">
-                                            <ul class="menu">
-                                                
-                                                    <li class="dropdown item ">
-                                                        <a href="accounting-transactions.html">Transactions</a>
-                                                    </li>
-                                                
-                                                    <li class="dropdown item active">
-                                                        <a href="accounting-chart-accounts.html">Chart of Accounts</a>
-                                                    </li>
-                                                
-                                            </ul>
-                                        </div>
-                                    </li>
-                                
-                            
-                                
-                                    <li class="item dropdown">
-                                        <div class="item">
-                                            <a href="#">
-                                                <i data-feather="pie-chart"></i>
-                                                <span>Reports</span>
-                                            </a>
-                                        </div>
-                                        <div class="dropdown menu">
-                                            <ul class="menu">
-                                                
-                                                    <li class="dropdown item ">
-                                                        <a href="reports-profit-loss.html">Profit &amp; Loss</a>
-                                                    </li>
-                                                
-                                                    <li class="dropdown item ">
-                                                        <a href="reports-balance-sheet.html">Balance Sheet</a>
-                                                    </li>
-                                                
-                                                    <li class="dropdown item ">
-                                                        <a href="reports-cash-flow.html">Cash Flow</a>
-                                                    </li>
-                                                
-                                                    <li class="dropdown item ">
-                                                        <a href="reports-account-balance.html">Account Balance</a>
-                                                    </li>
-                                                
-                                                    <li class="dropdown item ">
-                                                        <a href="reports-account-transactions.html">Account Transactions</a>
-                                                    </li>
-                                                
-                                            </ul>
-                                        </div>
-                                    </li>
-                                
-                            
-                                
-                                    <li class="item ">
-                                        <a href="setting.html">
-                                            <i data-feather="settings"></i>
-                                            <span>Setting</span>
-                                        </a>
-                                    </li>
-                                
-                            
+
+
+                            <li class="item ">
+                                <a href="index.html">
+                                    <i data-feather="home"></i>
+                                    <span>Dashboard</span>
+                                </a>
+                            </li>
+
+
+
+                            <li class="item dropdown">
+                                <div class="item">
+                                    <a href="#">
+                                        <i data-feather="credit-card"></i>
+                                        <span>Sales</span>
+                                    </a>
+                                </div>
+                                <div class="dropdown menu">
+                                    <ul class="menu">
+
+                                        <li class="dropdown item ">
+                                            <a href="sales-invoices.html">Invoices</a>
+                                        </li>
+
+                                        <li class="dropdown item ">
+                                            <a href="sales-customers.html">Customers</a>
+                                        </li>
+
+                                        <li class="dropdown item ">
+                                            <a href="sales-product-services.html">Product Services</a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </li>
+
+
+
+                            <li class="item dropdown">
+                                <div class="item">
+                                    <a href="#">
+                                        <i data-feather="shopping-cart"></i>
+                                        <span>Purchases</span>
+                                    </a>
+                                </div>
+                                <div class="dropdown menu">
+                                    <ul class="menu">
+
+                                        <li class="dropdown item ">
+                                            <a href="purchases-bills.html">Bills</a>
+                                        </li>
+
+                                        <li class="dropdown item ">
+                                            <a href="purchases-vendors.html">Vendors</a>
+                                        </li>
+
+                                        <li class="dropdown item ">
+                                            <a href="purchases-product-services.html">Product Services</a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </li>
+
+
+
+                            <li class="item dropdown">
+                                <div class="item">
+                                    <a href="#">
+                                        <i data-feather="dollar-sign"></i>
+                                        <span>Accounting</span>
+                                    </a>
+                                </div>
+                                <div class="dropdown menu">
+                                    <ul class="menu">
+
+                                        <li class="dropdown item ">
+                                            <a href="accounting-transactions.html">Transactions</a>
+                                        </li>
+
+                                        <li class="dropdown item active">
+                                            <a href="accounting-chart-accounts.html">Chart of Accounts</a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </li>
+
+
+
+                            <li class="item dropdown">
+                                <div class="item">
+                                    <a href="#">
+                                        <i data-feather="pie-chart"></i>
+                                        <span>Reports</span>
+                                    </a>
+                                </div>
+                                <div class="dropdown menu">
+                                    <ul class="menu">
+
+                                        <li class="dropdown item ">
+                                            <a href="reports-profit-loss.html">Profit &amp; Loss</a>
+                                        </li>
+
+                                        <li class="dropdown item ">
+                                            <a href="reports-balance-sheet.html">Balance Sheet</a>
+                                        </li>
+
+                                        <li class="dropdown item ">
+                                            <a href="reports-cash-flow.html">Cash Flow</a>
+                                        </li>
+
+                                        <li class="dropdown item ">
+                                            <a href="reports-account-balance.html">Account Balance</a>
+                                        </li>
+
+                                        <li class="dropdown item ">
+                                            <a href="reports-account-transactions.html">Account Transactions</a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </li>
+
+
+
+                            <li class="item ">
+                                <a href="setting.html">
+                                    <i data-feather="settings"></i>
+                                    <span>Setting</span>
+                                </a>
+                            </li>
+
+
                         </ul>
                     </div>
                 </div>
@@ -248,71 +256,74 @@
         <!-- main -->
         <div class="main">
             <!-- container -->
-            
-    <div class="container">
-        <!-- content-header -->
-        <div class="content-header">
-            <div class="tw-flex tw-justify-between">
-                <div class="title">
-                    Create Account
-                </div>
-                <div class="actions">
-                    <a href="accounting-chart-accounts.html" class="btn btn-primary">
-                        Save and continue
-                    </a>
-                </div>
-            </div>
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                    <li class="breadcrumb-item">Accounting</li>
-                    <li class="breadcrumb-item"><a href="accounting-chart-accounts.html">Accounts</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Create</li>
-                </ol>
-            </nav>
-        </div>
-        <!-- content-header:end -->
-        <!-- content -->
-        <div class="content">
-            <div class="row">
-                <div class="col-12">
-                    <div class="mt-2">
-                        <div class="form-group row my-2">
-                            <label class="col-sm-4 col-form-label text-md-end">Account Name</label>
-                            <div class="col-md-4">
-                                <input type="text" class="form-control">
-                            </div>
+
+            <div class="container">
+                <!-- content-header -->
+                <div class="content-header">
+                    <div class="tw-flex tw-justify-between">
+                        <div class="title">
+                            Create Account
                         </div>
-                        <div class="form-group row my-2">
-                            <label class="col-sm-4 col-form-label text-md-end">Account Type</label>
-                            <div class="col-md-4">
-                                <select id="input-account-type" class="choices form-select"></select>
-                            </div>
-                        </div>
-                        <div class="form-group row my-2">
-                            <label class="col-sm-4 col-form-label text-md-end">Account ID</label>
-                            <div class="col-md-4">
-                                <input type="text" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group row my-2">
-                            <label class="col-sm-4 col-form-label text-md-end">Description</label>
-                            <div class="col-md-4">
-                                <textarea cols="30" rows="10" class="form-control"></textarea>
-                                <div class="my-4">
-                                    <a href="accounting-chart-accounts.html" class="btn btn-primary">
-                                        Save and continue
-                                    </a>
-                                </div>
-                            </div>
+                        <div class="actions">
+                            <a href="accounting-chart-accounts.html" class="btn btn-primary">
+                                Save and continue
+                            </a>
                         </div>
                     </div>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                            <li class="breadcrumb-item">Accounting</li>
+                            <li class="breadcrumb-item"><a href="accounting-chart-accounts.html">Accounts</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Create</li>
+                        </ol>
+                    </nav>
                 </div>
-                
+                <!-- content-header:end -->
+                <!-- content -->
+                <div class="content">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="mt-2">
+                                <form id="create-account">
+                                    <div class="form-group row my-2">
+                                        <label class="col-sm-4 col-form-label text-md-end">Account Name</label>
+                                        <div class="col-md-4">
+                                            <input type="text" name="account-name" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row my-2">
+                                        <label class="col-sm-4 col-form-label text-md-end">Account Type</label>
+                                        <div class="col-md-4">
+                                            <select id="input-account-type" name="account-type"
+                                                class="choices form-select"></select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row my-2">
+                                        <label class="col-sm-4 col-form-label text-md-end">Account ID</label>
+                                        <div class="col-md-4">
+                                            <input type="text" name="account-id" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row my-2">
+                                        <label class="col-sm-4 col-form-label text-md-end">Description</label>
+                                        <div class="col-md-4">
+                                            <textarea name="account-description" cols="30" rows="10" class="form-control"></textarea>
+                                            <div class="my-4">
+                                                <button type="submit" class="btn btn-primary">
+                                                    Save and continue
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- content:end -->
             </div>
-        </div>
-        <!-- content:end -->
-    </div>
 
             <!-- container:end -->
             <!-- footer -->
@@ -335,90 +346,24 @@
     <!-- dashboard:end -->
 
     <!-- scripts -->
-    
+
     <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../vendor/feather-icons/feather.min.js"></script>
-    
+    <script src="../vendor/jquery/jquery.slim.min.js"></script>
+    <script src="../vendor/jquery-validate/jquery.validate.min.js"></script>
+
     <!-- script:plugin -->
     <script src="../vendor/choices.js/scripts/choices.min.js"></script>
 
     <script src="../dist/js/app.js"></script>
-    
+    <script src="../dist/js/all.js"></script>
+    <script src="../dist/js/pages/accounting-chart-accounts.js"></script>
+
     <!-- script:page - you can remove this -->
     <script>
-        // choice
-        const initChoice = () => {
-            const el = document.querySelector('#input-account-type')
-            const eltype = new Choices(el, {
-                itemSelectText: '',
-            })
-            eltype.setChoices(
-                [
-                    {
-                        label: 'Assets',
-                        disabled: false,
-                        choices: [
-                            { value: 'Cash and Bank', label: 'Cash and Bank' },
-                            { value: 'Money in Transit', label: 'Money in Transit' },
-                            { value: 'Expected Payments from Customers', label: 'Expected Payments from Customers' },
-                            { value: 'Inventory', label: 'Inventory' },
-                            { value: 'Property, Plant, Equipment', label: 'Property, Plant, Equipment' },
-                            { value: 'Depreciation and Amortization', label: 'Depreciation and Amortization' },
-                            { value: 'Vendor Prepayments and Vendor Credits', label: 'Vendor Prepayments and Vendor Credits' },
-                            { value: 'Other Short-Term Asset', label: 'Other Short-Term Asset' },
-                            { value: 'Other Long-Term Asset', label: 'Other Long-Term Asset' },
-                        ],
-                    },
-                    {
-                        label: 'liabilities & Credit Cards',
-                        disabled: false,
-                        choices: [
-                            { value: 'Credit Card', label: 'Credit Card' },
-                            { value: 'Loan and Line of Credit', label: 'Loan and Line of Credit' },
-                            { value: 'Expected Payments from Customers', label: 'Expected Payments from Customers' },
-                            { value: 'Due for Payroll', label: 'Due for Payroll' },
-                            { value: 'Due to You and Other Business owners', label: 'Due to You and Other Business owners' },
-                            { value: 'Customer Prepayments and Customer Credits', label: 'Customer Prepayments and Customer Credits' },
-                            { value: 'Other Short-Term Liability', label: 'Other Short-Term Liability' },
-                            { value: 'Other Long-Term Liability', label: 'Other Long-Term Liability' },
-                        ],
-                    },
-                    {
-                        label: 'Income',
-                        disabled: false,
-                        choices: [
-                            { value: 'Income', label: 'Income' },
-                            { value: 'Discount', label: 'Discount' },
-                            { value: 'Other Income', label: 'Other Income' },
-                        ],
-                    },
-                    {
-                        label: 'Expenses',
-                        disabled: false,
-                        choices: [
-                            { value: 'Operating Expense', label: 'Operating Expense' },
-                            { value: 'Cost of Goods Sold', label: 'Cost of Goods Sold' },
-                            { value: 'Payment Processing Fee', label: 'Payment Processing Fee' },
-                            { value: 'Payroll Expense', label: 'Payroll Expense' },
-                        ],
-                    },
-                    {
-                        label: 'Equity',
-                        disabled: false,
-                        choices: [
-                            { value: 'Business owner Contribution and Drawing', label: 'Business owner Contribution and Drawing' },
-                            { value: 'Retained Earnings: Profit', label: 'Retained Earnings: Profit' },
-                        ],
-                    },
-                ]
-            )
-        }
-        // init
-        document.addEventListener('DOMContentLoaded', function () {
-            initChoice()
-            initDatepicker()
-        })
+
     </script>
 
 </body>
+
 </html>
