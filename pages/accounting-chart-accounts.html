@@ -182,9 +182,6 @@
                         </ul>
                     </div>
                 </div>
-                <!-- <div class="sidebar-footer mx-2 my-2 text-center">
-                    <img src="../dist/img/illustrations/3.svg" alt="Illustration" width="170px" class="d-inline">
-                </div> -->
             </div>
         </div>
         <!-- sidebar:end -->
@@ -321,51 +318,13 @@
     <script src="../vendor/datatables/js/responsive.js"></script>
 
     <script src="../dist/js/app.js"></script>
+    <script src="../dist/js/all.js"></script>
+    <script src="../dist/js/pages/accounting-chart-accounts.js"></script>
+    
     
     <!-- script:page - you can remove this -->
     <script>
-        // datatables
-        const initTable = () => {
-            $('#table-invoices').DataTable({
-                responsive: true,
-                autoWidth: false,
-                columnDefs: [
-                    { orderable: false, targets: [3] }
-                ],
-                columns: [
-                    { title: 'Type', data: 'type' },
-                    { title: 'Name', data: 'name' },
-                    { title: 'Account ID', data: 'id' },
-                    {
-                        title: 'Actions',
-                        data: null,
-                        render: (data, type, row) => `
-                        <div>
-                            <a href="accounting-chart-accounts-edit.html" class="btn btn-sm btn-outline-warning">
-                                <i class="bi bi-pencil"></i>
-                            </a>
-                            <a class="btn btn-sm btn-outline-danger">
-                                <i class="bi bi-trash"></i>
-                            </a>
-                        </div>
-                        `
-                    },
-                ],
-                data: [
-                    {
-                        name: 'Vendor 1',
-                        type: 'Cash and Bank',
-                        id: 321,
-                    }
-                ]
-            });
-        }
-
-
-        // init
-        document.addEventListener('DOMContentLoaded', function () {
-            initTable()
-        })
+        
     </script>
 
 </body>

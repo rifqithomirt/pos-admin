@@ -3,7 +3,7 @@ module.exports = app => {
 
   // Create a new Customer
   app.post("/api/:tablename/:id", database.create);
-  app.get("/api/:tablename/:id", database.read);
+  app.get("/api/:tablename/", database.read);
 
   /*// Retrieve all Customers
   app.get("/customers", customers.findAll);

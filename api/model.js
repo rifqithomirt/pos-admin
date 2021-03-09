@@ -11,7 +11,7 @@ Database.create = (table, id, doc, result) => {
         var obj = doc[head];
         return `'${head}','${obj}'`;
     }).join(',');
-  sql.query("INSERT INTO "+ table +" ( id, doc ) VALUES ( "+ id +", '"+ JSON.stringify(doc) +"')", [], (err, res) => {
+  sql.query("INSERT INTO "+ table +" ( id, doc ) VALUES ( '"+ id +"', '"+ JSON.stringify(doc) +"')", [], (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
@@ -30,6 +30,7 @@ Database.read = (table, id, result) => {
       result(err, null);
       return;
     }
+    
     result(null, { message: res});
   });
 };
