@@ -341,9 +341,10 @@
                                         <label for="input-customer" class="col-sm-4 col-md-4 col-lg-3 col-form-label">Customer</label>
                                         <div class="col-lg-6 col-md-8 col-sm-8">
                                             <select id="input-customer" class="choices form-select">
-                                                <option value="" placeholder>Select customer</option>
-                                                <option value="1">Alfian</option>
-                                                <option value="2">Adian</option>
+                                                <option value="" placeholder disabled selected>Select customer</option>
+                                                <option value="1">Walk In Customer</option>
+                                                <option value="2">Alfian</option>
+                                                <option value="3">Adian</option>
                                             </select>
                                         </div>
                                     </div>
@@ -404,14 +405,14 @@
                                         </th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody class="body-invoices">
                                     <tr>
                                         <td></td>
                                         <td>
                                             <select name="item[0]" class="choices choice-item">
-                                                <option value="" placeholder>Select item</option>
+                                                <!--option value="" placeholder>Select item</option>
                                                 <option value="1">Aqua Mineral Water 1L</option>
-                                                <option value="2">Pocari Sweet 1L</option>
+                                                <option value="2">Pocari Sweet 1L</option-->
                                             </select>
                                         </td>
                                         <td>
@@ -499,7 +500,7 @@
             <div class="footer">
                 <strong>
                     Copyright © 2021
-                    <a href="http://viandwi24.github.io">VianDwi</a>
+                    <!--a href="http://viandwi24.github.io">VianDwi</a-->
                     .
                 </strong>
                 All rights reserved.
@@ -518,6 +519,7 @@
     
     <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../vendor/feather-icons/feather.min.js"></script>
+    <script src="../vendor/jquery/jquery.slim.min.js"></script>
     
     <!-- script:plugin -->
     <script src="../vendor/choices.js/scripts/choices.min.js"></script>
@@ -525,111 +527,12 @@
     <script src="../vendor/moment/moment.js"></script>
 
     <script src="../dist/js/app.js"></script>
+    <script src="../dist/js/all.js"></script>
+    <script src="../dist/js/pages/sales-invoices-create.js"></script>
     
     <!-- script:page - you can remove this -->
     <script>
-        // choice
-        const initChoice = () => {
-            const els = document.querySelectorAll('.choices')
-            els.forEach((el) => new Choices(el))
-        }
-        // datepicker
-        const initDatepicker = () => {
-            const els = document.querySelectorAll('.datepicker')
-            els.forEach((el) => new Pikaday({
-                field: el,
-                format: 'DD-MM-YYYY',
-                toString(date, format) {
-                    // you should do formatting based on the passed format,
-                    // but we will just return 'D/M/YYYY' for simplicity
-                    const day = ('0' + date.getDate()).slice(-2);
-                    const month = ('0' + (date.getMonth() + 1)).slice(-2);
-                    const year = date.getFullYear();
-                    return `${day}-${month}-${year}`;
-                },
-            }))
-        }
-
-        // 
-        const AddItem = () => {
-            const table = document.querySelector('table tbody')
-            const index = 0
-
-            console.log(table.childNodes[(table.childNodes.length - 2)].dataset)
-
-            const html = `
-                <td></td>
-                <td>
-                    <select name="item[0]" class="choices choice-item">
-                        <option value="" placeholder>Select item</option>
-                        <option value="1">Aqua Mineral Water 1L</option>
-                        <option value="2">Pocari Sweet 1L</option>
-                    </select>
-                </td>
-                <td>
-                    <input type="number" name="quantity[0]" class="form-control" value="1">
-                </td>
-                <td>
-                    <input type="number" name="price[0]" class="form-control" value="1000">
-                </td>
-                <td class="text-end">
-                    Rp1.000
-                </td>
-                <td class="text-center">
-                    <a href="btn btn-link btn-link-danger">
-                        <i class="bi bi-trash"></i>
-                    </a>
-                </td>
-            `
-            // const tr = document.createElement('tr')
-            // tr.innerHTML = html
-            // table.append(tr)
-        }
-        const initAction = () => {
-            const el = document.querySelector('#add-item')
-            el.addEventListener('click', AddItem)
-        }
-
-        const initLogoUploader = () => {
-            const el = document.querySelector('.logo-box-upload')
-            const input = el.querySelector('input[type=file]')
-            const actions = document.querySelector('.logo-box-upload-actions')
-            const removeBtn = document.querySelector('.remove-logo-btn')
-            const preview = el.querySelector('.preview img')
-            preview.style.display = 'none'
-            const updateFile = (e) => {
-                if (input.files && input.files[0]) {
-                    var reader = new FileReader();
-                    reader.onload = function(e) {
-                        preview.setAttribute('src', e.target.result)
-                    }
-                    reader.readAsDataURL(input.files[0]);
-                    actions.style.display = 'inline-block'
-                    preview.style.display = 'block'
-                } else {
-                    actions.style.display = 'none'
-                    preview.setAttribute('src', '')
-                    preview.style.display = 'none'
-                }
-            }
-            actions.style.display = 'none'
-            el.addEventListener('click', function (e) {
-                input.click()
-            })
-            input.addEventListener('change', updateFile)
-            removeBtn.addEventListener('click', function (e) {
-                input.value = '';
-                updateFile(input)
-            })
-        }
-
-        // init
-        document.addEventListener('DOMContentLoaded', function () {
-            initLogoUploader()
-            initChoice()
-            initDatepicker()
-            initAction()
-        })
+        
     </script>
 
 </body>

@@ -294,7 +294,7 @@
             <div class="footer">
                 <strong>
                     Copyright © 2021
-                    <a href="http://viandwi24.github.io">VianDwi</a>
+                    <!--a href="http://viandwi24.github.io">VianDwi</a-->
                     .
                 </strong>
                 All rights reserved.
@@ -321,57 +321,12 @@
     <script src="../vendor/datatables/js/responsive.js"></script>
 
     <script src="../dist/js/app.js"></script>
+    <script src="../dist/js/all.js"></script>
+    <script src="../dist/js/pages/sales-product-services.js"></script>
     
     <!-- script:page - you can remove this -->
     <script>
-        // datatables
-        const initTable = () => {
-            $('#table-invoices').DataTable({
-                responsive: true,
-                autoWidth: false,
-                order: [[0, 'asc']],
-                columnDefs: [
-                    { orderable: false, targets: [3] }
-                ],
-                columns: [
-                    { title: '#', data: 'id', render: (data, type, row, meta) => meta.row + meta.settings._iDisplayStart + 1 },
-                    { title: 'Name', data: 'name' },
-                    { title: 'Price', data: 'price', render: (data) => `Rp${data}` },
-                    {
-                        title: 'Actions',
-                        data: null,
-                        render: (data, type, row) => `
-                        <div>
-                            <a href="sales-product-services-edit.html" class="btn btn-sm btn-outline-warning">
-                                <i class="bi bi-pencil"></i>
-                            </a>
-                            <a class="btn btn-sm btn-outline-danger">
-                                <i class="bi bi-trash"></i>
-                            </a>
-                        </div>
-                        `
-                    },
-                ],
-                data: [
-                    {
-                        id: 1,
-                        name: 'Aqua Water Mineral 1L',
-                        price: 3000
-                    },
-                    {
-                        id: 1,
-                        name: 'Pocari Sweet 1L',
-                        price: 4500
-                    }
-                ]
-            });
-        }
-
-
-        // init
-        document.addEventListener('DOMContentLoaded', function () {
-            initTable()
-        })
+        
     </script>
 
 </body>
